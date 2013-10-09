@@ -24,7 +24,17 @@
         <activity
             android:name="com.example.brainjuice.HomePage"
             android:label="@string/app_name" >
-        </activity>      
+        </activity> 
+        
+        <activity
+            android:name="com.example.brainjuice.AdultHomePage"
+            android:label="@string/app_name" >
+        </activity> 
+        
+        <activity
+            android:name="com.example.brainjuice.AnswerQuestion"
+            android:label="@string/app_name" >
+        </activity> 
         
     </application>
 

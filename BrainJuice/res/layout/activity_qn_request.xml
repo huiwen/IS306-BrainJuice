@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+<TextView
+	android:id="@+id/widget50"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Hi MelissaTan!"
+	android:textSize="18sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="129dp"
+	android:layout_y="34dp" />
+<Button
+	android:id="@+id/FAQ"
+	android:layout_width="74dp"
+	android:layout_height="37dp"
+	android:text="FAQ"
+	android:textStyle="bold"
+	android:layout_x="123dp"
+	android:layout_y="79dp" />
+<Button
+	android:id="@+id/Logout"
+	android:layout_width="81dp"
+	android:layout_height="38dp"
+	android:text="Logout"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="212dp"
+	android:layout_y="79dp" />
+
+<ImageButton
+    
+
+    android:id="@+id/Answering"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="12dp"
+    android:layout_y="362dp"
+    android:src="@drawable/ans" />
+
+<ImageButton
+    android:id="@+id/notification"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginLeft="70dp"
+    android:layout_marginRight="70dp"
+    android:layout_x="83dp"
+    android:layout_y="362dp"
+    android:src="@drawable/noti" />
+
+<ImageButton
+    android:id="@+id/AnswerBank"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="154dp"
+    android:layout_y="362dp"
+    android:src="@drawable/myanswerbank" />
+
+<ImageButton
+    android:id="@+id/widget43"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="225dp"
+    android:layout_y="362dp"
+    android:src="@drawable/settings" />
+
+<TableLayout
+    android:id="@+id/widget57"
+    android:layout_width="258dp"
+    android:layout_height="96dp"
+    android:layout_x="25dp"
+    android:layout_y="220dp"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+</TableLayout>
+
+<TextView
+    android:id="@+id/QuestionBody"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="44dp"
+    android:layout_y="182dp"
+    android:text="How big is the earth?" />
+
+<ImageView
+    android:id="@+id/qnprofilepic"
+    android:layout_width="93dp"
+    android:layout_height="114dp"
+    android:layout_x="11dp"
+    android:layout_y="2dp"
+    android:src="@drawable/melissa" />
+
+<TextView
+    android:id="@+id/AnswerQuestion"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="14dp"
+    android:layout_y="120dp"
+    android:text="Answer Question"
+    android:textColor="#ff000000"
+    android:textSize="25sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/Question"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="27dp"
+    android:layout_y="158dp"
+    android:text="Question"
+    android:textColor="#ff000000"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/AnswerText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="27dp"
+    android:layout_y="206dp"
+    android:text="Your Answer"
+    android:textColor="#ff000000"
+    android:textStyle="bold" />
+
+<EditText
+    android:id="@+id/editText1"
+    android:layout_width="wrap_content"
+    android:layout_height="66dp"
+    android:layout_x="36dp"
+    android:layout_y="218dp"
+    android:ems="10" >
+
+    <requestFocus />
+</EditText>
+
+<TextView
+    android:id="@+id/CharactersLeft"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="27dp"
+    android:layout_y="290dp"
+    android:text="1000 Characters left."
+    android:textColor="#ff000000" />
+
+<Button
+    android:id="@+id/AnotherQuestion"
+    android:layout_width="wrap_content"
+    android:layout_height="36dp"
+    android:layout_x="60dp"
+    android:layout_y="314dp"
+    android:text="Another Question"
+    android:textStyle="bold" />
+
+<Button
+    android:id="@+id/Answer"
+    android:layout_width="wrap_content"
+    android:layout_height="36dp"
+    android:layout_x="227dp"
+    android:layout_y="314dp"
+    android:text="Answer!"
+    android:textStyle="bold" />
+
+</AbsoluteLayout>
+

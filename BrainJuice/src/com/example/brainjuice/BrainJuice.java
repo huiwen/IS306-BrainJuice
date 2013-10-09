@@ -50,8 +50,13 @@ public class BrainJuice extends Activity implements OnClickListener {
     	
     	 switch (v.getId()) {
          case R.id.Login: 
-        	 Intent intent = new Intent(context, HomePage.class);
-             startActivity(intent);
+        	 if(username.getText().toString().equals("J")){
+	        	 Intent intent = new Intent(context, HomePage.class);
+	             startActivity(intent);
+        	 } else {
+        		 Intent intent = new Intent(context, AdultHomePage.class);
+	             startActivity(intent);
+        	 }
           // do something
           break;
         // case R.id.buttonB:
