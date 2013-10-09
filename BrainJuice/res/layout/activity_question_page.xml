@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ImageView
+    android:id="@+id/qnprofilepic"
+    android:layout_width="93dp"
+    android:layout_height="114dp"
+    android:layout_x="1dp"
+    android:layout_y="1dp"
+    android:src="@drawable/minion" />
+
+<TextView
+	android:id="@+id/widget50"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Hi JonathanTan!"
+	android:textSize="18sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="129dp"
+	android:layout_y="34dp" />
+<Button
+	android:id="@+id/FAQ"
+	android:layout_width="74dp"
+	android:layout_height="37dp"
+	android:text="FAQ"
+	android:textStyle="bold"
+	android:layout_x="123dp"
+	android:layout_y="79dp" />
+<Button
+	android:id="@+id/Logout"
+	android:layout_width="81dp"
+	android:layout_height="38dp"
+	android:text="Logout"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="212dp"
+	android:layout_y="79dp" />
+<TextView
+	android:id="@+id/AskQuestion"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Ask Question"
+	android:textSize="25sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="4dp"
+	android:layout_y="120dp" />
+<TableLayout
+	android:id="@+id/widget57"
+	android:layout_width="258dp"
+	android:layout_height="145dp"
+	android:padding="10dp"
+	android:orientation="vertical"
+	android:layout_x="33dp"
+	android:layout_y="165dp">
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+</TableLayout>
+<Button
+
+
+
+	android:id="@+id/Ask"
+	android:layout_width="61dp"
+	android:layout_height="34dp"
+	android:text="Ask"
+	android:textStyle="bold"
+	android:layout_x="235dp"
+	android:layout_y="323dp" />
+
+<ImageButton
+    
+
+    android:id="@+id/Asking"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="12dp"
+    android:layout_y="362dp"
+    android:src="@drawable/as" />
+
+<ImageButton
+    android:id="@+id/widget41"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginLeft="70dp"
+    android:layout_marginRight="70dp"
+    android:layout_x="83dp"
+    android:layout_y="362dp"
+    android:src="@drawable/noti" />
+
+<ImageButton
+    android:id="@+id/widget42"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="154dp"
+    android:layout_y="362dp"
+    android:src="@drawable/myanswerbank" />
+
+<ImageButton
+    android:id="@+id/widget43"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="225dp"
+    android:layout_y="362dp"
+    android:src="@drawable/settings" />
+
+</AbsoluteLayout>

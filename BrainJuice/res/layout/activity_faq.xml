@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget0"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TableLayout
+        android:id="@+id/widget57"
+        android:layout_width="258dp"
+        android:layout_height="145dp"
+        android:layout_x="33dp"
+        android:layout_y="165dp"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/Ask"
+        android:layout_width="61dp"
+        android:layout_height="34dp"
+        android:layout_x="235dp"
+        android:layout_y="323dp"
+        android:text="Ask"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/widget59"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_x="12dp"
+        android:layout_y="362dp"
+        android:src="@drawable/as" />
+
+    <ImageButton
+        android:id="@+id/widget41"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_x="83dp"
+        android:layout_y="362dp"
+        android:src="@drawable/noti" />
+
+    <ImageButton
+        android:id="@+id/widget42"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_x="154dp"
+        android:layout_y="362dp"
+        android:src="@drawable/myanswerbank" />
+
+    <ImageButton
+        android:id="@+id/widget43"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_x="225dp"
+        android:layout_y="362dp"
+        android:src="@drawable/settings" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="81dp"
+        android:layout_height="38dp"
+        android:layout_x="217dp"
+        android:layout_y="4dp"
+        android:text="Logout"
+        android:textColor="#ff000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/FAQ"
+        android:layout_width="74dp"
+        android:layout_height="37dp"
+        android:layout_x="128dp"
+        android:layout_y="4dp"
+        android:text="FAQ"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/AskQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="12dp"
+        android:layout_y="58dp"
+        android:text="FAQ"
+        android:textColor="#ff000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+</AbsoluteLayout>
