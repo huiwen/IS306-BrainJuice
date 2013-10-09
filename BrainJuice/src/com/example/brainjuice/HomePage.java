@@ -1,14 +1,18 @@
 package com.example.brainjuice;
 
 import android.os.Bundle;
+import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.*;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -68,6 +72,13 @@ public class HomePage extends Activity implements OnClickListener {
         		 
         		   @Override
         		   public void onClick(View arg0) {
+        			  
+        			/*   WindowManager.LayoutParams windowManager = getWindow().getAttributes();
+  		             windowManager.dimAmount = 5.75f;
+  		             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+  		             */
+        			   
+  		             
         		    LayoutInflater layoutInflater 
         		     = (LayoutInflater)getBaseContext()
         		      .getSystemService(LAYOUT_INFLATER_SERVICE);  
@@ -76,10 +87,29 @@ public class HomePage extends Activity implements OnClickListener {
         		               popupView, 
         		               LayoutParams.WRAP_CONTENT,  
         		                     LayoutParams.WRAP_CONTENT);  
-        		             
+        		             popupWindow.setOutsideTouchable(false);
+        		             popupWindow.setFocusable(true);
+        		             try {
+             		            int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+             		            WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+             		            layoutParams.screenBrightness = curBrightnessValue/500.0f;
+             		            getWindow().setAttributes(layoutParams);
+             		        } catch (SettingNotFoundException e) {
+             		            // TODO Auto-generated catch block
+             		            e.printStackTrace();
+             		        }
+        		             /*
+        		            
+        		             Window window = popupView.getWindow();
+        		             WindowManager.LayoutParams wlp = window.getAttributes();
+        		             wlp.gravity = Gravity.CENTER_VERTICAL;
+        		             wlp.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        		             wlp.dimAmount = (float) 1.0;
+        		             window.setAttributes(wlp);
+        		             */
         		             Button btnDismiss = (Button)popupView.findViewById(R.id.button2);
         		             btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
+        		            	 	
         		     @Override
         		     public void onClick(View v) {
         		      // TODO Auto-generated method stub
@@ -90,7 +120,7 @@ public class HomePage extends Activity implements OnClickListener {
         		         
         		   }}); 
                      
-                     
+        	
         	 /*
         	 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         	 alertDialog.setTitle("Title");
