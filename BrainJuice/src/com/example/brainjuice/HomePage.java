@@ -53,7 +53,7 @@ public class HomePage extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         	
-        btnOpenPopup = (Button)findViewById(R.id.Ask);
+        //btnOpenPopup = (Button)findViewById(R.id.Ask);
         
     }
 
@@ -68,10 +68,10 @@ public class HomePage extends Activity implements OnClickListener {
     	 switch (v.getId()) {
          case R.id.Ask: 
         	 
-        	 btnOpenPopup.setOnClickListener(new Button.OnClickListener(){
+        	 //btnOpenPopup.setOnClickListener(new Button.OnClickListener(){
         		 
-        		   @Override
-        		   public void onClick(View arg0) {
+        		  // @Override
+        		   //public void onClick(View arg0) {
         			  
         			/*   WindowManager.LayoutParams windowManager = getWindow().getAttributes();
   		             windowManager.dimAmount = 5.75f;
@@ -79,25 +79,21 @@ public class HomePage extends Activity implements OnClickListener {
   		             */
         			   
   		             
-        		    LayoutInflater layoutInflater 
-        		     = (LayoutInflater)getBaseContext()
-        		      .getSystemService(LAYOUT_INFLATER_SERVICE);  
-        		    View popupView = layoutInflater.inflate(R.layout.activity_askquestionpopup, null);  
-        		             final PopupWindow popupWindow = new PopupWindow(
-        		               popupView, 
-        		               LayoutParams.WRAP_CONTENT,  
-        		                     LayoutParams.WRAP_CONTENT);  
-        		             popupWindow.setOutsideTouchable(false);
-        		             popupWindow.setFocusable(true);
-        		             try {
-             		            int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
-             		            WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-             		            layoutParams.screenBrightness = curBrightnessValue/500.0f;
-             		            getWindow().setAttributes(layoutParams);
-             		        } catch (SettingNotFoundException e) {
+        LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
+        View popupView = layoutInflater.inflate(R.layout.activity_askquestionpopup, null);  
+        final PopupWindow popupWindow = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
+        popupWindow.setOutsideTouchable(false);
+        popupWindow.setFocusable(true);
+        
+        try {
+        	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+            WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+            layoutParams.screenBrightness = curBrightnessValue/500.0f;
+            getWindow().setAttributes(layoutParams);
+        } catch (SettingNotFoundException e) {
              		            // TODO Auto-generated catch block
-             		            e.printStackTrace();
-             		        }
+            e.printStackTrace();
+        }
         		             /*
         		            
         		             Window window = popupView.getWindow();
@@ -107,18 +103,29 @@ public class HomePage extends Activity implements OnClickListener {
         		             wlp.dimAmount = (float) 1.0;
         		             window.setAttributes(wlp);
         		             */
-        		             Button btnDismiss = (Button)popupView.findViewById(R.id.button2);
-        		             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+        Button btnDismiss = (Button)popupView.findViewById(R.id.button2);
+        btnDismiss.setOnClickListener(new Button.OnClickListener(){
         		            	 	
         		     @Override
         		     public void onClick(View v) {
         		      // TODO Auto-generated method stub
-        		      popupWindow.dismiss();
+        		    	 popupWindow.dismiss();
+        		      
+        		    	 try {
+        		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+        		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+        		    		 layoutParams.screenBrightness = curBrightnessValue;
+        		    		 getWindow().setAttributes(layoutParams);
+        		    	 } catch (SettingNotFoundException e) {
+       		            // TODO Auto-generated catch block
+        		    		 e.printStackTrace();
+        		    	 }
         		     }});
         		               
-        		             popupWindow.showAsDropDown(btnOpenPopup, 150, 50);
+        		            // popupWindow.showAsDropDown(btnOpenPopup, 150, 50);
+       popupWindow.showAsDropDown(ask, 150, 50);
         		         
-        		   }}); 
+        		   //}}); 
                      
         	
         	 /*
@@ -142,7 +149,7 @@ public class HomePage extends Activity implements OnClickListener {
         	 alertDialog.show();
         */
           // do something
-          break;
+       break;
         // case R.id.buttonB:
           // do something else
           //break;

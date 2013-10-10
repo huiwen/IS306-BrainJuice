@@ -1,12 +1,14 @@
 package com.example.brainjuice;
 
 import android.os.Bundle;
+import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.*;
@@ -60,17 +62,84 @@ public class AnswerQuestion extends Activity implements OnClickListener {
     @SuppressWarnings("deprecation")
 	public void onClick(View v){
     	final Context context = this;
-                	
+    	   	
     	switch (v.getId()) {
         case R.id.AnotherQuestion: 
         	Intent intent = new Intent(context, AnswerQuestion.class);
         	startActivity(intent);
+        	break;
         	
         case R.id.Answer:
-        	
-        	
+        	LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        	View popupView = layoutInflater.inflate(R.layout.activity_answerquestionconfirmation, null);
+            final PopupWindow popupWindow = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
+            popupWindow.setOutsideTouchable(false);
+            popupWindow.setFocusable(true);
+            
+            try {
+            	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+                WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+                layoutParams.screenBrightness = curBrightnessValue/500.0f;
+                getWindow().setAttributes(layoutParams);
+            } catch (SettingNotFoundException e) {
+                e.printStackTrace();
+            }
+            
+            
+            Button btnDismiss = (Button)popupView.findViewById(R.id.Cancel);
+            btnDismiss.setOnClickListener(new Button.OnClickListener(){
+            	public void onClick(View v) {
+      		      // TODO Auto-generated method stub
+      		    	 popupWindow.dismiss();
+      		      
+      		    	 try {
+      		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+      		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+      		    		 layoutParams.screenBrightness = curBrightnessValue;
+      		    		 getWindow().setAttributes(layoutParams);
+      		    	 } catch (SettingNotFoundException e) {
+     		            // TODO Auto-generated catch block
+      		    		 e.printStackTrace();
+      		    	 }
+      		     }});
+            
+            Button btnProceed = (Button)popupView.findViewById(R.id.Proceed);
+            btnProceed.setOnClickListener(new Button.OnClickListener(){	
+            	public void onClick(View arg0){
+            		popupWindow.dismiss();
+            		
+            		LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
+                    View popupView = layoutInflater.inflate(R.layout.activity_answerquestionsuccessful, null);  
+            		final PopupWindow popupWindowS = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
+                    popupWindowS.setOutsideTouchable(false);
+                    popupWindowS.setFocusable(true);
+                    
+                    
+                    Button btnClose = (Button)popupView.findViewById(R.id.Close);
+                    btnClose.setOnClickListener(new Button.OnClickListener(){
+                    	public void onClick(View v) {
+                    		popupWindowS.dismiss();
+                    		Intent intent = new Intent(context, AnswerQuestion.class);
+                        	startActivity(intent);
+              		      
+              		    	 try {
+              		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+              		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+              		    		 layoutParams.screenBrightness = curBrightnessValue;
+              		    		 getWindow().setAttributes(layoutParams);
+              		    	 } catch (SettingNotFoundException e) {
+             		            // TODO Auto-generated catch block
+              		    		 e.printStackTrace();
+              		    	 }
+              		     }});
+                    
+                    popupWindowS.showAsDropDown(answer, 150, 50);
+            	}});
+            
+            popupWindow.showAsDropDown(answer, 150, 50);
+            
         	 
-        break;
+            break;
       }
     	
     }

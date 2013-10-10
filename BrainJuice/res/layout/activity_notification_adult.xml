@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+<TextView
+	android:id="@+id/widget50"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Hi MelissaTan!"
+	android:textSize="18sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="129dp"
+	android:layout_y="34dp" />
+<Button
+	android:id="@+id/FAQ"
+	android:layout_width="74dp"
+	android:layout_height="37dp"
+	android:text="FAQ"
+	android:textStyle="bold"
+	android:layout_x="123dp"
+	android:layout_y="79dp" />
+<Button
+	android:id="@+id/Logout"
+	android:layout_width="81dp"
+	android:layout_height="38dp"
+	android:text="Logout"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="212dp"
+	android:layout_y="79dp" />
+<TextView
+	android:id="@+id/TextNoti"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="My Notifications"
+	android:textSize="25sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="14dp"
+	android:layout_y="120dp" />
+
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="190dp"
+    android:layout_y="162dp" >
+    
+    <TableLayout 
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" >
+		
+        <AbsoluteLayout >
+
+        	<ImageView
+        	    android:id="@+id/imageView1"
+        	    android:layout_width="68dp"
+        	    android:layout_height="63dp"
+        	    android:layout_x="21dp"
+        	    android:layout_y="0dp"
+        	    android:src="@drawable/minion" />
+
+        	<TextView
+        	    android:id="@+id/textView1"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="wrap_content"
+        	    android:layout_x="99dp"
+        	    android:layout_y="8dp"
+        	    android:textStyle="bold"
+        	    android:text="Question:" />
+            
+        </AbsoluteLayout>
+        
+        
+    </TableRow>
+    
+    </TableLayout>
+    
+</ScrollView>
+
+<ImageButton
+    
+
+    android:id="@+id/Answering"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="12dp"
+    android:layout_y="362dp"
+    android:src="@drawable/ans" />
+
+<ImageButton
+    android:id="@+id/notification"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginLeft="70dp"
+    android:layout_marginRight="70dp"
+    android:layout_x="83dp"
+    android:layout_y="362dp"
+    android:src="@drawable/noti" />
+
+<ImageButton
+    android:id="@+id/AnswerBank"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="154dp"
+    android:layout_y="362dp"
+    android:src="@drawable/myanswerbank" />
+
+<ImageButton
+    android:id="@+id/widget43"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="225dp"
+    android:layout_y="362dp"
+    android:src="@drawable/settings" />
+
+<ImageView
+    android:id="@+id/qnprofilepic"
+    android:layout_width="93dp"
+    android:layout_height="114dp"
+    android:layout_x="11dp"
+    android:layout_y="2dp"
+    android:src="@drawable/melissa" />
+
+</AbsoluteLayout>
+
+
+
