@@ -24,14 +24,16 @@ public class AdultNotification extends Activity implements OnClickListener {
 	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
-	//TableRow notiBody;
+	TableRow notiBody;
 	TextView qnBody;
+	TextView ansBody;
+	TextView msg;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qn_request_homepage);
+        setContentView(R.layout.activity_notification_adult);
        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -53,16 +55,18 @@ public class AdultNotification extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         
-        //LayoutInflater layoutInflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
-    	//View layout = layoutInflater.inflate(R.layout.activity_notification_adult, null);
-        //TableLayout table = (TableLayout)findViewById(R.id.table);
-        //table.setVisibility(View.VISIBLE);
-        /*notiBody = (TableRow)findViewById(R.id.tableRow1);
+        notiBody = (TableRow)findViewById(R.id.tableRow1);
         notiBody.setClickable(true);
-        notiBody.setOnClickListener(this);*/
+        notiBody.setOnClickListener(this);
         
-        //qnBody = (TextView)this.findViewById(R.id.textView1);
-        //qnBody.setText(Html.fromHtml("<b>Question:</b> How big is the earth?"));
+        qnBody = (TextView) this.findViewById(R.id.textView1);
+        qnBody.setText(Html.fromHtml("<strong>Question:</strong> How big is the earth bluf bluf bluf bluf and and who?"));
+        
+        ansBody = (TextView) this.findViewById(R.id.textView2);
+        ansBody.setText(Html.fromHtml("<strong>You Answer:</strong> Radius of the earth is 6,371km. The suerface area is 510,072,000km2."));
+        
+        msg = (TextView) this.findViewById(R.id.textView3);
+        msg.setText(Html.fromHtml("<strong>Message:</strong> JonathanTan likes your answer!"));
         
     }
 
@@ -81,11 +85,11 @@ public class AdultNotification extends Activity implements OnClickListener {
              
              break;
              
-         /*case R.id.tableRow1:
+         case R.id.tableRow1:
         	 Intent intentNotification = new Intent (context, AdultHomePage.class);
         	 startActivity(intentNotification);
         	 
-        	 break;*/
+        	 break;
       }
     	
     }
