@@ -9,7 +9,7 @@
 	android:id="@+id/widget50"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="Hi MelissaTan!"
+	android:text="Hi JonathanTan!"
 	android:textSize="18sp"
 	android:textStyle="bold"
 	android:textColor="#ff000000"
@@ -36,12 +36,12 @@
 <ImageButton
     
 
-    android:id="@+id/Answering"
+    android:id="@+id/Asking"
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:layout_x="12dp"
     android:layout_y="362dp"
-    android:src="@drawable/ans" />
+    android:src="@drawable/as" />
 
 <ImageButton
     android:id="@+id/notification"
@@ -54,7 +54,7 @@
     android:src="@drawable/noti" />
 
 <ImageButton
-    android:id="@+id/AnswerBank"
+    android:id="@+id/QuestionBank"
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:layout_x="154dp"
@@ -75,7 +75,7 @@
     android:layout_height="114dp"
     android:layout_x="11dp"
     android:layout_y="2dp"
-    android:src="@drawable/melissa" />
+    android:src="@drawable/minion" />
 
 <TextView
     android:id="@+id/Question"
@@ -83,7 +83,7 @@
     android:layout_height="wrap_content"
     android:layout_x="26dp"
     android:layout_y="132dp"
-    android:text="Question"
+    android:text="My Question"
     android:textColor="#ff000000"
     android:textStyle="bold" />
 
@@ -110,7 +110,7 @@
     android:layout_height="wrap_content"
     android:layout_x="26dp"
     android:layout_y="212dp"
-    android:text="Your Answer"
+    android:text="Answer"
     android:textColor="#ff000000"
     android:textStyle="bold" />
 
@@ -128,30 +128,30 @@
         android:text="Radius of the earth is 6,371km. The surface are is 510,072,000km2." />
 </ScrollView>
 
-<ImageView
-    android:id="@+id/imageView1"
-    android:layout_width="26dp"
-    android:layout_height="26dp"
-    android:layout_x="32dp"
-    android:layout_y="295dp"
-    android:src="@drawable/tick" />
-
 <TextView
     android:id="@+id/Message"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="63dp"
-    android:layout_y="300dp"
-    android:text="JonathanTan likes your answer!" />
+    android:layout_x="68dp"
+    android:layout_y="298dp"
+    android:text="Do you like this answer?"
+    android:textColor="#ff000000" />
 
-<Button
-    android:id="@+id/Back"
-    android:layout_width="wrap_content"
-    android:layout_height="36dp"
-    android:layout_x="104dp"
-    android:layout_y="320dp"
-    android:text="Back"
-    android:textStyle="bold" />
+<ImageButton
+    android:id="@+id/tick"
+    android:layout_width="35dp"
+    android:layout_height="35dp"
+    android:layout_x="98dp"
+    android:layout_y="316dp"
+    android:src="@drawable/tick" />
+
+<ImageButton
+    android:id="@+id/cross"
+    android:layout_width="33dp"
+    android:layout_height="33dp"
+    android:layout_x="160dp"
+    android:layout_y="319dp"
+    android:src="@drawable/cross" />
 
 </AbsoluteLayout>
 

@@ -15,25 +15,23 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
-public class AdultNotification extends Activity implements OnClickListener {
+public class AdultNotificationInstance extends Activity implements OnClickListener {
 
 	
 	Button faq;
 	Button logout;
 	ImageButton answering;
-	ImageButton notification;
+	//ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
-	TableRow notiBody;
+	Button back;
 	TextView qnBody;
-	TextView ansBody;
-	TextView msg;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notification_adult);
+        setContentView(R.layout.activity_notificationinstance_adult);
        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -46,8 +44,8 @@ public class AdultNotification extends Activity implements OnClickListener {
         answering.setOnClickListener(this);
         
         
-        notification = (ImageButton)this.findViewById(R.id.notification);
-        notification.setOnClickListener(this);
+        //notification = (ImageButton)this.findViewById(R.id.notification);
+        //notification.setOnClickListener(this);
         
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
@@ -55,18 +53,11 @@ public class AdultNotification extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         
-        notiBody = (TableRow)findViewById(R.id.tableRow1);
-        notiBody.setClickable(true);
-        notiBody.setOnClickListener(this);
+        back = (Button)findViewById(R.id.Back);
+        back.setOnClickListener(this);
         
-        qnBody = (TextView) this.findViewById(R.id.textView1);
-        qnBody.setText(Html.fromHtml("<strong>Question:</strong> How big is the earth?"));
-        
-        ansBody = (TextView) this.findViewById(R.id.textView2);
-        ansBody.setText(Html.fromHtml("<strong>You Answer:</strong> Radius of the earth is 6,371km. The suerface area is 510,072,000km2."));
-        
-        msg = (TextView) this.findViewById(R.id.textView3);
-        msg.setText(Html.fromHtml("<strong>Message:</strong> JonathanTan likes your answer!"));
+        qnBody = (TextView) this.findViewById(R.id.QuestionBody);
+        qnBody.setText(Html.fromHtml("Ask by JonathanTan<br /><br />How big is the earth?"));
         
     }
 
@@ -85,9 +76,9 @@ public class AdultNotification extends Activity implements OnClickListener {
              
              break;
              
-         case R.id.tableRow1:
-        	 Intent intentNotification = new Intent (context, AdultNotificationInstance.class);
-        	 startActivity(intentNotification);
+         case R.id.Back:
+        	 Intent intentBack = new Intent (context, AdultNotification.class);
+        	 startActivity(intentBack);
         	 
         	 break;
       }

@@ -118,7 +118,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
                     Button btnClose = (Button)popupView.findViewById(R.id.Close);
                     btnClose.setOnClickListener(new Button.OnClickListener(){
                     	public void onClick(View v) {
-                    		popupWindowS.dismiss();
+                    		//popupWindowS.dismiss();
                     		Intent intent = new Intent(context, AnswerQuestion.class);
                         	startActivity(intent);
               		      

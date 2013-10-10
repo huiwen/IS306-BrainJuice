@@ -41,45 +41,15 @@
 	android:layout_x="212dp"
 	android:layout_y="79dp" />
 <TextView
-	android:id="@+id/AskQuestion"
+	android:id="@+id/MySetting"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="Ask Question"
+	android:text="My Settings"
 	android:textSize="25sp"
 	android:textStyle="bold"
 	android:textColor="#ff000000"
 	android:layout_x="4dp"
 	android:layout_y="120dp" />
-<TableLayout
-	android:id="@+id/widget57"
-	android:layout_width="258dp"
-	android:layout_height="145dp"
-	android:padding="10dp"
-	android:orientation="vertical"
-	android:layout_x="33dp"
-	android:layout_y="165dp">
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
-</TableLayout>
-<Button
-
-
-
-	android:id="@+id/Ask"
-	android:layout_width="61dp"
-	android:layout_height="34dp"
-	android:text="Ask"
-	android:textStyle="bold"
-	android:layout_x="235dp"
-	android:layout_y="323dp" />
 
 <ImageButton
     
@@ -102,7 +72,7 @@
     android:src="@drawable/noti" />
 
 <ImageButton
-    android:id="@+id/widget42"
+    android:id="@+id/QuestionBank"
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:layout_x="154dp"
@@ -110,11 +80,36 @@
     android:src="@drawable/myanswerbank" />
 
 <ImageButton
-    android:id="@+id/widget43"
+    android:id="@+id/Setting"
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:layout_x="225dp"
     android:layout_y="362dp"
     android:src="@drawable/settings" />
+
+<TextView
+    android:id="@+id/Username"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="28dp"
+    android:layout_y="162dp"
+    android:textColor="#ff000000"
+    android:text="Your username: JonathanTan" />
+
+<TextView
+    android:id="@+id/ChangePwd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="28dp"
+    android:layout_y="224dp"
+    android:text="Change Password" />
+
+<TextView
+    android:id="@+id/EditProfile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="28dp"
+    android:layout_y="193dp"
+    android:text="Edit Profile" />
 
 </AbsoluteLayout>

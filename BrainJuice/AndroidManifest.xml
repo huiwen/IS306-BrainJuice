@@ -41,6 +41,30 @@
             android:label="@string/app_name" >
         </activity>
         
+        <activity
+            android:name="com.example.brainjuice.AdultNotificationInstance"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ChildNotification"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ChildNotificationInstance"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ChildSetting"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ChildChangePassword"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

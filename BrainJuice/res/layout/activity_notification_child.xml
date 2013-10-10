@@ -5,14 +5,6 @@
 	android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
-<ImageView
-    android:id="@+id/qnprofilepic"
-    android:layout_width="93dp"
-    android:layout_height="114dp"
-    android:layout_x="1dp"
-    android:layout_y="1dp"
-    android:src="@drawable/minion" />
-
 <TextView
 	android:id="@+id/widget50"
 	android:layout_width="wrap_content"
@@ -41,45 +33,62 @@
 	android:layout_x="212dp"
 	android:layout_y="79dp" />
 <TextView
-	android:id="@+id/AskQuestion"
+	android:id="@+id/TextNoti"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="Ask Question"
+	android:text="My Notifications"
 	android:textSize="25sp"
 	android:textStyle="bold"
 	android:textColor="#ff000000"
-	android:layout_x="4dp"
+	android:layout_x="14dp"
 	android:layout_y="120dp" />
-<TableLayout
-	android:id="@+id/widget57"
-	android:layout_width="258dp"
-	android:layout_height="145dp"
-	android:padding="10dp"
-	android:orientation="vertical"
-	android:layout_x="33dp"
-	android:layout_y="165dp">
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="190dp"
+    android:layout_y="162dp" >
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:ems="10" >
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" >
 
-        <requestFocus />
-    </EditText>
+        <AbsoluteLayout>
 
-</TableLayout>
-<Button
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="68dp"
+                android:layout_height="63dp"
+                android:layout_x="21dp"
+                android:layout_y="0dp"
+                android:src="@drawable/melissa" />
 
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="200dp"
+                android:layout_height="18dp"
+                android:layout_x="99dp"
+                android:layout_y="8dp"
+                android:text="text1" />
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="200dp"
+                android:layout_height="18dp"
+                android:layout_x="99dp"
+                android:layout_y="25dp"
+                android:text="TextView" />
 
-	android:id="@+id/Ask"
-	android:layout_width="61dp"
-	android:layout_height="34dp"
-	android:text="Ask"
-	android:textStyle="bold"
-	android:layout_x="235dp"
-	android:layout_y="323dp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_x="99dp"
+                android:layout_y="43dp"
+                android:text="TextView" />
+        </AbsoluteLayout>
+        
+    </TableRow>
+</ScrollView>
 
 <ImageButton
     
@@ -102,7 +111,7 @@
     android:src="@drawable/noti" />
 
 <ImageButton
-    android:id="@+id/widget42"
+    android:id="@+id/QuestionBank"
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:layout_x="154dp"
@@ -116,5 +125,13 @@
     android:layout_x="225dp"
     android:layout_y="362dp"
     android:src="@drawable/settings" />
+
+<ImageView
+    android:id="@+id/qnprofilepic"
+    android:layout_width="93dp"
+    android:layout_height="114dp"
+    android:layout_x="11dp"
+    android:layout_y="2dp"
+    android:src="@drawable/minion" />
 
 </AbsoluteLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/background_light">
+ <LinearLayout 
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:orientation="vertical" 
+     android:layout_margin="1dp"
+     android:background="#FFFFFF"
+      >
+  
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="40dp" 
+         android:background="#005EFF">
+         
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="14dp"
+             android:text="Are you sure?"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textStyle="bold" />
+
+     </RelativeLayout>
+
+     >
+     <LinearLayout 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" 
+      android:layout_margin="20dp">
+      <TextView
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="You have selected No. If you would like to proceed with your action, tap Proceed. Else tap Cancel." />
+      
+      
+		
+      </LinearLayout>
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+         <Button
+             android:id="@+id/Proceed"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentTop="true"
+             android:layout_marginLeft="28dp"
+             android:background="#005EFF"
+             android:text="      Proceed        " />
+
+         <Button
+             android:id="@+id/Cancel"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_marginRight="14dp"
+             android:background="#005EFF"
+             android:text="        Cancel        " />
+
+     </RelativeLayout>
+
+ </LinearLayout>
+</LinearLayout>
+
