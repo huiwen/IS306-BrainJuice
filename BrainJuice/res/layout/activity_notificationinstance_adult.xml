@@ -77,56 +77,6 @@
     android:layout_y="2dp"
     android:src="@drawable/melissa" />
 
-<Button
-    android:id="@+id/Back"
-    android:layout_width="wrap_content"
-    android:layout_height="36dp"
-    android:layout_x="122dp"
-    android:layout_y="316dp"
-    android:text="Back"
-    android:textStyle="bold" />
-
-<TextView
-    android:id="@+id/AnswerText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="227dp"
-    android:text="Your Answer"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
-
-<ScrollView
-    android:id="@+id/scrollView2"
-    android:layout_width="273dp"
-    android:layout_height="36dp"
-    android:layout_x="28dp"
-    android:layout_y="253dp" >
-
-    <TextView
-        android:id="@+id/AnswerBody"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Radius of the earth is 6,371km. The surface are is 510,072,000km2." />
-    
-</ScrollView>
-
-<ImageView
-    android:id="@+id/imageView1"
-    android:layout_width="26dp"
-    android:layout_height="26dp"
-    android:layout_x="38dp"
-    android:layout_y="292dp"
-    android:src="@drawable/tick" />
-
-<TextView
-    android:id="@+id/Message"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="85dp"
-    android:layout_y="298dp"
-    android:text="JonathanTan likes your answer!" />
-
 <TextView
     android:id="@+id/Question"
     android:layout_width="wrap_content"
@@ -137,21 +87,71 @@
     android:textColor="#ff000000"
     android:textStyle="bold" />
 
-<TextView
-    android:id="@+id/QuestionBody"
-    android:layout_width="273dp"
-    android:layout_height="wrap_content"
-    android:layout_x="28dp"
-    android:layout_y="158dp"
-    android:text="How big is the earth?" />
-
 <ScrollView
     android:id="@+id/scrollView1"
     android:layout_width="273dp"
-    android:layout_height="46dp"
+    android:layout_height="54dp"
     android:layout_x="26dp"
     android:layout_y="156dp" >
+    
+    <TextView
+    android:id="@+id/QuestionBody"
+    android:layout_width="273dp"
+    android:layout_height="wrap_content"
+    android:layout_x="26dp"
+    android:layout_y="156dp"
+    android:text="How big is the earth?" />
+    
 </ScrollView>
+
+<TextView
+    android:id="@+id/AnswerText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="26dp"
+    android:layout_y="212dp"
+    android:text="Your Answer"
+    android:textColor="#ff000000"
+    android:textStyle="bold" />
+
+<ScrollView
+    android:id="@+id/scrollView2"
+    android:layout_width="273dp"
+    android:layout_height="54dp"
+    android:layout_x="27dp"
+    android:layout_y="237dp" >
+
+    <TextView
+        android:id="@+id/AnswerBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Radius of the earth is 6,371km. The surface are is 510,072,000km2." />
+</ScrollView>
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="26dp"
+    android:layout_height="26dp"
+    android:layout_x="32dp"
+    android:layout_y="295dp"
+    android:src="@drawable/tick" />
+
+<TextView
+    android:id="@+id/Message"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="63dp"
+    android:layout_y="300dp"
+    android:text="JonathanTan likes your answer!" />
+
+<Button
+    android:id="@+id/Back"
+    android:layout_width="wrap_content"
+    android:layout_height="36dp"
+    android:layout_x="104dp"
+    android:layout_y="320dp"
+    android:text="Back"
+    android:textStyle="bold" />
 
 </AbsoluteLayout>
 

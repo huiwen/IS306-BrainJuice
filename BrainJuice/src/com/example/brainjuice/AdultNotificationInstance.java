@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -14,20 +15,23 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
-public class AdultHomePage extends Activity implements OnClickListener {
+public class AdultNotificationInstance extends Activity implements OnClickListener {
 
 	
 	Button faq;
 	Button logout;
-	ImageButton request;
-	ImageButton notification;
+	ImageButton answering;
+	//ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
+	Button back;
+	TextView qnBody;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qn_request_homepage);
+        setContentView(R.layout.activity_notificationinstance_adult);
        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -36,18 +40,24 @@ public class AdultHomePage extends Activity implements OnClickListener {
         logout = (Button)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
-        request = (ImageButton)this.findViewById(R.id.QuestionRequest);
-        request.setOnClickListener(this);
+        answering = (ImageButton)this.findViewById(R.id.Answering);
+        answering.setOnClickListener(this);
         
         
-        notification = (ImageButton)this.findViewById(R.id.notification);
-        notification.setOnClickListener(this);
+        //notification = (ImageButton)this.findViewById(R.id.notification);
+        //notification.setOnClickListener(this);
         
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
         
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
+        
+        back = (Button)findViewById(R.id.Back);
+        back.setOnClickListener(this);
+        
+        qnBody = (TextView) this.findViewById(R.id.QuestionBody);
+        qnBody.setText(Html.fromHtml("Ask by JonathanTan<br /><br />How big is the earth?"));
         
     }
 
@@ -60,20 +70,15 @@ public class AdultHomePage extends Activity implements OnClickListener {
                 
     	
     	 switch (v.getId()) {
-         case R.id.QuestionRequest: 
+         case R.id.Answering: 
         	 Intent intent = new Intent(context, AnswerQuestion.class);
              startActivity(intent);
              
              break;
              
-         case R.id.notification:
-        	 Intent intentNotification = new Intent(context, AdultNotification.class);
-        	 startActivity(intentNotification);
-        	 
-        	 break;
-         case R.id.AnswerBank:
-        	 Intent intentAnswerBankAccepted = new Intent (context, AnswerBankAccepted.class);
-        	 startActivity(intentAnswerBankAccepted);
+         case R.id.Back:
+        	 Intent intentBack = new Intent (context, AdultNotification.class);
+        	 startActivity(intentBack);
         	 
         	 break;
       }
@@ -81,4 +86,3 @@ public class AdultHomePage extends Activity implements OnClickListener {
     }
     
 }
-

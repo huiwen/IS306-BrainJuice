@@ -41,6 +41,9 @@ public class HomePage extends Activity implements OnClickListener {
         logout = (Button)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
+       
+        
+        
         ask = (Button)this.findViewById(R.id.Ask);
         ask.setOnClickListener(this);
         
@@ -121,39 +124,60 @@ public class HomePage extends Activity implements OnClickListener {
         		    		 e.printStackTrace();
         		    	 }
         		     }});
-        		               
+        Button btnProceed = (Button)popupView.findViewById(R.id.button1);
+        btnProceed.setOnClickListener(new Button.OnClickListener(){	  		
+        	
+        	
+        	
+        	public void onClick(View arg0){
+        		popupWindow.dismiss();
+        		
+        		LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
+                View popupView = layoutInflater.inflate(R.layout.activity_askquestionpopupinstance, null);  
+        		final PopupWindow popupWindowS = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
+                popupWindowS.setOutsideTouchable(false);
+                popupWindowS.setFocusable(true);
+                
+                
+                Button btnClose = (Button)popupView.findViewById(R.id.Close);
+                btnClose.setOnClickListener(new Button.OnClickListener(){
+                	public void onClick(View v) {
+                		//popupWindowS.dismiss();
+                		Intent intent = new Intent(context, HomePage.class);
+                    	startActivity(intent);
+          		      
+          		    	 try {
+          		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+          		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+          		    		 layoutParams.screenBrightness = curBrightnessValue;
+          		    		 getWindow().setAttributes(layoutParams);
+          		    	 } catch (SettingNotFoundException e) {
+         		            // TODO Auto-generated catch block
+          		    		 e.printStackTrace();
+          		    	 }
+          		     }});
+                
+                popupWindowS.showAsDropDown(ask, 150, 50);
+        	}});
+        
         		            // popupWindow.showAsDropDown(btnOpenPopup, 150, 50);
        popupWindow.showAsDropDown(ask, 150, 50);
         		         
-        		   //}}); 
-                     
-        	
-        	 /*
-        	 AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        	 alertDialog.setTitle("Title");
-        	 alertDialog.setMessage("Message");
-        	 alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-        	    public void onClick(DialogInterface dialog, int which) {
-        	       // TODO Add your code for the button here.
-        	    }
-        	 });
-        	 
-        	 alertDialog.setButton("Cancel", new DialogInterface.OnClickListener() {
-         	    public void onClick(DialogInterface dialog, int which) {
-         	       // TODO Add your code for the button here.
-         	    }
-         	 });
-        	 
-        	 // Set the Icon for the Dialog
-        	 
-        	 alertDialog.show();
-        */
-          // do something
+        		 
        break;
         // case R.id.buttonB:
           // do something else
           //break;
+       
+         case R.id.widget42:       
+        	 Intent intentChild = new Intent(context, ChildrenQuestionBank.class);
+             startActivity(intentChild);    
+             break;   
+             
+             
+             
       }
+    	 
   
         /*
     	if(username.equals("JonathanTan") && password.equals("123456789")){

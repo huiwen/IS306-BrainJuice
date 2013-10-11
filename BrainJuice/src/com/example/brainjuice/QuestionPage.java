@@ -57,7 +57,7 @@ public class QuestionPage extends Activity implements OnClickListener {
  
     
     public void onClick(View v){
-   /* 	 final Context context = this;
+   	 final Context context = this;
     	 
     	 final int id = v.getId();
          switch (id) {
@@ -65,25 +65,25 @@ public class QuestionPage extends Activity implements OnClickListener {
         	 Intent intent = new Intent(context, Faq.class);
              startActivity(intent);    
              break;
-         case R.id.Logout:       
-            // button2.setText("You clicked on Button 2");   
-             break;
+         case R.id.widget42:       
+        	 Intent intentChild = new Intent(context, ChildrenQuestionBank.class);
+             startActivity(intentChild);    
+             break;   
+            
          case R.id.Ask:     
              //button3.setText("You clicked on Button 3");
              break;
          case R.id.widget41:         
              //button4.setText("You clicked on Button 4");
              break;
-         case R.id.widget42:
-             //button5.setText("You clicked on Button 5");
-             break;
+        
          case R.id.widget43:
              //button5.setText("You clicked on Button 5");
              break;
              
          }
     	
-    */	
+    
     	
     }
     

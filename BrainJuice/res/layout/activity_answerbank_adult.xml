@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    xmlns:android2="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget0"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/widget50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="129dp"
+        android:layout_y="34dp"
+        android:text="Hi MelissaTan!"
+        android:textColor="#ff000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/FAQ"
+        android:layout_width="74dp"
+        android:layout_height="37dp"
+        android:layout_x="123dp"
+        android:layout_y="79dp"
+        android:text="FAQ"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="81dp"
+        android:layout_height="38dp"
+        android:layout_x="212dp"
+        android:layout_y="79dp"
+        android:text="Logout"
+        android:textColor="#ff000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/AnswerQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="14dp"
+        android:layout_y="120dp"
+        android:text="Answer Question"
+        android:textColor="#ff000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/Answering"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_x="12dp"
+        android:layout_y="362dp"
+        android:src="@drawable/ans" />
+
+    <ImageButton
+        android:id="@+id/notification"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_x="83dp"
+        android:layout_y="362dp"
+        android:src="@drawable/noti" />
+
+    <ImageButton
+        android:id="@+id/AnswerBank"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_x="154dp"
+        android:layout_y="362dp"
+        android:src="@drawable/myanswerbank" />
+
+    <ImageButton
+        android:id="@+id/widget43"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_x="225dp"
+        android:layout_y="362dp"
+        android:src="@drawable/settings" />
+
+    <ImageView
+        android:id="@+id/qnprofilepic"
+        android:layout_width="93dp"
+        android:layout_height="114dp"
+        android:layout_x="11dp"
+        android:layout_y="2dp"
+        android:src="@drawable/melissa" />
+
+    <TabHost
+        android:id="@+id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_x="8dp"
+        android:layout_y="146dp" 
+        android:textSize="6sp" >
+
+        <LinearLayout
+            android2:layout_width="305dp"
+            android2:layout_height="match_parent"
+            android2:orientation="vertical" >
+
+            <TabWidget
+                android2:id="@android:id/tabs"
+                android2:layout_width="320dp"
+                android2:layout_height="wrap_content" >
+            </TabWidget>
+
+            <FrameLayout
+                android2:id="@android:id/tabcontent"
+                android2:layout_width="match_parent"
+                android2:layout_height="match_parent" >
+
+                <LinearLayout
+                    android2:id="@+id/tab1"
+                    android2:layout_width="303dp"
+                    android2:layout_height="170dp" >
+
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="305dp"
+                    android:layout_height="100px"
+                    android:text="This is tab1" />
+    
+                </LinearLayout>
+
+                <LinearLayout
+                    android2:id="@+id/tab2"
+                    android2:layout_width="match_parent"
+                    android2:layout_height="match_parent" >
+                <TextView  
+  						 android:layout_width="fill_parent" 
+ 						 android:layout_height="100px" 
+  						 android:text="This is tab2"
+  						 android:id="@+id/txt1"
+   				 />    
+                </LinearLayout>
+
+                <LinearLayout
+                    android2:id="@+id/tab3"
+                    android2:layout_width="match_parent"
+                    android2:layout_height="match_parent" >
+                <TextView  
+  					 android:layout_width="fill_parent" 
+   					 android:layout_height="100px" 
+    			     android:text="This is tab3"
+   					 android:id="@+id/txt1"
+  				  />    
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</AbsoluteLayout>

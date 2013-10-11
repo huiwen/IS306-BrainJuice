@@ -60,7 +60,7 @@ public class AdultNotification extends Activity implements OnClickListener {
         notiBody.setOnClickListener(this);
         
         qnBody = (TextView) this.findViewById(R.id.textView1);
-        qnBody.setText(Html.fromHtml("<strong>Question:</strong> How big is the earth bluf bluf bluf bluf and and who?"));
+        qnBody.setText(Html.fromHtml("<strong>Question:</strong> How big is the earth?"));
         
         ansBody = (TextView) this.findViewById(R.id.textView2);
         ansBody.setText(Html.fromHtml("<strong>You Answer:</strong> Radius of the earth is 6,371km. The suerface area is 510,072,000km2."));
@@ -86,10 +86,16 @@ public class AdultNotification extends Activity implements OnClickListener {
              break;
              
          case R.id.tableRow1:
-        	 Intent intentNotification = new Intent (context, AdultHomePage.class);
+        	 Intent intentNotification = new Intent (context, AdultNotificationInstance.class);
         	 startActivity(intentNotification);
         	 
         	 break;
+        	 
+         case R.id.AnswerBank:
+        	 Intent intentAnswerBankAccepted = new Intent (context, AnswerBankAccepted.class);
+        	 startActivity(intentAnswerBankAccepted);
+        	 
+        	 break;        	 
       }
     	
     }
