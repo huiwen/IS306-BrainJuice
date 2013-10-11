@@ -79,6 +79,16 @@ public class ChildChangePassword extends Activity implements OnClickListener {
 	         	 startActivity(intent);
 	         	 break;
 	         	 
+	    	 case R.id.QuestionBank:
+	      		 Intent intentQnBank = new Intent(context, ChildrenQuestionBank.class);
+	           	 startActivity(intentQnBank);
+	           	 break;
+	         	 
+	    	 case R.id.FAQ:
+	      		 Intent intentFAQ = new Intent(context, ChildFaq.class);
+	           	 startActivity(intentFAQ);
+	           	 break;
+	         	 
 	    	 case R.id.Logout:
 	    		 LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 	         	 View popupViewLogout = layoutInflaterLogout.inflate(R.layout.activity_logout, null);

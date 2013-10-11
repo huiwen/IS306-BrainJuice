@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+	android:id="@+id/widget0"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ImageView
+    android:id="@+id/qnprofilepic"
+    android:layout_width="93dp"
+    android:layout_height="114dp"
+    android:layout_x="1dp"
+    android:layout_y="1dp"
+    android:src="@drawable/melissa" />
+
+<TextView
+	android:id="@+id/widget50"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Hi MelissaTan!"
+	android:textSize="18sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="129dp"
+	android:layout_y="34dp" />
+<Button
+	android:id="@+id/FAQ"
+	android:layout_width="74dp"
+	android:layout_height="37dp"
+	android:text="FAQ"
+	android:textStyle="bold"
+	android:layout_x="123dp"
+	android:layout_y="79dp" />
+<Button
+	android:id="@+id/Logout"
+	android:layout_width="81dp"
+	android:layout_height="38dp"
+	android:text="Logout"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="212dp"
+	android:layout_y="79dp" />
+<TextView
+	android:id="@+id/ChangePwd"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="Change Password"
+	android:textSize="25sp"
+	android:textStyle="bold"
+	android:textColor="#ff000000"
+	android:layout_x="4dp"
+	android:layout_y="120dp" />
+
+<ImageButton
+    
+
+    android:id="@+id/Answering"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="12dp"
+    android:layout_y="362dp"
+    android:src="@drawable/ans" />
+
+<ImageButton
+    android:id="@+id/notification"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginLeft="70dp"
+    android:layout_marginRight="70dp"
+    android:layout_x="83dp"
+    android:layout_y="362dp"
+    android:src="@drawable/noti" />
+
+<ImageButton
+    android:id="@+id/AnswerBank"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="154dp"
+    android:layout_y="362dp"
+    android:src="@drawable/myanswerbank" />
+
+<ImageButton
+    android:id="@+id/Setting"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_x="225dp"
+    android:layout_y="362dp"
+    android:src="@drawable/settings" />
+
+<Button
+    android:id="@+id/Confirm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="44dp"
+    android:layout_y="274dp"
+    android:text="Confirm" />
+
+<Button
+    android:id="@+id/Cancel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="156dp"
+    android:layout_y="274dp"
+    android:text="Cancel" />
+
+<TextView
+    android:id="@+id/CurrentPwd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="30dp"
+    android:layout_y="170dp"
+    android:text="Current Password"
+    android:textColor="#ff000000" />
+
+<EditText
+    android:id="@+id/InputCurrentPassword"
+    android:layout_width="157dp"
+    android:layout_height="30dp"
+    android:layout_x="147dp"
+    android:layout_y="160dp"
+    android:ems="10"
+    android:inputType="textPassword" />
+
+<TextView
+    android:id="@+id/NewPwd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="30dp"
+    android:layout_y="207dp"
+    android:text="New Password"
+    android:textColor="#ff000000" />
+
+<EditText
+    android:id="@+id/InputNewPwd"
+    android:layout_width="157dp"
+    android:layout_height="30dp"
+    android:layout_x="147dp"
+    android:layout_y="195dp"
+    android:ems="10"
+    android:inputType="textPassword" />
+
+<TextView
+    android:id="@+id/ConfirmPwd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="30dp"
+    android:layout_y="244dp"
+    android:text="Confirm Password"
+    android:textColor="#ff000000" />
+
+<EditText
+    android:id="@+id/InputConfirmPwd"
+    android:layout_width="157dp"
+    android:layout_height="30dp"
+    android:layout_x="147dp"
+    android:layout_y="228dp"
+    android:ems="10"
+    android:inputType="textPassword" />
+
+</AbsoluteLayout>

@@ -27,7 +27,7 @@ public class HomePage extends Activity implements OnClickListener {
 	ImageButton notification;
 	ImageButton questionbank;
 	ImageButton setting;
-	Button btnOpenPopup;
+	//Button btnOpenPopup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
@@ -69,6 +69,12 @@ public class HomePage extends Activity implements OnClickListener {
                 
     	
     	 switch (v.getId()) {
+    	 
+    	 case R.id.FAQ:  
+        	 Intent intentFaq = new Intent(context, ChildFaq.class);
+             startActivity(intentFaq);    
+             break;
+             
     	 case R.id.notification:
     		 Intent intent = new Intent(context, ChildNotification.class);
          	 startActivity(intent);

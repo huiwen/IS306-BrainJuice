@@ -20,7 +20,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
-public class ChildEditProfile extends Activity implements OnClickListener {
+public class AdultEditProfile extends Activity implements OnClickListener {
 
 	
 	Button faq;
@@ -28,14 +28,14 @@ public class ChildEditProfile extends Activity implements OnClickListener {
 	Button confirm;
 	Button cancel;
 	ImageButton upload;
-	ImageButton asking;
+	ImageButton answering;
 	ImageButton notification;
-	ImageButton questionbank;
+	ImageButton answerbank;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editprofile_child);
+        setContentView(R.layout.activity_editprofile_adult);
        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -44,14 +44,14 @@ public class ChildEditProfile extends Activity implements OnClickListener {
         logout = (Button)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
-        asking = (ImageButton)this.findViewById(R.id.Asking);
-        asking.setOnClickListener(this);
+        answering = (ImageButton)this.findViewById(R.id.Answering);
+        answering.setOnClickListener(this);
         
         notification = (ImageButton)this.findViewById(R.id.notification);
         notification.setOnClickListener(this);
         
-        questionbank = (ImageButton)this.findViewById(R.id.QuestionBank);
-        questionbank.setOnClickListener(this);
+        answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
+        answerbank.setOnClickListener(this);
         
         confirm = (Button)this.findViewById(R.id.Confirm);
         confirm.setOnClickListener(this);
@@ -70,23 +70,23 @@ public class ChildEditProfile extends Activity implements OnClickListener {
                 
     	
     	 switch (v.getId()) {
-	    	 case R.id.Asking:
-	    		 Intent intentAsking = new Intent(context, HomePage.class);
+	    	 case R.id.Answering:
+	    		 Intent intentAsking = new Intent(context, AdultHomePage.class);
 	    		 startActivity(intentAsking);
 	    		 break;
 	    	 
 	    	 case R.id.notification:
-	    		 Intent intent = new Intent(context, ChildNotification.class);
+	    		 Intent intent = new Intent(context, AdultNotification.class);
 	         	 startActivity(intent);
 	         	 break;
 	         	 
-	    	 case R.id.QuestionBank:
-	      		 Intent intentQnBank = new Intent(context, ChildrenQuestionBank.class);
+	    	 case R.id.AnswerBank:
+	      		 Intent intentQnBank = new Intent(context, AnswerBankAccepted.class);
 	           	 startActivity(intentQnBank);
 	           	 break;
 	         	 
 	    	 case R.id.FAQ:
-	      		 Intent intentFAQ = new Intent(context, ChildFaq.class);
+	      		 Intent intentFAQ = new Intent(context, AdultFaq.class);
 	           	 startActivity(intentFAQ);
 	           	 break;
 	    	 
@@ -141,7 +141,7 @@ public class ChildEditProfile extends Activity implements OnClickListener {
 	                    btnClose.setOnClickListener(new Button.OnClickListener(){
 	                    	public void onClick(View v) {
 	                    		//popupWindowS.dismiss();
-	                    		Intent intent = new Intent(context, ChildSetting.class);
+	                    		Intent intent = new Intent(context, AdultSetting.class);
 	                        	startActivity(intent);
 	              		      
 	              		    	 try {
@@ -161,7 +161,7 @@ public class ChildEditProfile extends Activity implements OnClickListener {
 	        	 break;
 	         	 
 	    	 case R.id.Cancel:
-	    		 Intent intentChangePwd = new Intent(context, ChildSetting.class);
+	    		 Intent intentChangePwd = new Intent(context, AdultSetting.class);
 	         	 startActivity(intentChangePwd);
 	         	 break;
 	         	 

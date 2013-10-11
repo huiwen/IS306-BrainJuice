@@ -20,21 +20,21 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
-public class ChildSetting extends Activity implements OnClickListener {
+public class AdultSetting extends Activity implements OnClickListener {
 
 	
 	Button faq;
 	Button logout;
 	TextView editProfile;
 	TextView changePwd;
-	ImageButton asking;
+	ImageButton answering;
 	ImageButton notification;
-	ImageButton questionbank;
+	ImageButton answerbank;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting_child);
+        setContentView(R.layout.activity_setting_adult);
        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -43,14 +43,14 @@ public class ChildSetting extends Activity implements OnClickListener {
         logout = (Button)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
-        asking = (ImageButton)this.findViewById(R.id.Asking);
-        asking.setOnClickListener(this);
+        answering = (ImageButton)this.findViewById(R.id.Answering);
+        answering.setOnClickListener(this);
         
         notification = (ImageButton)this.findViewById(R.id.notification);
         notification.setOnClickListener(this);
         
-        questionbank = (ImageButton)this.findViewById(R.id.QuestionBank);
-        questionbank.setOnClickListener(this);
+        answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
+        answerbank.setOnClickListener(this);
         
         editProfile = (TextView)this.findViewById(R.id.EditProfile);
         editProfile.setText(Html.fromHtml("<font color='blue'><u>Edit Profile</u></font>"));
@@ -75,33 +75,33 @@ public class ChildSetting extends Activity implements OnClickListener {
                 
     	
     	 switch (v.getId()) {
-	    	 case R.id.Asking:
-	    		 Intent intentAsking = new Intent(context, HomePage.class);
+	    	 case R.id.Answering:
+	    		 Intent intentAsking = new Intent(context, AdultHomePage.class);
 	    		 startActivity(intentAsking);
 	    		 break;
 	    	 
 	    	 case R.id.notification:
-	    		 Intent intent = new Intent(context, ChildNotification.class);
+	    		 Intent intent = new Intent(context, AdultNotification.class);
 	         	 startActivity(intent);
 	         	 break;
 	         	 
-	    	 case R.id.QuestionBank:
-	      		 Intent intentQnBank = new Intent(context, ChildrenQuestionBank.class);
+	    	 case R.id.AnswerBank:
+	      		 Intent intentQnBank = new Intent(context, AnswerBankAccepted.class);
 	           	 startActivity(intentQnBank);
 	           	 break;
 	         	 
 	    	 case R.id.FAQ:
-	      		 Intent intentFAQ = new Intent(context, ChildFaq.class);
+	      		 Intent intentFAQ = new Intent(context, AdultFaq.class);
 	           	 startActivity(intentFAQ);
 	           	 break;
 	    	 
 	    	 case R.id.EditProfile:
-	    		 Intent intentEditProfile = new Intent(context, ChildEditProfile.class);
+	    		 Intent intentEditProfile = new Intent(context, AdultEditProfile.class);
 	         	 startActivity(intentEditProfile);
 	         	 break;
 	         	 
 	    	 case R.id.ChangePwd:
-	    		 Intent intentChangePwd = new Intent(context, ChildChangePassword.class);
+	    		 Intent intentChangePwd = new Intent(context, AdultChangePassword.class);
 	         	 startActivity(intentChangePwd);
 	         	 break;
 	    	 case R.id.Logout:

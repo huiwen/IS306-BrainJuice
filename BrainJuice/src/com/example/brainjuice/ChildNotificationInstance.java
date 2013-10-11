@@ -82,6 +82,16 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
              
              break;
              
+         case R.id.QuestionBank:
+      		 Intent intentQnBank = new Intent(context, ChildrenQuestionBank.class);
+           	 startActivity(intentQnBank);
+           	 break;
+         	 
+    	 case R.id.FAQ:
+      		 Intent intentFAQ = new Intent(context, ChildFaq.class);
+           	 startActivity(intentFAQ);
+           	 break;
+             
          case R.id.widget43:
         	 Intent intentSetting = new Intent (context, ChildSetting.class);
         	 startActivity(intentSetting);

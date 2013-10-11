@@ -77,7 +77,7 @@ public class AskQuestionPopUp extends Activity implements OnClickListener {
         	 final int id = v.getId();
              switch (id) {
              case R.id.FAQ:  
-            	 Intent intent = new Intent(context, Faq.class);
+            	 Intent intent = new Intent(context, ChildFaq.class);
                  startActivity(intent);    
                  break;
              case R.id.Logout:       
