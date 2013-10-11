@@ -41,10 +41,10 @@
 	android:layout_x="212dp"
 	android:layout_y="79dp" />
 <TextView
-	android:id="@+id/ChangePwd"
+	android:id="@+id/EditProfile"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="Change Password"
+	android:text="Edit Profile"
 	android:textSize="25sp"
 	android:textStyle="bold"
 	android:textColor="#ff000000"
@@ -80,81 +80,44 @@
     android:src="@drawable/myquestionbank" />
 
 <ImageButton
-    android:id="@+id/Setting"
+    android:id="@+id/setting"
     android:layout_width="80dp"
     android:layout_height="80dp"
     android:layout_x="225dp"
     android:layout_y="362dp"
     android:src="@drawable/settings" />
 
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="42dp"
+    android:layout_y="161dp"
+    android:textColor="#ff000000"
+    android:text="Profile Picture" />
+
+<ImageButton
+    android:id="@+id/imageButton1"
+    android:layout_width="89dp"
+    android:layout_height="110dp"
+    android:layout_x="46dp"
+    android:layout_y="185dp"
+    android:src="@drawable/uploadprofilepic" />
+
 <Button
     android:id="@+id/Confirm"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="44dp"
-    android:layout_y="274dp"
+    android:layout_x="29dp"
+    android:layout_y="304dp"
     android:text="Confirm" />
 
 <Button
     android:id="@+id/Cancel"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="156dp"
-    android:layout_y="274dp"
+    android:layout_x="137dp"
+    android:layout_y="304dp"
     android:text="Cancel" />
-
-<TextView
-    android:id="@+id/CurrentPwd"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="30dp"
-    android:layout_y="170dp"
-    android:text="Current Password"
-    android:textColor="#ff000000" />
-
-<EditText
-    android:id="@+id/InputCurrentPassword"
-    android:layout_width="157dp"
-    android:layout_height="30dp"
-    android:layout_x="147dp"
-    android:layout_y="160dp"
-    android:ems="10"
-    android:inputType="textPassword" />
-
-<TextView
-    android:id="@+id/NewPwd"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="30dp"
-    android:layout_y="207dp"
-    android:text="New Password"
-    android:textColor="#ff000000" />
-
-<EditText
-    android:id="@+id/InputNewPwd"
-    android:layout_width="157dp"
-    android:layout_height="30dp"
-    android:layout_x="147dp"
-    android:layout_y="195dp"
-    android:ems="10"
-    android:inputType="textPassword" />
-
-<TextView
-    android:id="@+id/ConfirmPwd"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="30dp"
-    android:layout_y="244dp"
-    android:text="Confirm Password"
-    android:textColor="#ff000000" />
-
-<EditText
-    android:id="@+id/InputConfirmPwd"
-    android:layout_width="157dp"
-    android:layout_height="30dp"
-    android:layout_x="147dp"
-    android:layout_y="228dp"
-    android:ems="10"
-    android:inputType="textPassword" />
 
 </AbsoluteLayout>

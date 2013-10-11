@@ -77,7 +77,7 @@
     android:layout_height="80dp"
     android:layout_x="154dp"
     android:layout_y="362dp"
-    android:src="@drawable/myanswerbank" />
+    android:src="@drawable/myquestionbank" />
 
 <ImageButton
     android:id="@+id/Setting"

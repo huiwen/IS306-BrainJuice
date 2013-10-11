@@ -20,13 +20,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
-public class ChildSetting extends Activity implements OnClickListener {
+public class ChildEditProfile extends Activity implements OnClickListener {
 
 	
 	Button faq;
 	Button logout;
-	TextView editProfile;
-	TextView changePwd;
+	Button confirm;
+	Button cancel;
+	ImageButton upload;
 	ImageButton asking;
 	ImageButton notification;
 	ImageButton questionbank;
@@ -34,7 +35,7 @@ public class ChildSetting extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting_child);
+        setContentView(R.layout.activity_editprofile_child);
        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -52,17 +53,11 @@ public class ChildSetting extends Activity implements OnClickListener {
         questionbank = (ImageButton)this.findViewById(R.id.QuestionBank);
         questionbank.setOnClickListener(this);
         
-        editProfile = (TextView)this.findViewById(R.id.EditProfile);
-        editProfile.setText(Html.fromHtml("<font color='blue'><u>Edit Profile</u></font>"));
-        editProfile.setClickable(true);
-        //editProfile.setMovementMethod(LinkMovementMethod.getInstance());
-        editProfile.setOnClickListener(this);
+        confirm = (Button)this.findViewById(R.id.Confirm);
+        confirm.setOnClickListener(this);
         
-        changePwd = (TextView)this.findViewById(R.id.ChangePwd);
-        changePwd.setText(Html.fromHtml("<font color='blue'><u>Change Password</u></font>"));
-        changePwd.setClickable(true);
-        changePwd.setMovementMethod(LinkMovementMethod.getInstance());
-        changePwd.setOnClickListener(this);
+        cancel = (Button)this.findViewById(R.id.Cancel);
+        cancel.setOnClickListener(this);
         
     }
 
@@ -85,15 +80,81 @@ public class ChildSetting extends Activity implements OnClickListener {
 	         	 startActivity(intent);
 	         	 break;
 	    	 
-	    	 case R.id.EditProfile:
-	    		 Intent intentEditProfile = new Intent(context, ChildEditProfile.class);
-	         	 startActivity(intentEditProfile);
-	         	 break;
+	    	 case R.id.Confirm:
+	    		 LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+	         	 View popupView = layoutInflater.inflate(R.layout.activity_editprofile_confirmation, null);
+	             final PopupWindow popupWindow = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
+	             popupWindow.setOutsideTouchable(false);
+	             popupWindow.setFocusable(true);
+	             
+	             try {
+	             	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+	                 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+	                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+	                 getWindow().setAttributes(layoutParams);
+	             } catch (SettingNotFoundException e) {
+	                 e.printStackTrace();
+	             }
+	             
+	             
+	             Button btnDismiss = (Button)popupView.findViewById(R.id.Cancel);
+	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+	             	public void onClick(View v) {
+	       		      // TODO Auto-generated method stub
+	       		    	 popupWindow.dismiss();
+	       		      
+	       		    	 try {
+	       		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+	       		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+	       		    		 layoutParams.screenBrightness = curBrightnessValue;
+	       		    		 getWindow().setAttributes(layoutParams);
+	       		    	 } catch (SettingNotFoundException e) {
+	      		            // TODO Auto-generated catch block
+	       		    		 e.printStackTrace();
+	       		    	 }
+	       		     }});
+	             
+	             Button btnProceed = (Button)popupView.findViewById(R.id.Proceed);
+	             btnProceed.setOnClickListener(new Button.OnClickListener(){
+	             	public void onClick(View v) {
+	       		      // TODO Auto-generated method stub
+	             		popupWindow.dismiss();
+	            		
+	            		LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
+	                    View popupView = layoutInflater.inflate(R.layout.activity_editprofile_successful, null);  
+	            		final PopupWindow popupWindowS = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
+	                    popupWindowS.setOutsideTouchable(false);
+	                    popupWindowS.setFocusable(true);
+	                    
+	                    
+	                    Button btnClose = (Button)popupView.findViewById(R.id.Close);
+	                    btnClose.setOnClickListener(new Button.OnClickListener(){
+	                    	public void onClick(View v) {
+	                    		//popupWindowS.dismiss();
+	                    		Intent intent = new Intent(context, ChildSetting.class);
+	                        	startActivity(intent);
+	              		      
+	              		    	 try {
+	              		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+	              		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+	              		    		 layoutParams.screenBrightness = curBrightnessValue;
+	              		    		 getWindow().setAttributes(layoutParams);
+	              		    	 } catch (SettingNotFoundException e) {
+	             		            // TODO Auto-generated catch block
+	              		    		 e.printStackTrace();
+	              		    	 }
+	              		     }});
+	                    popupWindowS.showAsDropDown(confirm, 150, -300);
+	             	}});
+	             popupWindow.showAsDropDown(confirm, 150, -300);
+	        	 
+	        	 break;
 	         	 
-	    	 case R.id.ChangePwd:
-	    		 Intent intentChangePwd = new Intent(context, ChildChangePassword.class);
+	    	 case R.id.Cancel:
+	    		 Intent intentChangePwd = new Intent(context, ChildSetting.class);
 	         	 startActivity(intentChangePwd);
 	         	 break;
+	         	 
 	    	 case R.id.Logout:
 	    		 LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
 	         	 View popupViewLogout = layoutInflaterLogout.inflate(R.layout.activity_logout, null);
@@ -148,6 +209,7 @@ public class ChildSetting extends Activity implements OnClickListener {
 	             popupWindowLogout.showAsDropDown(logout, 150, 50);
 	        	 
 	        	 break;
+        	 
         
     	 }
     	

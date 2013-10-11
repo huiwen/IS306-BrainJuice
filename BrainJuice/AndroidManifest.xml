@@ -65,6 +65,21 @@
             android:name="com.example.brainjuice.ChildChangePassword"
             android:label="@string/app_name" >
         </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ChildEditProfile"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.CreateAccount"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ForgetPassword"
+            android:label="@string/app_name" >
+        </activity>
 
     </application>
 
