@@ -144,14 +144,5 @@
     android:layout_y="300dp"
     android:text="JonathanTan likes your answer!" />
 
-<Button
-    android:id="@+id/Back"
-    android:layout_width="wrap_content"
-    android:layout_height="36dp"
-    android:layout_x="104dp"
-    android:layout_y="320dp"
-    android:text="Back"
-    android:textStyle="bold" />
-
 </AbsoluteLayout>
 

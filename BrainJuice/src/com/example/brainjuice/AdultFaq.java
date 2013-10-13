@@ -128,12 +128,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    				 + "<b>Step 3</b> At the “Question Request” page, you will be presented with a question asked by a primary school student. You can choose to answer it by keying your answer into the textbox area. Alternatively, if you prefer to answer other question instead, simply tap the “Another Question” button, and a new question will be posted to you.<br />"
 	    				 + "<b>Step 4</b> Tap the “Answer” button, and your answer will be sent to primary school student who initiated the question."));
 	    		 
-	    		 Button back = (Button)this.findViewById(R.id.Back);
-	    		 back.setOnClickListener(new Button.OnClickListener(){
-	              	public void onClick(View v) {
-	              		Intent intent = new Intent(context, AdultFaq.class);
-	              		startActivity(intent);
-	              	}});
+	    		
 	    		 
 	    		 Button faq = (Button)this.findViewById(R.id.FAQ);
 	    		 faq.setOnClickListener(new Button.OnClickListener(){
@@ -244,13 +239,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    				 + "<b>Step 3</b> All notifications will be populated. Select the notification you would like to view.<br />"
 	    				 + "<b>Step 4</b> You will see the question asked, and the answer provided by yourself. Additionally, you will be able to see if your answer has been accepted or rejected by the primary school student. When accepted, the notification will show that the primary school student likes your answer (and vice versa). The question asked and answer provided will be stored in your “Answer Bank”.<br />"));
 	    		 
-	    		 Button backQ2 = (Button)this.findViewById(R.id.Back);
-	    		 backQ2.setOnClickListener(new Button.OnClickListener(){
-	              	public void onClick(View v) {
-	              		Intent intent = new Intent(context, AdultFaq.class);
-	              		startActivity(intent);
-	              	}});
-	    		 
+	    		
 	    		 Button faqQ2 = (Button)this.findViewById(R.id.FAQ);
 	    		 faqQ2.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
@@ -359,12 +348,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		 bodyQ3.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Answer Bank” navigation tab.<br />"
 	    				 + "<b>Step 2</b> Select the “Accepted” tab to look at your answers that were accepted by the primary school students who asked the questions. Select the “Rejected” tab to look at your answers that were rejected by the primary school students who asked the questions. Select the “Pending Acceptance” tab to look at your answers that were yet to be acknowledged by the primary school students who asked the questions. There is a “search” textbox where you can search for a question with keywords entered.<br />"));
 	    		 
-	    		 Button backQ3 = (Button)this.findViewById(R.id.Back);
-	    		 backQ3.setOnClickListener(new Button.OnClickListener(){
-	              	public void onClick(View v) {
-	              		Intent intent = new Intent(context, AdultFaq.class);
-	              		startActivity(intent);
-	              	}});
+	    		 
 	    		 
 	    		 Button faqQ3 = (Button)this.findViewById(R.id.FAQ);
 	    		 faqQ3.setOnClickListener(new Button.OnClickListener(){
@@ -475,12 +459,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    				 + "<b>Step 3</b> You can change your profile picture by tapping on the icon. You can select a new profile picture from your mobile device.<br />"
 	    				 + "<b>Step 4</b> Tap the “Confirm” button."));
 	    		 
-	    		 Button backQ4 = (Button)this.findViewById(R.id.Back);
-	    		 backQ4.setOnClickListener(new Button.OnClickListener(){
-	              	public void onClick(View v) {
-	              		Intent intent = new Intent(context, AdultFaq.class);
-	              		startActivity(intent);
-	              	}});
+	    		
 	    		 Button faqQ4 = (Button)this.findViewById(R.id.FAQ);
 	    		 faqQ4.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
@@ -592,12 +571,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    				 + "<b>Step 3</b> You can change your password by entering the current password, new password and confirm password.<br />"
 	    				 + "<b>Step 4</b> Tap the “Confirm” button.<br />"));
 	    		 
-	    		 Button backQ5 = (Button)this.findViewById(R.id.Back);
-	    		 backQ5.setOnClickListener(new Button.OnClickListener(){
-	              	public void onClick(View v) {
-	              		Intent intent = new Intent(context, AdultFaq.class);
-	              		startActivity(intent);
-	              	}});
+	    		 
 	    		 
 	    		 Button faqQ5 = (Button)this.findViewById(R.id.FAQ);
 	    		 faqQ5.setOnClickListener(new Button.OnClickListener(){
