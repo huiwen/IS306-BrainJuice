@@ -5,6 +5,7 @@ import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.*;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import com.example.brainjuice.entity.*;
 
 
 public class HomePage extends Activity implements OnClickListener {
@@ -27,6 +29,13 @@ public class HomePage extends Activity implements OnClickListener {
 	ImageButton notification;
 	ImageButton questionbank;
 	ImageButton setting;
+	
+	ImageView icon;
+	TextView welcomeMsg;
+	
+	String loginUser;
+	UserMgr userMgr;
+	
 	//Button btnOpenPopup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +64,17 @@ public class HomePage extends Activity implements OnClickListener {
         
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
-        	
-        //btnOpenPopup = (Button)findViewById(R.id.Ask);
+        
+        loginUser = BrainJuice.retrieveLoginUser();
+        userMgr = BrainJuice.retrieveUserMgr();
+        
+        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+        
         
     }
 
@@ -123,6 +141,7 @@ public class HomePage extends Activity implements OnClickListener {
              btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
+             		BrainJuice.removeLoginUser();
              		Intent intent = new Intent(context, BrainJuice.class);
                     startActivity(intent);
        		      

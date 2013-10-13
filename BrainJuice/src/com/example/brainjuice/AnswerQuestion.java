@@ -1,10 +1,13 @@
 package com.example.brainjuice;
 
+import com.example.brainjuice.entity.*;
+
 import android.os.Bundle;
 import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -26,6 +29,11 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
+	
+	ImageView icon;
+	TextView welcomeMsg;
+	String loginUser;
+	UserMgr userMgr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
@@ -55,6 +63,15 @@ public class AnswerQuestion extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         
+        loginUser = BrainJuice.retrieveLoginUser();
+        userMgr = BrainJuice.retrieveUserMgr();
+        
+        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
     }
 
     
@@ -203,6 +220,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
             	public void onClick(View v) {
       		      // TODO Auto-generated method stub
+            		BrainJuice.removeLoginUser();
             		Intent intent = new Intent(context, BrainJuice.class);
                    startActivity(intent);
       		      

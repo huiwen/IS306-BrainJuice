@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import com.example.brainjuice.entity.*;
+
 import android.os.Bundle;
 import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
@@ -34,6 +36,12 @@ public class AdultFaq extends Activity implements OnClickListener {
 	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
+	
+	ImageView icon;
+	TextView welcomeMsg;
+	String loginUser;
+	UserMgr userMgr;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
@@ -85,6 +93,16 @@ public class AdultFaq extends Activity implements OnClickListener {
         q5.setText(Html.fromHtml("<font color='blue'><u>Where can I change my password?</u></font><br />"));
         q5.setClickable(true);
         q5.setOnClickListener(this);
+        
+        loginUser = BrainJuice.retrieveLoginUser();
+        userMgr = BrainJuice.retrieveUserMgr();
+        
+        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
     }
 
     
@@ -118,6 +136,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		 
 	    	 case R.id.Q1:
 	    		 setContentView(R.layout.activity_faqinstance_adult);
+	    		 
+	    		 	loginUser = BrainJuice.retrieveLoginUser();
+	    	        userMgr = BrainJuice.retrieveUserMgr();
+	    	        
+	    	        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+	    	        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+	    	        icon.setImageResource(j);
+	    	        
+	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView title = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 title.setText(Html.fromHtml("How do I answer a question?"));
@@ -210,6 +238,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	    		             	public void onClick(View v) {
 	    		       		      // TODO Auto-generated method stub
+	    		             		BrainJuice.removeLoginUser();
 	    		             		Intent intent = new Intent(context, BrainJuice.class);
 	    		                    startActivity(intent);
 	    		       		      
@@ -234,6 +263,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	 
 	    	 case R.id.Q2:
 	    		 setContentView(R.layout.activity_faqinstance_adult);
+	    		 
+	    		 	loginUser = BrainJuice.retrieveLoginUser();
+	    	        userMgr = BrainJuice.retrieveUserMgr();
+	    	        
+	    	        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+	    	        int jQ2 = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+	    	        icon.setImageResource(jQ2);
+	    	        
+	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ2 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ2.setText(Html.fromHtml("How do I know if my answer has been accepted?"));
@@ -326,6 +365,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	    		             	public void onClick(View v) {
 	    		       		      // TODO Auto-generated method stub
+	    		             		BrainJuice.removeLoginUser();
 	    		             		Intent intent = new Intent(context, BrainJuice.class);
 	    		                    startActivity(intent);
 	    		       		      
@@ -351,6 +391,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		 
 	    	 case R.id.Q3:
 	    		 setContentView(R.layout.activity_faqinstance_adult);
+	    		 
+	    		 	loginUser = BrainJuice.retrieveLoginUser();
+	    	        userMgr = BrainJuice.retrieveUserMgr();
+	    	        
+	    	        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+	    	        int jQ3 = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+	    	        icon.setImageResource(jQ3);
+	    	        
+	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ3 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ3.setText(Html.fromHtml("Where are my answers to the questions asked located?"));
@@ -441,6 +491,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	    		             	public void onClick(View v) {
 	    		       		      // TODO Auto-generated method stub
+	    		             		BrainJuice.removeLoginUser();
 	    		             		Intent intent = new Intent(context, BrainJuice.class);
 	    		                    startActivity(intent);
 	    		       		      
@@ -465,6 +516,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		 
 	    	 case R.id.Q4:
 	    		 setContentView(R.layout.activity_faqinstance_adult);
+	    		 
+	    		 	loginUser = BrainJuice.retrieveLoginUser();
+	    	        userMgr = BrainJuice.retrieveUserMgr();
+	    	        
+	    	        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+	    	        int jQ4 = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+	    	        icon.setImageResource(jQ4);
+	    	        
+	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ4 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?"));
@@ -556,6 +617,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	    		             	public void onClick(View v) {
 	    		       		      // TODO Auto-generated method stub
+	    		             		BrainJuice.removeLoginUser();
 	    		             		Intent intent = new Intent(context, BrainJuice.class);
 	    		                    startActivity(intent);
 	    		       		      
@@ -582,6 +644,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		 
 	    	 case R.id.Q5:
 	    		 setContentView(R.layout.activity_faqinstance_adult);
+	    		 
+	    		 	loginUser = BrainJuice.retrieveLoginUser();
+	    	        userMgr = BrainJuice.retrieveUserMgr();
+	    	        
+	    	        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+	    	        int jQ5 = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+	    	        icon.setImageResource(jQ5);
+	    	        
+	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ5 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?"));
@@ -674,6 +746,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    		             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	    		             	public void onClick(View v) {
 	    		       		      // TODO Auto-generated method stub
+	    		             		BrainJuice.removeLoginUser();
 	    		             		Intent intent = new Intent(context, BrainJuice.class);
 	    		                    startActivity(intent);
 	    		       		      
@@ -731,6 +804,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
+	             		BrainJuice.removeLoginUser();
 	             		Intent intent = new Intent(context, BrainJuice.class);
 	                    startActivity(intent);
 	       		      

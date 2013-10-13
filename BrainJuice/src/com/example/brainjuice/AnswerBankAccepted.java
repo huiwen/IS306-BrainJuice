@@ -1,11 +1,14 @@
 package com.example.brainjuice;
 
+import com.example.brainjuice.entity.*;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings.SettingNotFoundException;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -27,6 +31,11 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton setting;
+	
+	ImageView icon;
+	TextView welcomeMsg;
+	UserMgr userMgr;
+	String loginUser;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -71,6 +80,17 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 		
 		setting = (ImageButton)this.findViewById(R.id.widget43);
 		setting.setOnClickListener(this);
+		
+		loginUser = BrainJuice.retrieveLoginUser();
+        userMgr = BrainJuice.retrieveUserMgr();
+        
+        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+		
 		}
 
 	@Override
@@ -145,6 +165,7 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
             	public void onClick(View v) {
       		      // TODO Auto-generated method stub
+            		BrainJuice.removeLoginUser();
             		Intent intent = new Intent(context, BrainJuice.class);
                    startActivity(intent);
       		      

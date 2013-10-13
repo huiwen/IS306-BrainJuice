@@ -76,4 +76,11 @@
         android:layout_y="401dp"
         android:text="Create Account" />
 
+    <TextView
+        android:id="@+id/ErrorMsg"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_x="88dp"
+        android:layout_y="222dp" />
+
 </AbsoluteLayout>

@@ -9,15 +9,24 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import com.example.brainjuice.entity.*;
 
 
 public class BrainJuice extends Activity implements OnClickListener {
 
+	public static UserMgr userMgr = new UserMgr();
+	public static PendingAnswerMgr paMgr = new PendingAnswerMgr();
+	public static PendingAcceptanceMgr pAcMgr = new PendingAcceptanceMgr();
+	public static AnsweredQnMgr aqMgr = new AnsweredQnMgr();
+	public static AdultNotificationMgr anMgr = new AdultNotificationMgr();
+	public static ChildNotificationMgr cnMgr = new ChildNotificationMgr();
+	public static String loginUser = null;
 	
 	TextView username;
 	TextView password;
 	TextView createAccount;
 	TextView forgetPassword;
+	TextView errorMsg;
 	Button Login;
 	
     @Override
@@ -42,6 +51,12 @@ public class BrainJuice extends Activity implements OnClickListener {
         forgetPassword.setClickable(true);
         forgetPassword.setOnClickListener(this);
         
+        if(getIntent().getStringExtra("errorMsg") != null){
+        	errorMsg = (TextView)this.findViewById(R.id.ErrorMsg);
+        	errorMsg.setText(Html.fromHtml("<font color='red' size='1'>" + getIntent().getStringExtra("errorMsg") + "</font>"));
+        	username.setText(getIntent().getStringExtra("username"));
+        }
+        
     }
 
 
@@ -59,14 +74,28 @@ public class BrainJuice extends Activity implements OnClickListener {
     	
     	 switch (v.getId()) {
 	         case R.id.Login: 
-	        	 if(username.getText().toString().equals("J")){
-		        	 Intent intent = new Intent(context, HomePage.class);
-		             startActivity(intent);
-	        	 } else {
-	        		 Intent intent = new Intent(context, AdultHomePage.class);
-		             startActivity(intent);
+	        	 String inputUsername = username.getText().toString();
+	        	 String inputPassword = password.getText().toString();
+	        	 
+	        	 String userType = userMgr.login(inputUsername, inputPassword);
+	        	 
+	        	 if(userType == null){
+	        		 Intent intent = new Intent(context, BrainJuice.class);
+	        		 intent.putExtra("errorMsg", "Your username and password could not match!");
+	        		 intent.putExtra("username", inputUsername);
+	        		 startActivity(intent);
+	        	 }else{
+	        		 loginUser = inputUsername;
+	        		 
+	        		 if(userType.equals("child")){
+	        	 
+			        	 Intent intent = new Intent(context, HomePage.class);
+			             startActivity(intent);
+		        	 } else if(userType.equals("adult")){
+		        		 Intent intent = new Intent(context, AdultHomePage.class);
+			             startActivity(intent);
+		        	 }
 	        	 }
-	          // do something
 	          break;
 	         
 	         case R.id.CreateAccount:
@@ -99,4 +128,35 @@ public class BrainJuice extends Activity implements OnClickListener {
     	
     }
     
+    public static String retrieveLoginUser(){
+    	return loginUser;
+    }
+    
+    public static UserMgr retrieveUserMgr(){
+    	return userMgr;
+    }
+    
+    public static PendingAnswerMgr retrievePAMgr(){
+    	return paMgr;
+    }
+    
+    public static PendingAcceptanceMgr retrievePAcMgr(){
+    	return pAcMgr;
+    }
+    
+    public static AnsweredQnMgr retrieveAQMgr(){
+    	return aqMgr;
+    }
+    
+    public static ChildNotificationMgr retrieveCNMgr(){
+    	return cnMgr;
+    }
+    
+    public static AdultNotificationMgr retrieveANMgr(){
+    	return anMgr;
+    }
+    
+    public static void removeLoginUser(){
+    	loginUser = null;
+    }
 }

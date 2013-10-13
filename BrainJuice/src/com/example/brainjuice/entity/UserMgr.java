@@ -10,8 +10,8 @@ public class UserMgr {
 		
 		userList.add(new User("JonathanTan", "1234", "child", "jonathantan@gmail.com", "minion"));
 		userList.add(new User("MelissaTan", "1234", "adult", "melissatan@gmail.com", "melissa"));
-		userList.add(new User("JackyWong", "1234", "adult", "jackywong@gmail.com", "melissa"));
-		userList.add(new User("JudyChoo", "1234", "child", "judychoo@gmail.com", "minion"));
+		userList.add(new User("JackyWong", "1234", "adult", "jackywong@gmail.com", "minion"));
+		userList.add(new User("JudyChoo", "1234", "child", "judychoo@gmail.com", "melissa"));
 	}
 	
 	//register for new user.
@@ -30,7 +30,7 @@ public class UserMgr {
 	}
 	
 	//retrieve the User object for a specific username
-	public User retriveUser(String username){
+	public User retrieveUser(String username){
 		for(User user: userList){
 			if(user.getUsername().equals(username)){
 				return user;

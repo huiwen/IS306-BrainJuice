@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import com.example.brainjuice.entity.*;
+
 import android.os.Bundle;
 import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
@@ -30,6 +32,12 @@ public class AdultChangePassword extends Activity implements OnClickListener {
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
+	
+	String loginUser;
+	UserMgr userMgr;
+	ImageView icon;
+	TextView welcomeMsg;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
@@ -57,6 +65,16 @@ public class AdultChangePassword extends Activity implements OnClickListener {
         
         cancel = (Button)this.findViewById(R.id.Cancel);
         cancel.setOnClickListener(this);
+        
+        loginUser = BrainJuice.retrieveLoginUser();
+        userMgr = BrainJuice.retrieveUserMgr();
+        
+        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
         
     }
 
@@ -127,6 +145,7 @@ public class AdultChangePassword extends Activity implements OnClickListener {
 	             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
+	             		BrainJuice.removeLoginUser();
 	             		Intent intent = new Intent(context, BrainJuice.class);
 	                    startActivity(intent);
 	       		      
