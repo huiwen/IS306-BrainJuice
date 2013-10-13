@@ -122,12 +122,4 @@
     </LinearLayout>
 </ScrollView>
 
-<Button
-    android:id="@+id/Back"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="139dp"
-    android:layout_y="310dp"
-    android:text="Back" />
-
 </AbsoluteLayout>

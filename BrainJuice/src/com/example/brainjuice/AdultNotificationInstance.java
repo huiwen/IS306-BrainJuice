@@ -62,9 +62,7 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         
-        back = (Button)findViewById(R.id.Back);
-        back.setOnClickListener(this);
-        
+       
         qnBody = (TextView) this.findViewById(R.id.QuestionBody);
         qnBody.setText(Html.fromHtml("Ask by JonathanTan<br /><br />How big is the earth?"));
         
@@ -95,11 +93,7 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
              
              break;
              
-         case R.id.Back:
-        	 Intent intentBack = new Intent (context, AdultNotification.class);
-        	 startActivity(intentBack);
-        	 
-        	 break;
+         
         	 
          case R.id.AnswerBank:
         	 Intent intentAnswerBankAccepted = new Intent (context, AnswerBankAccepted.class);
