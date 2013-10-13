@@ -77,7 +77,7 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
     	
     	 switch (v.getId()) {
          case R.id.Asking: 
-        	 Intent intent = new Intent(context, AnswerQuestion.class);
+        	 Intent intent = new Intent(context, AdultHomePage.class);
              startActivity(intent);
              
              break;

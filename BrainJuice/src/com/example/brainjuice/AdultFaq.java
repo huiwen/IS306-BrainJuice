@@ -56,6 +56,9 @@ public class AdultFaq extends Activity implements OnClickListener {
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
         
+        setting = (ImageButton)this.findViewById(R.id.Setting);
+        setting.setOnClickListener(this);
+        
         q1 = (TextView)this.findViewById(R.id.Q1);
         q1.setText(Html.fromHtml("<font color='blue'><u>How do I answer a question?</u></font><br />"));
         q1.setClickable(true);

@@ -79,7 +79,7 @@ public class AdultHomePage extends Activity implements OnClickListener {
         	 
         	 break;
         	 
-         case R.id.Setting:
+         case R.id.widget43:
         	 Intent intentSetting = new Intent (context, AdultSetting.class);
         	 startActivity(intentSetting);
         	 

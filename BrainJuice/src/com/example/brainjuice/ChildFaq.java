@@ -56,6 +56,9 @@ public class ChildFaq extends Activity implements OnClickListener {
         questionbank = (ImageButton)this.findViewById(R.id.QuestionBank);
         questionbank.setOnClickListener(this);
         
+        setting = (ImageButton)this.findViewById(R.id.Setting);
+        setting.setOnClickListener(this);
+        
         q1 = (TextView)this.findViewById(R.id.Q1);
         q1.setText(Html.fromHtml("<font color='blue'><u>How do I ask a question?</u></font><br />"));
         q1.setClickable(true);

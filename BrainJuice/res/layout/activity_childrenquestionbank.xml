@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_x="14dp"
         android:layout_y="120dp"
-        android:text="My Qustion Bank"
+        android:text="My Question Bank"
         android:textColor="#ff000000"
         android:textSize="25sp"
         android:textStyle="bold" />
