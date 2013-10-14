@@ -5,7 +5,9 @@ import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +22,7 @@ import android.content.DialogInterface;
 import com.example.brainjuice.entity.*;
 
 
-public class HomePage extends Activity implements OnClickListener {
+public class HomePage extends Activity implements OnClickListener{
 
 	
 	Button faq;
@@ -29,6 +31,7 @@ public class HomePage extends Activity implements OnClickListener {
 	ImageButton notification;
 	ImageButton questionbank;
 	ImageButton setting;
+	EditText askQn;
 	
 	ImageView icon;
 	TextView welcomeMsg;
@@ -54,6 +57,7 @@ public class HomePage extends Activity implements OnClickListener {
         
         
         ask = (Button)this.findViewById(R.id.Ask);
+        ask.setEnabled(false);
         ask.setOnClickListener(this);
         
         notification = (ImageButton)this.findViewById(R.id.notification);
@@ -74,6 +78,32 @@ public class HomePage extends Activity implements OnClickListener {
         
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+        
+        askQn = (EditText)this.findViewById(R.id.editText1);
+        askQn.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				ask.setEnabled(askQn.getText().length() != 0);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1,
+					int arg2, int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+        	
+        });
+        
         
         
     }
@@ -228,6 +258,8 @@ public class HomePage extends Activity implements OnClickListener {
                 popupWindowS.setOutsideTouchable(false);
                 popupWindowS.setFocusable(true);
                 
+                //ask qn logic
+                BrainJuice.retrievePAMgr().addNew(loginUser, askQn.getText().toString());
                 
                 Button btnClose = (Button)popupView.findViewById(R.id.Close);
                 btnClose.setOnClickListener(new Button.OnClickListener(){

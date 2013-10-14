@@ -7,16 +7,14 @@ public class PendingAcceptance {
 	private String qn;
 	private String userReplied;
 	private String answer;
-	private ArrayList<String> comment;
 	
 	public PendingAcceptance(String userAsked, String qn, String userReplied,
-			String answer, ArrayList<String> comment) {
+			String answer) {
 		super();
 		this.userAsked = userAsked;
 		this.qn = qn;
 		this.userReplied = userReplied;
 		this.answer = answer;
-		this.comment = comment;
 	}
 	
 	public String getUserAsked() {
@@ -43,11 +41,4 @@ public class PendingAcceptance {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public ArrayList<String> getComment() {
-		return comment;
-	}
-	public void setComment(ArrayList<String> comment) {
-		this.comment = comment;
-	}
-	
 }

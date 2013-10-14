@@ -10,16 +10,12 @@ public class PendingAnswerMgr {
 		
 		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Why do people need to sleep?"));
 		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Why are gifts being exchanged during Christmas?"));
-		ArrayList<String> temp = new ArrayList<String>();
-		temp.add("MelissaTan");
 		pendingAnswerList.add(new PendingAnswer("JudyChoo", "Where does the baby come from?"));
 		pendingAnswerList.add(new PendingAnswer("JudyChoo",	"Why does the moon seem to follow me wherever I go?"));
 		pendingAnswerList.add(new PendingAnswer("JudyChoo", "Why I cannot remember my dream?"));
 		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Where does the sun rise?"));
-		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Why does metal sink and ice float when place in a water?", temp));
-		temp.remove(0);
-		temp.add("JackWong");
-		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Why the dog licks?", temp));
+		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Why does metal sink and ice float when place in a water?"));
+		pendingAnswerList.add(new PendingAnswer("JonathanTan", "Why the dog licks?"));
 
 	}
 	
@@ -30,72 +26,59 @@ public class PendingAnswerMgr {
 	
 	//the qn is answered
 	public void delete(String username, String qn){
+		int position = -1;
+		int positionToRemove = -1;
 		for(int i = 0; i < pendingAnswerList.size(); i++){
 			PendingAnswer pendingAnswer = pendingAnswerList.get(i);
 			if(pendingAnswer.getUserAsked().equals(username) && pendingAnswer.getQn().equals(qn)){
-				pendingAnswerList.remove(i);
-				break;
-			}
-		}
-	}
-	
-	//the person has answered this qn and being rejected
-	public boolean canAnswer(String userAsked, String qn, String userLogin){
-		PendingAnswer pa = null;
-		for(PendingAnswer temp: pendingAnswerList){
-			if(temp.getUserAsked().equals(userAsked) && temp.getQn().equals(qn)){
-				pa = temp;
+				position = i;
 				break;
 			}
 		}
 		
-		if(pa != null){
-			ArrayList<String> userRejectedList = pa.getComment();
-			for(String user: userRejectedList){
-				if(user.equals(userLogin)){
-					return false;
-				}
-			}
+		if(position == 0){
+			positionToRemove = pendingAnswerList.size() - 1;
+		} else {
+			positionToRemove = position - 1;
 		}
-		return true;
+		
+		pendingAnswerList.remove(positionToRemove);
+	}
+	
+	public void delete(){
+		if(pendingAnswerList.size() == 1){
+			pendingAnswerList.remove(0);
+		}
 	}
 	
 	//initialize the first qn to user
 	public PendingAnswer answer(String userLogin){
-		for(PendingAnswer pa: pendingAnswerList){
-			if(canAnswer(pa.getUserAsked(),pa.getQn(),userLogin)){
-				return pa;
-			}
+		if(pendingAnswerList.size() != 0){
+			return pendingAnswerList.get(0);
 		}
 		return null;
 	}
 	
-	//The answer for this qn has been rejected, this qn need to be added back to pending answer list.
-	public void beingRejected(String userAsked, String qn, String userReplied, ArrayList<String> comment){
-		comment.add(userReplied);
-		pendingAnswerList.add(new PendingAnswer(userAsked, qn, comment));
-	}
 	
 	public void add(PendingAnswer pa){
 		pendingAnswerList.add(pa);
 	}
 	
 	//Ask for another qn
-	public PendingAnswer anotherQn(String userAsked, String qn, String userLogin){
-		int position = -1;
-		for(int i = 0; i < pendingAnswerList.size(); i++){
-			PendingAnswer pa = pendingAnswerList.get(i);
-			if(pa.getUserAsked().equals(userAsked) && pa.getQn().equals(qn)){
-				position = i;
-				break;
-			}
-		}
-		if(position != -1){
-			for(int i = position + 1; i < pendingAnswerList.size();i++){
+	public PendingAnswer anotherQn(String userAsked, String qn){
+		if(pendingAnswerList.size() != 0){
+			int position = -1;
+			for(int i = 0; i < pendingAnswerList.size(); i++){
 				PendingAnswer pa = pendingAnswerList.get(i);
-				if(canAnswer(pa.getUserAsked(), pa.getQn(), userLogin)){
-					return pa;
+				if(pa.getUserAsked().equals(userAsked) && pa.getQn().equals(qn)){
+					position = i;
+					break;
 				}
+			}
+			if(position != pendingAnswerList.size()-1){
+				return pendingAnswerList.get(position+1);
+			} else if(position == pendingAnswerList.size() - 1){
+				return pendingAnswerList.get(0);
 			}
 		}
 		return null;

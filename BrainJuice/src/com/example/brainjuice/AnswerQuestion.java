@@ -7,7 +7,9 @@ import android.provider.Settings.SettingNotFoundException;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -34,6 +36,12 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 	TextView welcomeMsg;
 	String loginUser;
 	UserMgr userMgr;
+	
+	EditText answerQn;
+	TextView qnBody;
+	
+	PendingAnswer pa;
+	PendingAnswerMgr paMgr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
@@ -51,6 +59,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
         anotherQuestion.setOnClickListener(this);
         
         answer = (Button)this.findViewById(R.id.Answer);
+        answer.setEnabled(false);
         answer.setOnClickListener(this);
         
         
@@ -72,6 +81,44 @@ public class AnswerQuestion extends Activity implements OnClickListener {
         
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+        
+        qnBody = (TextView)this.findViewById(R.id.QuestionBody);
+        paMgr = BrainJuice.retrievePAMgr();
+        pa = paMgr.answer(loginUser);
+        
+        if(pa == null){
+        	qnBody.setText("Currently there is no question available!");
+        } else {
+        	qnBody.setText(pa.getQn());
+        }
+        
+        
+        answerQn = (EditText)this.findViewById(R.id.editText1);
+        answerQn.addTextChangedListener(new TextWatcher(){
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				if(!qnBody.getText().toString().equals("Currently there is no question available!")){
+					answer.setEnabled(answerQn.getText().length() != 0);
+				}
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1,
+					int arg2, int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+        	
+        });
     }
 
     
@@ -82,8 +129,20 @@ public class AnswerQuestion extends Activity implements OnClickListener {
     	   	
     	switch (v.getId()) {
         case R.id.AnotherQuestion: 
-        	Intent intent = new Intent(context, AnswerQuestion.class);
-        	startActivity(intent);
+        	if(pa != null){
+	        	pa = paMgr.anotherQn(pa.getUserAsked(), pa.getQn());
+	        	
+	        	qnBody.setText(pa.getQn());
+	        	answerQn.setText("");
+        	} else {
+        		qnBody.setText("Currently there is no question available!");
+        		answer.setEnabled(false);
+        		answerQn.setText("");
+        	}
+        	
+        	
+        	//Intent intent = new Intent(context, AnswerQuestion.class);
+        	//startActivity(intent);
         	break;
         	
         case R.id.Answer:
@@ -136,6 +195,20 @@ public class AnswerQuestion extends Activity implements OnClickListener {
                     btnClose.setOnClickListener(new Button.OnClickListener(){
                     	public void onClick(View v) {
                     		//popupWindowS.dismiss();
+                    		BrainJuice.retrieveCNMgr().add(pa.getUserAsked(), pa.getQn(), loginUser, answerQn.getText().toString());
+                    		BrainJuice.retrievePAcMgr().add(pa.getUserAsked(), pa.getQn(), loginUser, answerQn.getText().toString());
+                    		pa = paMgr.anotherQn(pa.getUserAsked(), pa.getQn());
+                    		if(pa != null){
+        	            		qnBody.setText(pa.getQn());
+        	            		answerQn.setText("");
+        	            		paMgr.delete(pa.getUserAsked(), pa.getQn());
+                    		} else {
+                    			qnBody.setText("Currently there is no question available!");
+                    			answer.setEnabled(false);
+                    			answerQn.setText("");
+                    			paMgr.delete();
+                    		}
+                    		
                     		Intent intent = new Intent(context, AnswerQuestion.class);
                         	startActivity(intent);
               		      

@@ -5,16 +5,14 @@ public class AdultNotification {
 	private String qn;
 	private String userReplied;
 	private String answer;
-	private boolean like;
 	
 	public AdultNotification(String userAsked, String qn, String userReplied,
-			String answer, boolean like) {
+			String answer) {
 		super();
 		this.userAsked = userAsked;
 		this.qn = qn;
 		this.userReplied = userReplied;
 		this.answer = answer;
-		this.like = like;
 	}
 	
 	public String getUserAsked() {
@@ -41,12 +39,5 @@ public class AdultNotification {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public boolean isLike() {
-		return like;
-	}
-	public void setLike(boolean like) {
-		this.like = like;
-	}
-	
 	
 }
