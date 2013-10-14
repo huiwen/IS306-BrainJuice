@@ -118,11 +118,22 @@
                     android2:layout_width="303dp"
                     android2:layout_height="170dp" >
 
-                <TextView
-                    android:id="@+id/txt1"
-                    android:layout_width="305dp"
-                    android:layout_height="100px"
-                    android:text="This is tab1" />
+                	<ScrollView
+                	    android2:id="@+id/scrollView1"
+                	    android2:layout_width="match_parent"
+                	    android2:layout_height="match_parent"
+                	    android2:layout_x="1dp"
+                	    android2:layout_y="38dp" >
+
+                        <LinearLayout
+                            android2:id="@+id/ly1"
+                            android2:layout_width="match_parent"
+                            android2:layout_height="match_parent"
+                            android2:orientation="vertical" >
+                            
+                                                        
+                        </LinearLayout>
+                    </ScrollView>
     
                 </LinearLayout>
 
@@ -130,24 +141,44 @@
                     android2:id="@+id/tab2"
                     android2:layout_width="match_parent"
                     android2:layout_height="match_parent" >
-                <TextView  
-  						 android:layout_width="fill_parent" 
- 						 android:layout_height="100px" 
-  						 android:text="This is tab2"
-  						 android:id="@+id/txt1"
-   				 />    
+                	<ScrollView
+                	    android2:id="@+id/scrollView1"
+                	    android2:layout_width="match_parent"
+                	    android2:layout_height="match_parent"
+                	    android2:layout_x="1dp"
+                	    android2:layout_y="38dp" >
+
+                        <LinearLayout
+                            android2:id="@+id/ly2"
+                            android2:layout_width="match_parent"
+                            android2:layout_height="match_parent"
+                            android2:orientation="vertical" >
+                            
+                                                        
+                        </LinearLayout>
+                    </ScrollView> 
                 </LinearLayout>
 
                 <LinearLayout
                     android2:id="@+id/tab3"
                     android2:layout_width="match_parent"
                     android2:layout_height="match_parent" >
-                <TextView  
-  					 android:layout_width="fill_parent" 
-   					 android:layout_height="100px" 
-    			     android:text="This is tab3"
-   					 android:id="@+id/txt1"
-  				  />    
+                	<ScrollView
+                	    android2:id="@+id/scrollView1"
+                	    android2:layout_width="match_parent"
+                	    android2:layout_height="match_parent"
+                	    android2:layout_x="1dp"
+                	    android2:layout_y="38dp" >
+
+                        <LinearLayout
+                            android2:id="@+id/ly3"
+                            android2:layout_width="match_parent"
+                            android2:layout_height="match_parent"
+                            android2:orientation="vertical" >
+                            
+                                                        
+                        </LinearLayout>
+                    </ScrollView>
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>

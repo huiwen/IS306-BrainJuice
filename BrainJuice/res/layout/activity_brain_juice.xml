@@ -42,7 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_x="102dp"
         android:layout_y="295dp"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/Login"

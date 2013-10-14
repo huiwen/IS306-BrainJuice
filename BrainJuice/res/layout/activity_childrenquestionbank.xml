@@ -164,32 +164,23 @@
                         android2:textSize="14sp"
                         android2:textStyle="bold" />
 
-                    <TextView
-                        android2:id="@+id/textView3"
-                        android2:layout_width="wrap_content"
-                        android2:layout_height="wrap_content"
-                        android2:layout_x="10dp"
-                        android2:layout_y="57dp"
-                        android2:text="How old is Santa Claus"
-                        android2:textAppearance="?android:attr/textAppearanceSmall" />
 
-                    <TextView
-                        android2:id="@+id/textView4"
-                        android2:layout_width="wrap_content"
-                        android2:layout_height="wrap_content"
-                        android2:layout_x="10dp"
-                        android2:layout_y="86dp"
-                        android2:text="How big is the earth"
-                        android2:textAppearance="?android:attr/textAppearanceSmall" />
+                    <ScrollView
+                        android2:id="@+id/scrollView1"
+                        android2:layout_width="match_parent"
+                        android2:layout_height="120dp"
+                        android2:layout_x="1dp"
+                        android2:layout_y="38dp" >
 
-                    <TextView
-                        android2:id="@+id/textView5"
-                        android2:layout_width="wrap_content"
-                        android2:layout_height="wrap_content"
-                        android2:layout_x="11dp"
-                        android2:layout_y="116dp"
-                        android2:text="Where did Santa Claus come about?"
-                        android2:textAppearance="?android:attr/textAppearanceSmall" />
+                        <LinearLayout
+                            android2:id="@+id/ly1"
+                            android2:layout_width="match_parent"
+                            android2:layout_height="match_parent"
+                            android2:orientation="vertical" >
+                            
+                                                        
+                        </LinearLayout>
+                    </ScrollView>
 
                 </AbsoluteLayout>
                 <AbsoluteLayout
@@ -242,6 +233,23 @@
                         android2:layout_x="266dp"
                         android2:layout_y="6dp"
                         android2:src="@drawable/refreshing" />
+                    
+                    <ScrollView
+                        android2:id="@+id/scrollView2"
+                        android2:layout_width="match_parent"
+                        android2:layout_height="120dp"
+                        android2:layout_x="1dp"
+                        android2:layout_y="38dp" >
+
+                        <LinearLayout
+                            android2:id="@+id/ly2"
+                            android2:layout_width="match_parent"
+                            android2:layout_height="match_parent"
+                            android2:orientation="vertical" >
+                            
+                                                        
+                        </LinearLayout>
+                    </ScrollView>
                     
                 </AbsoluteLayout>
 

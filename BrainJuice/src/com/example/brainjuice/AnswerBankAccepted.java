@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import java.util.ArrayList;
+
 import com.example.brainjuice.entity.*;
 
 import android.app.Activity;
@@ -9,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -37,9 +40,26 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 	UserMgr userMgr;
 	String loginUser;
 	
+	AnsweredQnMgr aqMgr;
+	PendingAcceptanceMgr pacMgr;
+	ArrayList<AnsweredQn> accept;
+	ArrayList<AnsweredQn> reject;
+	ArrayList<PendingAcceptance> pac;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_answerbank_adult);
+		
+		loginUser = BrainJuice.retrieveLoginUser();
+        userMgr = BrainJuice.retrieveUserMgr();
+        
+        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+		
 		TabHost tabHost=(TabHost)findViewById(R.id.tabhost);
 		
 		tabHost.setup();
@@ -47,23 +67,119 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 		txtTab.setTextSize(14);
 		
 		
+		aqMgr = BrainJuice.retrieveAQMgr();
+		accept = aqMgr.retrieveAcceptedAnswerBank(loginUser);
+		
+		LinearLayout myLayout = (LinearLayout) findViewById(R.id.ly1);
+		TextView[] myTextViews;
+		
+		if(accept.size() != 0){
+			myTextViews = new TextView[accept.size()]; // create an empty array;
+	
+			for (int i = 0; i < accept.size(); i++) {
+			    // create a new textview
+			    final TextView rowTextView = new TextView(this);
+	
+			    // set some properties of rowTextView or something
+			    rowTextView.setText(Html.fromHtml("<font color='blue'><u>" + accept.get(i).getQn() + "</u></font>"));
+	
+			    // add the textview to the linearlayout
+			    myLayout.addView(rowTextView);
+	
+			    // save a reference to the textview for later
+			    myTextViews[i] = rowTextView;
+			    
+			    myTextViews[i].setClickable(true);
+		        myTextViews[i].setOnClickListener(this);
+		        myTextViews[i].setId(i);
+					
+			}
+		} else {
+			myTextViews = new TextView[1];
+			myTextViews[0].setText("You don't have any answer that is accepted!");
+		}
+		
 		TabSpec spec1=tabHost.newTabSpec("Accepted");
 		spec1.setContent(R.id.tab1);
 		spec1.setIndicator("Accepted");
+		tabHost.addTab(spec1);
 		
+		reject = aqMgr.retrieveRejectAnswerBank(loginUser);
 		
+		LinearLayout myLayout2 = (LinearLayout) findViewById(R.id.ly2);
+		TextView[] myTextViews2; 
 		
-
+		if(reject.size() != 0){
+		
+			myTextViews2 = new TextView[reject.size()]; // create an empty array;
+	
+			for (int i = 0; i < reject.size(); i++) {
+			    // create a new textview
+			    final TextView rowTextView = new TextView(this);
+	
+			    // set some properties of rowTextView or something
+			    rowTextView.setText(Html.fromHtml("<font color='blue'><u>" + reject.get(i).getQn() + "</u></font>"));
+	
+			    // add the textview to the linearlayout
+			    myLayout2.addView(rowTextView);
+	
+			    // save a reference to the textview for later
+			    myTextViews2[i] = rowTextView;
+			    
+			    myTextViews2[i].setClickable(true);
+		        myTextViews2[i].setOnClickListener(this);
+		        myTextViews2[i].setId(accept.size() + i);
+					
+			}
+		} else {
+			myTextViews2 = new TextView[1];
+			myTextViews2[0].setText("You don't have any answer that is rejected!");
+		}
+		
 		TabSpec spec2=tabHost.newTabSpec("Rejected");
 		spec2.setIndicator("Rejected");
 		spec2.setContent(R.id.tab2);
-
+		
+		tabHost.addTab(spec2);
+		
+		
+		pacMgr = BrainJuice.retrievePAcMgr();
+		pac = pacMgr.retrievePAcListAdult(loginUser);
+		
+		LinearLayout myLayout3 = (LinearLayout) findViewById(R.id.ly3);
+		TextView[] myTextViews3;
+		
+		if(pac.size() != 0){
+		
+			myTextViews3 = new TextView[pac.size()]; // create an empty array;
+	
+			for (int i = 0; i < pac.size(); i++) {
+			    // create a new textview
+			    final TextView rowTextView = new TextView(this);
+	
+			    // set some properties of rowTextView or something
+			    rowTextView.setText(Html.fromHtml("<font color='blue'><u>" + pac.get(i).getQn() + "</u></font>"));
+	
+			    // add the textview to the linearlayout
+			    myLayout3.addView(rowTextView);
+	
+			    // save a reference to the textview for later
+			    myTextViews3[i] = rowTextView;
+			    
+			    myTextViews3[i].setClickable(true);
+		        myTextViews3[i].setOnClickListener(this);
+		        myTextViews3[i].setId(accept.size() + reject.size() + i);
+					
+			}
+		} else {
+			myTextViews3 = new TextView[1];
+			myTextViews3[0].setText("You don't have any answer that is pending acceptance!");
+		}
+		
 		TabSpec spec3=tabHost.newTabSpec("Pending Acceptance");
 		spec3.setIndicator("Pending Acceptance");
 		spec3.setContent(R.id.tab3);
 
-		tabHost.addTab(spec1);
-		tabHost.addTab(spec2);
 		tabHost.addTab(spec3);
 		
 		logout = (Button)this.findViewById(R.id.Logout);
@@ -81,16 +197,6 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 		setting = (ImageButton)this.findViewById(R.id.widget43);
 		setting.setOnClickListener(this);
 		
-		loginUser = BrainJuice.retrieveLoginUser();
-        userMgr = BrainJuice.retrieveUserMgr();
-        
-        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
-        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
-        icon.setImageResource(j);
-        
-        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
-        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-		
 		}
 
 	@Override
@@ -98,6 +204,44 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		
 		final Context context = this;
+		
+		if(v.getId() < accept.size()){  
+		     for(int i = 0; i < accept.size(); i++){
+		    	 if(v.getId() == i){
+		    		 Intent intentBank = new Intent(context, AdultAnswerBankInstance.class);
+		    		 intentBank.putExtra("qn", accept.get(i).getQn());
+		    		 intentBank.putExtra("userAsked", accept.get(i).getUserAsked());
+		    		 intentBank.putExtra("answer", accept.get(i).getAnswer());
+		    		 startActivity(intentBank);
+		    		 break; 
+		    	 }
+		     }
+	     } else if(v.getId() < accept.size() + reject.size()){
+	    	 int acceptSize = accept.size();
+	    	 for(int i = 0; i < reject.size(); i++){
+		    	 if(v.getId() == i + acceptSize){
+		    		 Intent intentBank = new Intent(context, AdultAnswerBankInstance.class);
+		    		 intentBank.putExtra("qn", reject.get(i).getQn());
+		    		 intentBank.putExtra("userAsked", reject.get(i).getUserAsked());
+		    		 intentBank.putExtra("answer", reject.get(i).getAnswer());
+		    		 startActivity(intentBank);
+		    		 break;
+		    	 }
+	    	 }
+	     } else {
+	    	 int acceptSize = accept.size();
+	    	 int rejectSize = reject.size();
+	    	 for(int i = 0; i < pac.size(); i++){
+		    	 if(v.getId() == i + acceptSize + rejectSize){
+		    		 Intent intentBank = new Intent(context, AdultAnswerBankInstance.class);
+		    		 intentBank.putExtra("qn", pac.get(i).getQn());
+		    		 intentBank.putExtra("userAsked", pac.get(i).getUserAsked());
+		    		 intentBank.putExtra("answer", pac.get(i).getAnswer());
+		    		 startActivity(intentBank);
+		    		 break;
+		    	 }
+	    	 }
+	     }
         
         
     	

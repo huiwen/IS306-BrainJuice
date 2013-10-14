@@ -2,6 +2,8 @@ package com.example.brainjuice.entity;
 
 import java.util.ArrayList;
 
+import android.util.Log;
+
 public class AnsweredQnMgr {
 	ArrayList<AnsweredQn> answeredQnList;
 	
@@ -63,7 +65,6 @@ public class AnsweredQnMgr {
 	
 	public ArrayList<AnsweredQn> retrieveQnBank(String userLogin){
 		ArrayList<AnsweredQn> aq = new ArrayList<AnsweredQn>();
-		
 		for(AnsweredQn temp: answeredQnList){
 			if(temp.getUserAsked().equals(userLogin)){
 				aq.add(temp);
@@ -72,11 +73,22 @@ public class AnsweredQnMgr {
 		return aq;
 	}
 	
-	public ArrayList<AnsweredQn> retrieveAnswerBank(String userLogin){
+	public ArrayList<AnsweredQn> retrieveAcceptedAnswerBank(String userLogin){
 		ArrayList<AnsweredQn> aq = new ArrayList<AnsweredQn>();
 		
 		for(AnsweredQn temp: answeredQnList){
-			if(temp.getUserReplied().equals(userLogin)){
+			if(temp.getUserReplied().equals(userLogin) && temp.isLike()){
+				aq.add(temp);
+			}
+		}
+		return aq;
+	}
+	
+	public ArrayList<AnsweredQn> retrieveRejectAnswerBank(String userLogin){
+		ArrayList<AnsweredQn> aq = new ArrayList<AnsweredQn>();
+		
+		for(AnsweredQn temp: answeredQnList){
+			if(temp.getUserReplied().equals(userLogin) && !temp.isLike()){
 				aq.add(temp);
 			}
 		}

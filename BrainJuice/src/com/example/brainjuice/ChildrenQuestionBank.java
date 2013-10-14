@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import java.util.ArrayList;
+
 import com.example.brainjuice.entity.*;
 
 import android.app.Activity;
@@ -9,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,9 +41,25 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 	ImageView icon;
 	TextView welcomeMsg;
 	
+	AnsweredQnMgr aqMgr;
+	ArrayList<AnsweredQn> aq;
+	PendingAnswerMgr paMgr;
+	ArrayList<PendingAnswer> pa;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_childrenquestionbank);
+		
+		 loginUser = BrainJuice.retrieveLoginUser();
+	     userMgr = BrainJuice.retrieveUserMgr();
+		
+		icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
+        icon.setImageResource(j);
+        
+        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
+        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+		
 		
 		TabHost tabHost=(TabHost)findViewById(R.id.tabhost);
 		
@@ -53,13 +72,73 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 		spec1.setContent(R.id.tab1);
 		spec1.setIndicator("Answered");
 		
+		aqMgr = BrainJuice.retrieveAQMgr();
+		aq = aqMgr.retrieveQnBank(loginUser);
 		
+		LinearLayout myLayout = (LinearLayout) findViewById(R.id.ly1);
+		final TextView[] myTextViews;
 		
-
+		if(aq.size() != 0){
+			myTextViews = new TextView[aq.size()]; // create an empty array;
+	
+			for (int i = 0; i < aq.size(); i++) {
+			    // create a new textview
+			    final TextView rowTextView = new TextView(this);
+	
+			    // set some properties of rowTextView or something
+			    rowTextView.setText(Html.fromHtml("<font color='blue'><u>" + aq.get(i).getQn() + "</u></font>"));
+	
+			    // add the textview to the linearlayout
+			    myLayout.addView(rowTextView);
+	
+			    // save a reference to the textview for later
+			    myTextViews[i] = rowTextView;
+			    
+			    myTextViews[i].setClickable(true);
+		        myTextViews[i].setOnClickListener(this);
+		        myTextViews[i].setId(i);
+					
+			}
+		} else {
+			myTextViews = new TextView[1];
+			myTextViews[0].setText("You don't have any question that is answered!");
+		}
 		TabSpec spec2=tabHost.newTabSpec("Pending Answer");
 		spec2.setIndicator("Pending Answer");
 		spec2.setContent(R.id.tab2);
 
+		
+		paMgr = BrainJuice.retrievePAMgr();
+		pa = paMgr.retrievePAList(loginUser);
+		
+		LinearLayout myLayout2 = (LinearLayout) findViewById(R.id.ly2);
+		final TextView[] myTextViews2;
+		
+		if(pa.size() != 0){
+			myTextViews2 = new TextView[pa.size()]; // create an empty array;
+	
+			for (int i = 0; i < pa.size(); i++) {
+			    // create a new textview
+			    final TextView rowTextView = new TextView(this);
+	
+			    // set some properties of rowTextView or something
+			    rowTextView.setText(Html.fromHtml("<font color='blue'><u>" + pa.get(i).getQn() + "</u></font>"));
+	
+			    // add the textview to the linearlayout
+			    myLayout2.addView(rowTextView);
+	
+			    // save a reference to the textview for later
+			    myTextViews2[i] = rowTextView;
+			    
+			    myTextViews2[i].setClickable(true);
+		        myTextViews2[i].setOnClickListener(this);
+		        myTextViews2[i].setId(aq.size() + i);
+					
+			}
+		} else {
+			myTextViews2 = new TextView[1];
+			myTextViews2[0].setText("You don't have any question that is waiting for answer!");
+		}
 		
 
 		tabHost.addTab(spec1);
@@ -83,16 +162,6 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.Setting);
         setting.setOnClickListener(this);
         
-        loginUser = BrainJuice.retrieveLoginUser();
-        userMgr = BrainJuice.retrieveUserMgr();
-        
-        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
-        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
-        icon.setImageResource(j);
-        
-        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
-        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-		
 		}
 
 	@Override
@@ -100,8 +169,30 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		
 		final Context context = this;
-        
-        
+     if(v.getId() < aq.size()){  
+	     for(int i = 0; i < aq.size(); i++){
+	    	 if(v.getId() == i){
+	    		 Intent intentBank = new Intent(context, ChildQnBankAnsweredInstance.class);
+	    		 intentBank.putExtra("qn", aq.get(i).getQn());
+	    		 intentBank.putExtra("userReplied", aq.get(i).getUserReplied());
+	    		 intentBank.putExtra("answer", aq.get(i).getAnswer());
+	    		 intentBank.putExtra("like", Boolean.toString(aq.get(i).isLike()));
+	    		 startActivity(intentBank);
+	    		 break;
+	    	 }
+	     }
+     } else{
+    	 int aqSize = aq.size();
+    	 for(int i = 0; i < pa.size(); i++){
+	    	 if(v.getId() == i + aqSize){
+	    		 Intent intentBank = new Intent(context, ChildQnBankNotAnsweredInstance.class);
+	    		 intentBank.putExtra("qn", pa.get(i).getQn());
+	    		 startActivity(intentBank);
+	    		 break;
+	    	 }
+    	 }
+     }
+		
     	
    	 switch (v.getId()) {
    	 
