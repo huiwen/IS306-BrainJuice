@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import java.util.ArrayList;
+
 import com.example.brainjuice.entity.*;
 
 import android.os.Bundle;
@@ -37,6 +39,9 @@ public class AdultNotification extends Activity implements OnClickListener {
 	TextView welcomeMsg;
 	String loginUser;
 	UserMgr userMgr;
+	
+	AdultNotificationMgr adNoMgr;
+	ArrayList<com.example.brainjuice.entity.AdultNotification> notificList;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +92,11 @@ public class AdultNotification extends Activity implements OnClickListener {
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
         
+        loginUser = BrainJuice.retrieveLoginUser();
+        adNoMgr = BrainJuice.retrieveANMgr();
+        notificList = adNoMgr.retrieveAdultNotification(loginUser);
+        
+        TableRow myLayout = (TableRow)findViewById(R.id.tableRow1);
     }
 
     
