@@ -30,6 +30,8 @@ import android.widget.TextView;
  
 public class ChildrenQuestionBank extends Activity implements OnClickListener {
 	
+	TextView textView;
+	TextView notificationCount;
 	Button faq;
 	Button logout;
 	ImageButton ask;
@@ -49,6 +51,8 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_childrenquestionbank);
+		
+		checkChildNotification();
 		
 		 loginUser = BrainJuice.retrieveLoginUser();
 	     userMgr = BrainJuice.retrieveUserMgr();
@@ -163,6 +167,35 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
         setting.setOnClickListener(this);
         
 		}
+
+
+public void checkChildNotification(){
+   	    int countNumberOfNotifications = 0;
+   	    String numToString = "";
+   	    String user = BrainJuice.retrieveLoginUser();
+       	BrainJuice.retrieveCNMgr().retrieveChildNotification(user);
+       	ArrayList<com.example.brainjuice.entity.ChildNotification> childNotificationList;
+       	childNotificationList = BrainJuice.retrieveCNMgr().retrieveChildNotification(user);
+       	for( com.example.brainjuice.entity.ChildNotification counter : childNotificationList){
+       		countNumberOfNotifications++;
+       		
+       	}
+       	numToString = Integer.toString(countNumberOfNotifications);
+       	
+       	if(countNumberOfNotifications <= 0){
+       		textView = (TextView)findViewById(R.id.count);
+               textView.setBackgroundResource(R.drawable.blank);
+       		notificationCount = (TextView) this.findViewById(R.id.count);
+       		notificationCount.setText("");
+       	}else{
+       		textView = (TextView)findViewById(R.id.count);
+       		textView.setBackgroundResource(R.drawable.notificationred);
+       		notificationCount = (TextView) this.findViewById(R.id.count);
+       		notificationCount.setText(numToString);
+       	}
+       	
+       
+         }
 
 	@Override
 	public void onClick(View v) {

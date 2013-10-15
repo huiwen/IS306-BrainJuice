@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import java.util.ArrayList;
+
 import com.example.brainjuice.entity.*;
 
 import android.os.Bundle;
@@ -21,7 +23,8 @@ import android.content.DialogInterface;
 
 public class AdultAnswerBankInstance extends Activity implements OnClickListener {
 
-	
+	TextView textView;
+	TextView notificationCount;
 	Button faq;
 	Button logout;
 	ImageButton answering;
@@ -43,6 +46,9 @@ public class AdultAnswerBankInstance extends Activity implements OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answerbankinstance_adult);
         
+
+    	checkNotification();
+    	
         loginUser = BrainJuice.retrieveLoginUser();
         userMgr = BrainJuice.retrieveUserMgr();
         
@@ -84,7 +90,33 @@ public class AdultAnswerBankInstance extends Activity implements OnClickListener
         
     }
 
+    public void checkNotification(){
+	    int countNumberOfNotifications = 0;
+	    String numToString = "";
+	    String user = BrainJuice.retrieveLoginUser();
+    	BrainJuice.retrieveANMgr().retrieveAdultNotification(user);
+    	ArrayList<com.example.brainjuice.entity.AdultNotification> adultNotificationList;
+    	adultNotificationList = BrainJuice.retrieveANMgr().retrieveAdultNotification(user);
+    	for( com.example.brainjuice.entity.AdultNotification counter : adultNotificationList){
+    		countNumberOfNotifications++;
+    		
+    	}
+    	numToString = Integer.toString(countNumberOfNotifications);
+    	
+    	if(countNumberOfNotifications <= 0){
+    		textView = (TextView)findViewById(R.id.count);
+            textView.setBackgroundResource(R.drawable.blank);
+    		notificationCount = (TextView) this.findViewById(R.id.count);
+    		notificationCount.setText("");
+    	}else{
+    		textView = (TextView)findViewById(R.id.count);
+    		textView.setBackgroundResource(R.drawable.notificationred);
+    		notificationCount = (TextView) this.findViewById(R.id.count);
+    		notificationCount.setText(numToString);
+    	}
+    	
     
+      }
     
     @SuppressWarnings("deprecation")
 	public void onClick(View v){

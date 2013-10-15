@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import java.util.ArrayList;
+
 import com.example.brainjuice.entity.*;
 
 import android.os.Bundle;
@@ -21,7 +23,8 @@ import android.content.DialogInterface;
 
 public class ChildQnBankAnsweredInstance extends Activity implements OnClickListener {
 
-	
+	TextView textView;
+	TextView notificationCount; 
 	Button faq;
 	Button logout;
 	ImageButton asking;
@@ -43,6 +46,8 @@ public class ChildQnBankAnsweredInstance extends Activity implements OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qnbankanswered_child);
         
+    	checkChildNotification();
+    	
         loginUser = BrainJuice.retrieveLoginUser();
         userMgr = BrainJuice.retrieveUserMgr();
         
@@ -86,7 +91,34 @@ public class ChildQnBankAnsweredInstance extends Activity implements OnClickList
         
     }
 
-    
+
+public void checkChildNotification(){
+   	    int countNumberOfNotifications = 0;
+   	    String numToString = "";
+   	    String user = BrainJuice.retrieveLoginUser();
+       	BrainJuice.retrieveCNMgr().retrieveChildNotification(user);
+       	ArrayList<com.example.brainjuice.entity.ChildNotification> childNotificationList;
+       	childNotificationList = BrainJuice.retrieveCNMgr().retrieveChildNotification(user);
+       	for( com.example.brainjuice.entity.ChildNotification counter : childNotificationList){
+       		countNumberOfNotifications++;
+       		
+       	}
+       	numToString = Integer.toString(countNumberOfNotifications);
+       	
+       	if(countNumberOfNotifications <= 0){
+       		textView = (TextView)findViewById(R.id.count);
+               textView.setBackgroundResource(R.drawable.blank);
+       		notificationCount = (TextView) this.findViewById(R.id.count);
+       		notificationCount.setText("");
+       	}else{
+       		textView = (TextView)findViewById(R.id.count);
+       		textView.setBackgroundResource(R.drawable.notificationred);
+       		notificationCount = (TextView) this.findViewById(R.id.count);
+       		notificationCount.setText(numToString);
+       	}
+       	
+       
+         }  
     
     @SuppressWarnings("deprecation")
 	public void onClick(View v){

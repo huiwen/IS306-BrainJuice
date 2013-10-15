@@ -23,7 +23,8 @@ import android.content.DialogInterface;
 
 public class AdultNotification extends Activity implements OnClickListener {
 
-	
+	TextView textView;
+	TextView notificationCount;
 	Button faq;
 	Button logout;
 	ImageButton answering;
@@ -40,15 +41,15 @@ public class AdultNotification extends Activity implements OnClickListener {
 	String loginUser;
 	UserMgr userMgr;
 	
-	AdultNotificationMgr adNoMgr;
-	ArrayList<com.example.brainjuice.entity.AdultNotification> notificList;
-	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
   
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_adult);
        
+
+    	checkNotification();
+    	
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
@@ -92,14 +93,36 @@ public class AdultNotification extends Activity implements OnClickListener {
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
         
-        loginUser = BrainJuice.retrieveLoginUser();
-        adNoMgr = BrainJuice.retrieveANMgr();
-        notificList = adNoMgr.retrieveAdultNotification(loginUser);
-        
-        TableRow myLayout = (TableRow)findViewById(R.id.tableRow1);
     }
 
-    
+
+    public void checkNotification(){
+   	    int countNumberOfNotifications = 0;
+   	    String numToString = "";
+   	    String user = BrainJuice.retrieveLoginUser();
+       	BrainJuice.retrieveANMgr().retrieveAdultNotification(user);
+       	ArrayList<com.example.brainjuice.entity.AdultNotification> adultNotificationList;
+       	adultNotificationList = BrainJuice.retrieveANMgr().retrieveAdultNotification(user);
+       	for( com.example.brainjuice.entity.AdultNotification counter : adultNotificationList){
+       		countNumberOfNotifications++;
+       		
+       	}
+       	numToString = Integer.toString(countNumberOfNotifications);
+       	
+       	if(countNumberOfNotifications <= 0){
+       		textView = (TextView)findViewById(R.id.count);
+               textView.setBackgroundResource(R.drawable.blank);
+       		notificationCount = (TextView) this.findViewById(R.id.count);
+       		notificationCount.setText("");
+       	}else{
+       		textView = (TextView)findViewById(R.id.count);
+       		textView.setBackgroundResource(R.drawable.notificationred);
+       		notificationCount = (TextView) this.findViewById(R.id.count);
+       		notificationCount.setText(numToString);
+       	}
+       	
+       
+         }
     
     @SuppressWarnings("deprecation")
 	public void onClick(View v){
