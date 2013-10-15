@@ -1,5 +1,7 @@
 package com.example.brainjuice;
 
+import java.util.ArrayList;
+
 import com.example.brainjuice.entity.*;
 
 import android.os.Bundle;
@@ -21,7 +23,8 @@ import android.content.DialogInterface;
 
 public class AdultHomePage extends Activity implements OnClickListener {
 
-	
+	TextView textView;
+	TextView notificationCount; 
 	Button faq;
 	Button logout;
 	ImageButton request;
@@ -39,6 +42,8 @@ public class AdultHomePage extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qn_request_homepage);
        
+        checkNotification();
+        
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
@@ -70,7 +75,33 @@ public class AdultHomePage extends Activity implements OnClickListener {
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
     }
 
+    public void checkNotification(){
+	    int countNumberOfNotifications = 0;
+	    String numToString = "";
+	    String user = BrainJuice.retrieveLoginUser();
+    	BrainJuice.retrieveANMgr().retrieveAdultNotification(user);
+    	ArrayList<com.example.brainjuice.entity.AdultNotification> adultNotificationList;
+    	adultNotificationList = BrainJuice.retrieveANMgr().retrieveAdultNotification(user);
+    	for( com.example.brainjuice.entity.AdultNotification counter : adultNotificationList){
+    		countNumberOfNotifications++;
+    		
+    	}
+    	numToString = Integer.toString(countNumberOfNotifications);
+    	
+    	if(countNumberOfNotifications <= 0){
+    		textView = (TextView)findViewById(R.id.count);
+            textView.setBackgroundResource(R.drawable.blank);
+    		notificationCount = (TextView) this.findViewById(R.id.count);
+    		notificationCount.setText("");
+    	}else{
+    		textView = (TextView)findViewById(R.id.count);
+    		textView.setBackgroundResource(R.drawable.notificationred);
+    		notificationCount = (TextView) this.findViewById(R.id.count);
+    		notificationCount.setText(numToString);
+    	}
+    	
     
+      }
     
     @SuppressWarnings("deprecation")
 	public void onClick(View v){
