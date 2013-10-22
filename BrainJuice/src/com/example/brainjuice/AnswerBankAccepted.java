@@ -101,7 +101,10 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 			}
 		} else {
 			myTextViews = new TextView[1];
-			myTextViews[0].setText("You don't have any answer that is accepted!");
+			final TextView rowTextView = new TextView(this);
+			rowTextView.setText("You don't have any answer that is accepted!");
+			myLayout.addView(rowTextView);
+			myTextViews[0] = rowTextView;
 		}
 		
 		TabSpec spec1=tabHost.newTabSpec("Accepted");
@@ -138,7 +141,10 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 			}
 		} else {
 			myTextViews2 = new TextView[1];
-			myTextViews2[0].setText("You don't have any answer that is rejected!");
+			final TextView rowTextView = new TextView(this);
+			rowTextView.setText("You don't have any answer that is rejected!");
+			myLayout2.addView(rowTextView);
+			myTextViews2[0] = rowTextView;
 		}
 		
 		TabSpec spec2=tabHost.newTabSpec("Rejected");
@@ -178,7 +184,10 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 			}
 		} else {
 			myTextViews3 = new TextView[1];
-			myTextViews3[0].setText("You don't have any answer that is pending acceptance!");
+			final TextView rowTextView = new TextView(this);
+			rowTextView.setText("You don't have any answer that is pending acceptance!");
+			myLayout3.addView(rowTextView);
+			myTextViews3[0] = rowTextView;
 		}
 		
 		TabSpec spec3=tabHost.newTabSpec("Pending Acceptance");

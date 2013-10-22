@@ -21,14 +21,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 
-public class ChildNotificationInstance extends Activity implements OnClickListener {
+public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
 	Button faq;
 	Button logout;
 	ImageButton asking;
-	//ImageButton notification;
+	ImageButton notification;
 	ImageButton qnbank;
 	ImageButton setting;
 	ImageButton tick;
@@ -61,8 +61,8 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
         asking.setOnClickListener(this);
         
         
-        //notification = (ImageButton)this.findViewById(R.id.notification);
-        //notification.setOnClickListener(this);
+        notification = (ImageButton)this.findViewById(R.id.notification);
+        notification.setOnClickListener(this);
         
         qnbank = (ImageButton)this.findViewById(R.id.QuestionBank);
         qnbank.setOnClickListener(this);
@@ -76,13 +76,6 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
         cross = (ImageButton)findViewById(R.id.cross);
         cross.setOnClickListener(this);
         
-        ansBody = (TextView) this.findViewById(R.id.AnswerBody);
-        ansBody.setText(Html.fromHtml("Replied by " + getIntent().getStringExtra("userReplied") + "<br /><br />" + getIntent().getStringExtra("answer")));
-        
-        qnBody = (TextView)this.findViewById(R.id.QuestionBody);
-        qnBody.setText(getIntent().getStringExtra("qn"));
-        
-        
         loginUser = BrainJuice.retrieveLoginUser();
         userMgr = BrainJuice.retrieveUserMgr();
         
@@ -92,6 +85,12 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
         
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+        
+        qnBody = (TextView)this.findViewById(R.id.QuestionBody);
+        qnBody.setText(getIntent().getStringExtra("qn"));
+        
+        ansBody = (TextView) this.findViewById(R.id.AnswerBody);
+        ansBody.setText(Html.fromHtml("Replied by " + getIntent().getStringExtra("userReplied") + "<br /><br />" + getIntent().getStringExtra("answer")));
     }
 
     public void checkChildNotification(){
@@ -109,7 +108,7 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
        	
        	if(countNumberOfNotifications <= 0){
        		textView = (TextView)findViewById(R.id.count);
-               textView.setBackgroundResource(R.drawable.blank);
+            textView.setBackgroundResource(R.drawable.blank);
        		notificationCount = (TextView) this.findViewById(R.id.count);
        		notificationCount.setText("");
        	}else{
@@ -139,6 +138,11 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
          case R.id.QuestionBank:
       		 Intent intentQnBank = new Intent(context, ChildrenQuestionBank.class);
            	 startActivity(intentQnBank);
+           	 break;
+           	 
+         case R.id.notification:
+      		 Intent intentNoti = new Intent(context, ChildNotification.class);
+           	 startActivity(intentNoti);
            	 break;
          	 
     	 case R.id.FAQ:
@@ -245,7 +249,7 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
              btnProceed.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
-             		Intent intent = new Intent(context, ChildNotification.class);
+             		Intent intent = new Intent(context, ChildrenQuestionBank.class);
                     startActivity(intent);
                     
                     PendingAcceptanceMgr pacMgr = BrainJuice.retrievePAcMgr();
@@ -256,7 +260,7 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
                     
                     ChildNotificationMgr cnMgr = BrainJuice.retrieveCNMgr();
                     cnMgr.delete(loginUser,getIntent().getStringExtra("qn"), getIntent().getStringExtra("userReplied"), getIntent().getStringExtra("answer"));
-       		      
+                    
                     AdultNotificationMgr adMgr = BrainJuice.retrieveANMgr();
                     adMgr.add(loginUser, getIntent().getStringExtra("qn"), getIntent().getStringExtra("userReplied"), getIntent().getStringExtra("answer"));
                     
@@ -312,7 +316,7 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
              btnProceedCross.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
-             		Intent intent = new Intent(context, ChildNotification.class);
+             		Intent intent = new Intent(context, ChildrenQuestionBank.class);
                     startActivity(intent);
                     
                     PendingAcceptanceMgr pacMgr = BrainJuice.retrievePAcMgr();

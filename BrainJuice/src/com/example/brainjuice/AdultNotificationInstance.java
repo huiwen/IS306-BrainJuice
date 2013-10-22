@@ -28,11 +28,13 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
 	Button faq;
 	Button logout;
 	ImageButton answering;
-	//ImageButton notification;
+	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
 	Button back;
 	TextView qnBody;
+	TextView ansBody;
+	TextView msg;
 	
 	ImageView icon;
 	TextView welcomeMsg;
@@ -45,7 +47,6 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificationinstance_adult);
        
-    	checkNotification();
     	
         faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -58,8 +59,8 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
         answering.setOnClickListener(this);
         
         
-        //notification = (ImageButton)this.findViewById(R.id.notification);
-        //notification.setOnClickListener(this);
+        notification = (ImageButton)this.findViewById(R.id.notification);
+        notification.setOnClickListener(this);
         
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
@@ -69,7 +70,13 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
         
        
         qnBody = (TextView) this.findViewById(R.id.QuestionBody);
-        qnBody.setText(Html.fromHtml("Ask by JonathanTan<br /><br />How big is the earth?"));
+        qnBody.setText(getIntent().getStringExtra("qn"));
+        
+        ansBody = (TextView)this.findViewById(R.id.AnswerBody);
+        ansBody.setText(getIntent().getStringExtra("answer"));
+        
+        msg = (TextView)this.findViewById(R.id.Message);
+        msg.setText(getIntent().getStringExtra("userAsked") + " likes your answer!");
         
         loginUser = BrainJuice.retrieveLoginUser();
         userMgr = BrainJuice.retrieveUserMgr();
@@ -81,6 +88,8 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
         
+        BrainJuice.retrieveANMgr().delete(getIntent().getStringExtra("userAsked"), getIntent().getStringExtra("qn"), loginUser, getIntent().getStringExtra("answer"));
+        checkNotification();
     }
 
     
@@ -125,7 +134,11 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
              
              break;
              
-         
+         case R.id.notification: 
+        	 Intent intentNoti = new Intent(context, AdultNotification.class);
+             startActivity(intentNoti);
+             
+             break;
         	 
          case R.id.AnswerBank:
         	 Intent intentAnswerBankAccepted = new Intent (context, AnswerBankAccepted.class);

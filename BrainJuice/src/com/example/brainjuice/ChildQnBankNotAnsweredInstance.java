@@ -118,7 +118,7 @@ public class ChildQnBankNotAnsweredInstance extends Activity implements OnClickL
     	
     	 switch (v.getId()) {
          case R.id.Asking: 
-        	 Intent intent = new Intent(context, AdultHomePage.class);
+        	 Intent intent = new Intent(context, HomePage.class);
              startActivity(intent);
              
              break;

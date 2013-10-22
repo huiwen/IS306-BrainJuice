@@ -28,18 +28,21 @@ public class AdultNotification extends Activity implements OnClickListener {
 	Button faq;
 	Button logout;
 	ImageButton answering;
-	//ImageButton notification;
+	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
 	TableRow notiBody;
-	TextView qnBody;
-	TextView ansBody;
-	TextView msg;
+	//TextView qnBody;
+	//TextView ansBody;
+	//TextView msg;
 	
 	ImageView icon;
 	TextView welcomeMsg;
 	String loginUser;
 	UserMgr userMgr;
+	
+	AdultNotificationMgr anMgr;
+	ArrayList<com.example.brainjuice.entity.AdultNotification> an;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +64,8 @@ public class AdultNotification extends Activity implements OnClickListener {
         answering.setOnClickListener(this);
         
         
-        //notification = (ImageButton)this.findViewById(R.id.notification);
-        //notification.setOnClickListener(this);
+        notification = (ImageButton)this.findViewById(R.id.notification);
+        notification.setOnClickListener(this);
         
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
@@ -70,18 +73,18 @@ public class AdultNotification extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         
-        notiBody = (TableRow)findViewById(R.id.tableRow1);
-        notiBody.setClickable(true);
-        notiBody.setOnClickListener(this);
+        //notiBody = (TableRow)findViewById(R.id.tableRow1);
+        //notiBody.setClickable(true);
+        //notiBody.setOnClickListener(this);
         
-        qnBody = (TextView) this.findViewById(R.id.textView1);
-        qnBody.setText(Html.fromHtml("<strong>Question:</strong> How big is the earth?"));
+        //qnBody = (TextView) this.findViewById(R.id.textView1);
+        //qnBody.setText(Html.fromHtml("<strong>Question:</strong> How big is the earth?"));
         
-        ansBody = (TextView) this.findViewById(R.id.textView2);
-        ansBody.setText(Html.fromHtml("<strong>You Answer:</strong> Radius of the earth is 6,371km. The suerface area is 510,072,000km2."));
+        //ansBody = (TextView) this.findViewById(R.id.textView2);
+        //ansBody.setText(Html.fromHtml("<strong>You Answer:</strong> Radius of the earth is 6,371km. The suerface area is 510,072,000km2."));
         
-        msg = (TextView) this.findViewById(R.id.textView3);
-        msg.setText(Html.fromHtml("<strong>Message:</strong> JonathanTan likes your answer!"));
+        //msg = (TextView) this.findViewById(R.id.textView3);
+        //msg.setText(Html.fromHtml("<strong>Message:</strong> JonathanTan likes your answer!"));
         
         loginUser = BrainJuice.retrieveLoginUser();
         userMgr = BrainJuice.retrieveUserMgr();
@@ -92,6 +95,59 @@ public class AdultNotification extends Activity implements OnClickListener {
         
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
+        
+        anMgr = BrainJuice.retrieveANMgr();
+        an = anMgr.retrieveAdultNotification(loginUser);
+        
+        TableLayout tl = (TableLayout) findViewById(R.id.tablelayout);
+        
+        if(an.size() == 0){
+        	TextView textView = new TextView(this);
+        	textView.setText("Currently, you don't have any notification!");
+        	tl.addView(textView);
+        }
+        
+        for(int i = 0; i < an.size(); i++){
+	        TableRow newRow = new TableRow(this);
+	        
+	        ImageView column1 = new ImageView(this);
+	        com.example.brainjuice.entity.AdultNotification temp = an.get(i);
+	        
+	        int resource = getResources().getIdentifier(userMgr.retrieveUser(temp.getUserAsked()).getProfile(), "drawable", getPackageName());
+	        column1.setImageResource(resource);
+	        newRow.addView(column1);
+	        tl.addView(newRow, new TableLayout.LayoutParams());
+	        column1.getLayoutParams().height = 120;
+	        column1.getLayoutParams().width = 100;
+	        
+	        LinearLayout myLayout = new LinearLayout(this);
+	        myLayout.setOrientation(LinearLayout.VERTICAL);
+	        
+			final TextView qn = new TextView(this);
+			qn.setText(Html.fromHtml("<strong>Question:</strong> " + temp.getQn()));
+			qn.setLayoutParams(new LayoutParams(280, 30));
+			myLayout.addView(qn);
+			
+			final TextView ans = new TextView(this);
+			ans.setText(Html.fromHtml("<strong>Your Answer:</strong> " + temp.getAnswer()));
+			//ans.getLayoutParams().height = 30;
+			//ans.getLayoutParams().width = 280;
+			ans.setLayoutParams(new LayoutParams(280, 30));
+			myLayout.addView(ans);
+			
+			
+			final TextView msg = new TextView(this);
+			msg.setText(Html.fromHtml("<strong>Message:</strong> " + temp.getUserAsked() + " likes your answer!"));
+			msg.setLayoutParams(new LayoutParams(280, LayoutParams.WRAP_CONTENT));
+			myLayout.addView(msg);
+					    
+		    newRow.addView(myLayout);
+		    
+		    newRow.setId(i);
+		    
+		    newRow.setClickable(true);
+	        newRow.setOnClickListener(this);
+        }
         
     }
 
@@ -111,7 +167,7 @@ public class AdultNotification extends Activity implements OnClickListener {
        	
        	if(countNumberOfNotifications <= 0){
        		textView = (TextView)findViewById(R.id.count);
-               textView.setBackgroundResource(R.drawable.blank);
+            textView.setBackgroundResource(R.drawable.blank);
        		notificationCount = (TextView) this.findViewById(R.id.count);
        		notificationCount.setText("");
        	}else{
@@ -128,7 +184,18 @@ public class AdultNotification extends Activity implements OnClickListener {
 	public void onClick(View v){
     	final Context context = this;
                 
-                
+    	if(v.getId() < an.size()){  
+      	     for(int i = 0; i < an.size(); i++){
+      	    	 if(v.getId() == i){
+      	    		 Intent intentNoti = new Intent(context, AdultNotificationInstance.class);
+      	    		 intentNoti.putExtra("qn", an.get(i).getQn());
+      	    		 intentNoti.putExtra("userAsked", an.get(i).getUserAsked());
+      	    		 intentNoti.putExtra("answer", an.get(i).getAnswer());
+      	    		 startActivity(intentNoti);
+      	    		 break;
+      	    	 }
+      	     }
+       	}      
     	
     	 switch (v.getId()) {
          case R.id.Answering: 
@@ -137,11 +204,11 @@ public class AdultNotification extends Activity implements OnClickListener {
              
              break;
              
-         case R.id.tableRow1:
-        	 Intent intentNotificationInstance = new Intent (context, AdultNotificationInstance.class);
-        	 startActivity(intentNotificationInstance);
-        	 
-        	 break;
+         case R.id.notification: 
+        	 Intent intentNoti = new Intent(context, AdultNotification.class);
+             startActivity(intentNoti);
+             
+             break;
         	 
          
          case R.id.AnswerBank:

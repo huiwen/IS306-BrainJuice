@@ -129,6 +129,11 @@
             android:name="com.example.brainjuice.AdultAnswerBankInstance"
             android:label="@string/app_name" >
         </activity>
+        
+        <activity
+            android:name="com.example.brainjuice.ChildQnBankNotAcceptedInstance"
+            android:label="@string/app_name" >
+        </activity>
            
     </application>
 

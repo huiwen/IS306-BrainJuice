@@ -47,6 +47,8 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 	ArrayList<AnsweredQn> aq;
 	PendingAnswerMgr paMgr;
 	ArrayList<PendingAnswer> pa;
+	PendingAcceptanceMgr pacMgr;
+	ArrayList<PendingAcceptance> pac;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -105,7 +107,10 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 			}
 		} else {
 			myTextViews = new TextView[1];
-			myTextViews[0].setText("You don't have any question that is answered!");
+			final TextView rowTextView = new TextView(this);
+			rowTextView.setText("You don't have any question that is answered!");
+			myLayout.addView(rowTextView);
+			myTextViews[0] = rowTextView;
 		}
 		TabSpec spec2=tabHost.newTabSpec("Pending Answer");
 		spec2.setIndicator("Pending Answer");
@@ -141,12 +146,56 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 			}
 		} else {
 			myTextViews2 = new TextView[1];
-			myTextViews2[0].setText("You don't have any question that is waiting for answer!");
+			final TextView rowTextView = new TextView(this);
+			rowTextView.setText("You don't have any question that is waiting for answer!");
+			myLayout2.addView(rowTextView);
+			myTextViews2[0] = rowTextView;
+		}
+		
+		TabSpec spec3=tabHost.newTabSpec("Pending Acceptance");
+		spec3.setIndicator("Pending Acceptance");
+		spec3.setContent(R.id.tab3);
+
+		
+		pacMgr = BrainJuice.retrievePAcMgr();
+		pac = pacMgr.retrievePAcListChild(loginUser);
+		
+		LinearLayout myLayout3 = (LinearLayout) findViewById(R.id.ly3);
+		final TextView[] myTextViews3;
+		
+		if(pac.size() != 0){
+			myTextViews3 = new TextView[pac.size()]; // create an empty array;
+	
+			for (int i = 0; i < pac.size(); i++) {
+			    // create a new textview
+			    final TextView rowTextView = new TextView(this);
+	
+			    // set some properties of rowTextView or something
+			    rowTextView.setText(Html.fromHtml("<font color='blue'><u>" + pac.get(i).getQn() + "</u></font>"));
+	
+			    // add the textview to the linearlayout
+			    myLayout3.addView(rowTextView);
+	
+			    // save a reference to the textview for later
+			    myTextViews3[i] = rowTextView;
+			    
+			    myTextViews3[i].setClickable(true);
+		        myTextViews3[i].setOnClickListener(this);
+		        myTextViews3[i].setId(aq.size() + pa.size() + i);
+					
+			}
+		} else {
+			myTextViews3 = new TextView[1];
+			final TextView rowTextView = new TextView(this);
+			rowTextView.setText("You don't have any question that is waiting for acceptance!");
+			myLayout3.addView(rowTextView);
+			myTextViews3[0] = rowTextView;
 		}
 		
 
 		tabHost.addTab(spec1);
 		tabHost.addTab(spec2);
+		tabHost.addTab(spec3);
 		
 		faq = (Button)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
@@ -184,7 +233,7 @@ public void checkChildNotification(){
        	
        	if(countNumberOfNotifications <= 0){
        		textView = (TextView)findViewById(R.id.count);
-               textView.setBackgroundResource(R.drawable.blank);
+            textView.setBackgroundResource(R.drawable.blank);
        		notificationCount = (TextView) this.findViewById(R.id.count);
        		notificationCount.setText("");
        	}else{
@@ -214,12 +263,24 @@ public void checkChildNotification(){
 	    		 break;
 	    	 }
 	     }
-     } else{
+     } else if(v.getId() < aq.size() + pa.size()){
     	 int aqSize = aq.size();
     	 for(int i = 0; i < pa.size(); i++){
 	    	 if(v.getId() == i + aqSize){
 	    		 Intent intentBank = new Intent(context, ChildQnBankNotAnsweredInstance.class);
 	    		 intentBank.putExtra("qn", pa.get(i).getQn());
+	    		 startActivity(intentBank);
+	    		 break;
+	    	 }
+    	 }
+     } else {
+    	 int size = aq.size() + pa.size();
+    	 for(int i = 0; i < pac.size(); i++){
+	    	 if(v.getId() == i + size){
+	    		 Intent intentBank = new Intent(context, ChildQnBankNotAcceptedInstance.class);
+	    		 intentBank.putExtra("qn", pac.get(i).getQn());
+	    		 intentBank.putExtra("userReplied", pac.get(i).getUserReplied());
+	    		 intentBank.putExtra("answer", pac.get(i).getAnswer());
 	    		 startActivity(intentBank);
 	    		 break;
 	    	 }

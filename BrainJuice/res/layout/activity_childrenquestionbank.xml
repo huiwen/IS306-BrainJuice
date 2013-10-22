@@ -265,6 +265,76 @@
                     </ScrollView>
                     
                 </AbsoluteLayout>
+                
+                <AbsoluteLayout
+                    android2:id="@+id/tab3"
+                    android2:layout_width="match_parent"
+                    android2:layout_height="match_parent" >
+               
+
+                    <TextView
+                        android2:id="@+id/textView2"
+                        android2:layout_width="14dp"
+                        android2:layout_height="wrap_content"
+                        android2:layout_weight="0.01"
+                        android2:text=" "
+                        android2:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <ImageButton
+                        android2:id="@+id/imageButton1"
+                        android2:layout_width="wrap_content"
+                        android2:layout_height="wrap_content"
+                        android2:layout_x="186dp"
+                        android2:layout_y="2dp"
+                        android2:src="@drawable/arrow" />
+
+                    <EditText
+                        android2:id="@+id/editText1"
+                        android2:layout_width="100dp"
+                        android2:layout_height="wrap_content"
+                        android2:layout_weight="0.00"
+                        android2:layout_x="80dp"
+                        android2:layout_y="2dp"
+                        android2:ems="10"
+                        android2:inputType="textPersonName" />
+
+                    <TextView
+                        android2:id="@+id/textView1"
+                        android2:layout_width="wrap_content"
+                        android2:layout_height="wrap_content"
+                        android2:layout_x="10dp"
+                        android2:layout_y="18dp"
+                        android2:text="Search"
+                        android2:textAppearance="?android:attr/textAppearanceMedium"
+                        android2:textSize="14sp"
+                        android2:textStyle="bold" />
+
+                    <ImageView
+                        android2:id="@+id/imageView1"
+                        android2:layout_width="wrap_content"
+                        android2:layout_height="wrap_content"
+                        android2:layout_x="266dp"
+                        android2:layout_y="6dp"
+                        android2:src="@drawable/refreshing" />
+                    
+                    <ScrollView
+                        android2:id="@+id/scrollView3"
+                        android2:layout_width="match_parent"
+                        android2:layout_height="120dp"
+                        android2:layout_x="1dp"
+                        android2:layout_y="38dp" >
+
+                        <LinearLayout
+                            android2:id="@+id/ly3"
+                            android2:layout_width="match_parent"
+                            android2:layout_height="match_parent"
+                            android2:orientation="vertical" >
+                            
+                                                        
+                        </LinearLayout>
+                    </ScrollView>
+                    
+                </AbsoluteLayout>
 
                 
             </FrameLayout>

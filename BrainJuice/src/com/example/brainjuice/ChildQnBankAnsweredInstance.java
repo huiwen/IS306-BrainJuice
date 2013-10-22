@@ -128,7 +128,7 @@ public void checkChildNotification(){
     	
     	 switch (v.getId()) {
          case R.id.Asking: 
-        	 Intent intent = new Intent(context, AdultHomePage.class);
+        	 Intent intent = new Intent(context, HomePage.class);
              startActivity(intent);
              
              break;

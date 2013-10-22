@@ -131,32 +131,32 @@
 <ScrollView
     android:id="@+id/scrollView2"
     android:layout_width="273dp"
-    android:layout_height="54dp"
+    android:layout_height="79dp"
     android:layout_x="27dp"
     android:layout_y="237dp" >
 
     <TextView
         android:id="@+id/AnswerBody"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Radius of the earth is 6,371km. The surface are is 510,072,000km2." />
 </ScrollView>
-
-<ImageView
-    android:id="@+id/imageView1"
-    android:layout_width="26dp"
-    android:layout_height="26dp"
-    android:layout_x="32dp"
-    android:layout_y="295dp"
-    android:src="@drawable/tick" />
 
 <TextView
     android:id="@+id/Message"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_x="63dp"
-    android:layout_y="300dp"
+    android:layout_y="324dp"
     android:text="JonathanTan likes your answer!" />
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="26dp"
+    android:layout_height="26dp"
+    android:layout_x="33dp"
+    android:layout_y="318dp"
+    android:src="@drawable/tick" />
 
 </AbsoluteLayout>
 

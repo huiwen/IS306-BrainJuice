@@ -32,14 +32,13 @@ public class ChildNotification extends Activity implements OnClickListener {
 	ImageButton qnbank;
 	ImageButton setting;
 	TableRow notiBody;
-	TextView qnBody;
-	TextView ansBody;
-	TextView repliedBy;
 	
 	ImageView icon;
 	TextView welcomeMsg;
 	String loginUser;
 	UserMgr userMgr;
+	ChildNotificationMgr cnMgr;
+	ArrayList<com.example.brainjuice.entity.ChildNotification> cn;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,19 +68,6 @@ public class ChildNotification extends Activity implements OnClickListener {
         setting = (ImageButton)this.findViewById(R.id.widget43);
         setting.setOnClickListener(this);
         
-        notiBody = (TableRow)findViewById(R.id.tableRow1);
-        notiBody.setClickable(true);
-        notiBody.setOnClickListener(this);
-        
-        qnBody = (TextView) this.findViewById(R.id.textView1);
-        qnBody.setText(Html.fromHtml("<strong>Your Question:</strong> How big is the earth?"));
-        
-        ansBody = (TextView) this.findViewById(R.id.textView2);
-        ansBody.setText(Html.fromHtml("<strong>Answer:</strong> Radius of the earth is 6,371km. The suerface area is 510,072,000km2."));
-        
-        repliedBy = (TextView) this.findViewById(R.id.textView3);
-        repliedBy.setText(Html.fromHtml("<strong>Replied By:</strong> MelissaTan!"));
-        
         loginUser = BrainJuice.retrieveLoginUser();
         userMgr = BrainJuice.retrieveUserMgr();
         
@@ -92,6 +78,53 @@ public class ChildNotification extends Activity implements OnClickListener {
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
         
+        cnMgr = BrainJuice.retrieveCNMgr();
+        cn = cnMgr.retrieveChildNotification(loginUser);
+        
+        TableLayout tl = (TableLayout) findViewById(R.id.tablelayout);
+        
+        if(cn.size() == 0){
+        	TextView textView = new TextView(this);
+        	textView.setText("Currently, you don't have any notification!");
+        	tl.addView(textView);
+        }
+        
+        for(int i = 0; i < cn.size(); i++){
+	        TableRow newRow = new TableRow(this);
+	        
+	        ImageView column1 = new ImageView(this);
+	        com.example.brainjuice.entity.ChildNotification temp = cn.get(i);
+	        
+	        int resource = getResources().getIdentifier(userMgr.retrieveUser(temp.getUserReplied()).getProfile(), "drawable", getPackageName());
+	        column1.setImageResource(resource);
+	        newRow.addView(column1);
+	        tl.addView(newRow, new TableLayout.LayoutParams());
+	        column1.getLayoutParams().height = 100;
+	        column1.getLayoutParams().width = 100;
+	        
+	        LinearLayout myLayout = new LinearLayout(this);
+	        myLayout.setOrientation(LinearLayout.VERTICAL);
+	        
+			final TextView qn = new TextView(this);
+			qn.setText(Html.fromHtml("<strong>Your Question:</strong> " + temp.getQn()));
+			myLayout.addView(qn);
+			
+			final TextView ans = new TextView(this);
+			ans.setText(Html.fromHtml("<strong>Answer:</strong> " + temp.getAnswer()));
+			myLayout.addView(ans);
+			
+			
+			final TextView repliedBy = new TextView(this);
+			repliedBy.setText(Html.fromHtml("<strong>Replied By:</strong> " + temp.getUserReplied()));
+			myLayout.addView(repliedBy);
+		    
+		    newRow.addView(myLayout);
+		    
+		    newRow.setId(i);
+		    
+		    newRow.setClickable(true);
+	        newRow.setOnClickListener(this);
+        }
     }
 
 
@@ -110,7 +143,7 @@ public void checkChildNotification(){
        	
        	if(countNumberOfNotifications <= 0){
        		textView = (TextView)findViewById(R.id.count);
-               textView.setBackgroundResource(R.drawable.blank);
+            textView.setBackgroundResource(R.drawable.blank);
        		notificationCount = (TextView) this.findViewById(R.id.count);
        		notificationCount.setText("");
        	}else{
@@ -127,7 +160,18 @@ public void checkChildNotification(){
 	public void onClick(View v){
     	final Context context = this;
                 
-                
+    	if(v.getId() < cn.size()){  
+   	     for(int i = 0; i < cn.size(); i++){
+   	    	 if(v.getId() == i){
+   	    		 Intent intentNoti = new Intent(context, ChildNotificationInstance.class);
+   	    		 intentNoti.putExtra("qn", cn.get(i).getQn());
+   	    		 intentNoti.putExtra("userReplied", cn.get(i).getUserReplied());
+   	    		 intentNoti.putExtra("answer", cn.get(i).getAnswer());
+   	    		 startActivity(intentNoti);
+   	    		 break;
+   	    	 }
+   	     }
+    	}
     	
     	 switch (v.getId()) {
          case R.id.Asking: 
@@ -146,11 +190,11 @@ public void checkChildNotification(){
            	 startActivity(intentFAQ);
            	 break;
              
-         case R.id.tableRow1:
+         /*case R.id.tableRow1:
         	 Intent intentNotification = new Intent (context, ChildNotificationInstance.class);
         	 startActivity(intentNotification);
         	 
-        	 break;
+        	 break;*/
         	 
         	 
          case R.id.widget43:

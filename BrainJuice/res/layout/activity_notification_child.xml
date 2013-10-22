@@ -42,52 +42,20 @@
 	android:textColor="#ff000000"
 	android:layout_x="14dp"
 	android:layout_y="120dp" />
+
 <ScrollView
-    android:layout_width="fill_parent"
+    android:layout_width="279dp"
     android:layout_height="190dp"
+    android:layout_x="20dp"
     android:layout_y="162dp" >
 
-    <TableRow
-        android:id="@+id/tableRow1"
+    <TableLayout
+        android:id="@+id/tablelayout"
         android:layout_width="match_parent"
-        android:layout_height="90dp" >
-
-        <AbsoluteLayout>
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="68dp"
-                android:layout_height="63dp"
-                android:layout_x="21dp"
-                android:layout_y="0dp"
-                android:src="@drawable/melissa" />
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="200dp"
-                android:layout_height="18dp"
-                android:layout_x="99dp"
-                android:layout_y="8dp"
-                android:text="text1" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="200dp"
-                android:layout_height="18dp"
-                android:layout_x="99dp"
-                android:layout_y="25dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_x="99dp"
-                android:layout_y="43dp"
-                android:text="TextView" />
-        </AbsoluteLayout>
-        
-    </TableRow>
+        android:layout_height="match_parent">
+         
+    </TableLayout>
+    
 </ScrollView>
 
 <ImageButton
