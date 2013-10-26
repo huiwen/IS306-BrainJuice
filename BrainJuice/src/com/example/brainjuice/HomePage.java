@@ -21,11 +21,15 @@ import android.view.WindowManager;
 import android.widget.*;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
+
 import com.example.brainjuice.entity.*;
 
 
 public class HomePage extends Activity implements OnClickListener{
-
+    
+	AbsoluteLayout layout_MainMenu;
+	RelativeLayout back_dim_layout;
 	TextView textView;
 	TextView notificationCount; 
 	Button faq;
@@ -48,7 +52,9 @@ public class HomePage extends Activity implements OnClickListener{
   
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
-       
+        layout_MainMenu = (AbsoluteLayout) findViewById(R.id.widget0);
+        
+        //layout_MainMenu.getBackground().setAlpha( 0);
 
     	checkChildNotification();
     	
@@ -79,6 +85,8 @@ public class HomePage extends Activity implements OnClickListener{
         userMgr = BrainJuice.retrieveUserMgr();
         
         icon = (ImageView)this.findViewById(R.id.qnprofilepic);
+        icon.setBackgroundColor(0xFFFFFFFF);
+
         int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
         icon.setImageResource(j);
         
@@ -223,6 +231,7 @@ public class HomePage extends Activity implements OnClickListener{
     	 
     	 case R.id.Ask: 
         	 
+    		
         	 //btnOpenPopup.setOnClickListener(new Button.OnClickListener(){
         		 
         		  // @Override
@@ -231,41 +240,52 @@ public class HomePage extends Activity implements OnClickListener{
         			/*   WindowManager.LayoutParams windowManager = getWindow().getAttributes();
   		             windowManager.dimAmount = 5.75f;
   		             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+  		  
   		             */
-        			   
-  		             
+    		    
+    		    
+    		 //layout_MainMenu = (AbsoluteLayout) findViewById(R.id.widget0);
+    		 
+    		 //back_dim_layout = (RelativeLayout) findViewById(R.id.bac_dim_layout);
+    		 
+    		// back_dim_layout.setVisibility(View.VISIBLE);
+    		
         LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
         View popupView = layoutInflater.inflate(R.layout.activity_askquestionpopup, null);  
         final PopupWindow popupWindow = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
         popupWindow.setOutsideTouchable(false);
         popupWindow.setFocusable(true);
         
+       // layout_MainMenu.getBackground().setAlpha( 220);
+       // icon.getBackground().setAlpha( 220);
+        //back_dim_layout.setVisibility(View.VISIBLE);
+		//back_dim_layout.setVisibility(View.GONE);
+       /*
         try {
+        	
         	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
             WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
             layoutParams.screenBrightness = curBrightnessValue/500.0f;
             getWindow().setAttributes(layoutParams);
+            
         } catch (SettingNotFoundException e) {
-             		            // TODO Auto-generated catch block
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        		             /*
+       	             
         		            
-        		             Window window = popupView.getWindow();
-        		             WindowManager.LayoutParams wlp = window.getAttributes();
-        		             wlp.gravity = Gravity.CENTER_VERTICAL;
-        		             wlp.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        		             wlp.dimAmount = (float) 1.0;
-        		             window.setAttributes(wlp);
-        		             */
+        */		    
+       // back_dim_layout.setVisibility(View.GONE);		
         Button btnDismiss = (Button)popupView.findViewById(R.id.button2);
+       
         btnDismiss.setOnClickListener(new Button.OnClickListener(){
-        		            	 	
+        	             	 	
         		     @Override
         		     public void onClick(View v) {
         		      // TODO Auto-generated method stub
         		    	 popupWindow.dismiss();
-        		      
+        		
+        		    	/*
         		    	 try {
         		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
         		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
@@ -275,9 +295,10 @@ public class HomePage extends Activity implements OnClickListener{
        		            // TODO Auto-generated catch block
         		    		 e.printStackTrace();
         		    	 }
+        		    	 */
         		     }});
-        Button btnProceed = (Button)popupView.findViewById(R.id.button1);
-        btnProceed.setOnClickListener(new Button.OnClickListener(){	  		
+	        Button btnProceed = (Button)popupView.findViewById(R.id.button1);
+	        btnProceed.setOnClickListener(new Button.OnClickListener(){	  		
         	
         	
         	
