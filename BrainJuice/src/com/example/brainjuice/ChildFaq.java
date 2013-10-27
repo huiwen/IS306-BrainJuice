@@ -171,10 +171,11 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    		 	loginUser = BrainJuice.retrieveLoginUser();
 	    	        userMgr = BrainJuice.retrieveUserMgr();
 	    	        
+	    	        
 	    	        icon = (ImageView)this.findViewById(R.id.qnprofilepic);
 	    	        int j = getResources().getIdentifier(userMgr.retrieveUser(loginUser).getProfile(), "drawable", getPackageName());
 	    	        icon.setImageResource(j);
-	    	        
+	    	        checkChildNotification();
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
@@ -301,7 +302,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    		 
 	    		 TextView titleQ2 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ2.setText(Html.fromHtml("How do I know if my question has been answered?<br />"));
-	    		 
+	    		 checkChildNotification();
 	    		 TextView bodyQ2 = (TextView)this.findViewById(R.id.FAQBody);
 	    		 bodyQ2.setText(Html.fromHtml("<b>Step 1</b> When you have a notification, one of your questions has been answered by an adult.<br /><br />"
 	    				 + "<b>Step 2</b> To check your notification, tap on the “Notifications” navigation tab.<br /><br />"
@@ -311,7 +312,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    		 
 	    		
 	    		 
-	    		 Button faqQ2 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ2 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ2.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, ChildFaq.class);
@@ -422,7 +423,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkChildNotification();
 	    		 TextView titleQ3 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ3.setText(Html.fromHtml("Where are my answered questions located?<br />"));
 	    		 
@@ -542,7 +543,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkChildNotification();
 	    		 TextView titleQ4 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?<br />"));
 	    		 
@@ -665,7 +666,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkChildNotification();
 	    		 TextView titleQ5 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?<br />"));
 	    		 
@@ -712,7 +713,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ5 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ5 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ5.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);

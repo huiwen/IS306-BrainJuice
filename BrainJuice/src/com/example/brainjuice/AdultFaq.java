@@ -179,7 +179,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkNotification();
 	    		 TextView title = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 title.setText(Html.fromHtml("How do I answer a question?<br />"));
 	    		 
@@ -301,7 +301,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkNotification();
 	    		 TextView titleQ2 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ2.setText(Html.fromHtml("How do I know if my answer has been accepted?<br />"));
 	    		 
@@ -423,7 +423,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkNotification();
 	    		 TextView titleQ3 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ3.setText(Html.fromHtml("Where are my answers to the questions asked located?<br />"));
 	    		 
@@ -543,7 +543,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkNotification();
 	    		 TextView titleQ4 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?<br />"));
 	    		 
@@ -666,7 +666,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        
 	    	        welcomeMsg = (TextView)this.findViewById(R.id.widget50);
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
-	    		 
+	    	        checkNotification();
 	    		 TextView titleQ5 = (TextView)this.findViewById(R.id.FAQTitle);
 	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?<br />"));
 	    		 
