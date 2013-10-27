@@ -25,8 +25,8 @@ public class AdultHomePage extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton request;
 	ImageButton notification;
 	ImageButton answerbank;
@@ -44,11 +44,11 @@ public class AdultHomePage extends Activity implements OnClickListener {
        
         checkNotification();
         
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         request = (ImageButton)this.findViewById(R.id.QuestionRequest);

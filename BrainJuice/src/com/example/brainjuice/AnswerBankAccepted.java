@@ -32,11 +32,12 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 	
 	TextView textView;
 	TextView notificationCount; 
-	Button logout;
-	Button faq;
+	ImageButton logout;
+	ImageButton faq;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton setting;
+	ImageButton answerBank;
 	
 	ImageView icon;
 	TextView welcomeMsg;
@@ -196,11 +197,14 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
 
 		tabHost.addTab(spec3);
 		
-		logout = (Button)this.findViewById(R.id.Logout);
+		logout = (ImageButton)this.findViewById(R.id.Logout);
 		logout.setOnClickListener(this);
 		
-		faq = (Button)this.findViewById(R.id.FAQ);
+		faq = (ImageButton)this.findViewById(R.id.FAQ);
 		faq.setOnClickListener(this);
+		
+		answerBank = (ImageButton)this.findViewById(R.id.AnswerBank);
+		answerBank.setOnClickListener(this);
 		
 		answering = (ImageButton)this.findViewById(R.id.Answering);
 		answering.setOnClickListener(this);
@@ -295,6 +299,12 @@ public class AnswerBankAccepted extends Activity implements OnClickListener {
             startActivity(intent);
             
             break;
+            
+        case R.id.AnswerBank: 
+          	 Intent intentans = new Intent(context, AnswerBankAccepted.class);
+               startActivity(intentans);
+               
+               break;
             
        	 
         case R.id.notification:

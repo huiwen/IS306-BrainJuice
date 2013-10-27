@@ -40,7 +40,7 @@
       <TextView
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:text="You are trying to ask a question. If you would like to proceed with your action, tap Proceed. Else tap Cancel." />
+          android:text="Are you sure you want to ask a question?" />
       
       
 		
@@ -58,7 +58,7 @@
              android:layout_alignParentTop="true"
              android:layout_marginLeft="28dp"
              android:background="#005EFF"
-             android:text="      Proceed        " />
+             android:text="      Yes        " />
 
          <Button
              android:id="@+id/button2"
@@ -68,7 +68,7 @@
              android:layout_marginLeft="14dp"
              android:layout_toRightOf="@+id/button1"
              android:background="#005EFF"
-             android:text="        Cancel        " />
+             android:text="        No        " />
 
      </RelativeLayout>
 

@@ -6,42 +6,31 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 <TextView
-	android:id="@+id/widget50"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Hi MelissaTan!"
-	android:textSize="18sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="129dp"
-	android:layout_y="34dp" />
-<Button
-	android:id="@+id/FAQ"
-	android:layout_width="74dp"
-	android:layout_height="37dp"
-	android:text="FAQ"
-	android:textStyle="bold"
-	android:layout_x="123dp"
-	android:layout_y="79dp" />
-<Button
-	android:id="@+id/Logout"
-	android:layout_width="81dp"
-	android:layout_height="38dp"
-	android:text="Logout"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="212dp"
-	android:layout_y="79dp" />
-<TextView
-	android:id="@+id/AnswerQuestion"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Answer Question"
-	android:textSize="25sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="14dp"
-	android:layout_y="120dp" />
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="87dp"
+    android:layout_y="12dp"
+    android:text="Hi MelissaTan!"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:fontFamily="" />
+<ImageButton
+    android:id="@+id/FAQ"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="81dp"
+    android:layout_y="42dp"
+    android:src="@drawable/faq_button" />
+
+<ImageButton
+    android:id="@+id/Logout"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="168dp"
+    android:layout_y="43dp"
+    android:src="@drawable/logout_button" />
 
 <ImageButton
     
@@ -67,8 +56,8 @@
     android:id="@+id/count"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="134dp"
-    android:layout_y="404dp"
+    android:layout_x="123dp"
+    android:layout_y="405dp"
     android:background="@drawable/notificationred"
     android:gravity="center"
     android:text="10"
@@ -94,18 +83,26 @@
     android:src="@drawable/settings" />
 <ImageView
     android:id="@+id/qnprofilepic"
-    android:layout_width="93dp"
-    android:layout_height="114dp"
-    android:layout_x="11dp"
-    android:layout_y="2dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_x="7dp"
+    android:layout_y="5dp"
     android:src="@drawable/melissa" />
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="235dp"
+    android:layout_height="38dp"
+    android:layout_x="12dp"
+    android:layout_y="100dp"
+    android:src="@drawable/answerqn" />
 
 <ImageButton
     android:id="@+id/QuestionRequest"
     android:layout_width="206dp"
     android:layout_height="196dp"
-    android:layout_x="46dp"
-    android:layout_y="158dp"
+    android:layout_x="59dp"
+    android:layout_y="168dp"
     android:src="@drawable/qnrequestbtn" />
 
 </AbsoluteLayout>

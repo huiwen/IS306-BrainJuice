@@ -28,13 +28,13 @@ import com.example.brainjuice.entity.*;
 
 public class HomePage extends Activity implements OnClickListener{
     
-	AbsoluteLayout layout_MainMenu;
+	//AbsoluteLayout layout_MainMenu;
 	RelativeLayout back_dim_layout;
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
-	Button ask;
+	ImageButton faq;
+	ImageButton logout;
+	ImageButton ask;
 	ImageButton notification;
 	ImageButton questionbank;
 	ImageButton setting;
@@ -52,23 +52,23 @@ public class HomePage extends Activity implements OnClickListener{
   
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
-        layout_MainMenu = (AbsoluteLayout) findViewById(R.id.widget0);
+        //layout_MainMenu = (AbsoluteLayout) findViewById(R.id.widget0);
         
         //layout_MainMenu.getBackground().setAlpha( 0);
 
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
        
         
         
-        ask = (Button)this.findViewById(R.id.Ask);
+        ask = (ImageButton)this.findViewById(R.id.Ask);
         ask.setEnabled(false);
         ask.setOnClickListener(this);
         
@@ -148,7 +148,7 @@ public class HomePage extends Activity implements OnClickListener{
        	}
        	
        
-         }
+    }
     
     @SuppressWarnings("deprecation")
 	public void onClick(View v){
@@ -229,6 +229,11 @@ public class HomePage extends Activity implements OnClickListener{
         	 
         	 break;
     	 
+    	 case R.id.Asking:
+    		 Intent intentAsking = new Intent(context, HomePage.class);
+         	 startActivity(intentAsking);
+    		 break;
+        
     	 case R.id.Ask: 
         	 
     		
@@ -260,7 +265,7 @@ public class HomePage extends Activity implements OnClickListener{
        // icon.getBackground().setAlpha( 220);
         //back_dim_layout.setVisibility(View.VISIBLE);
 		//back_dim_layout.setVisibility(View.GONE);
-       /*
+       
         try {
         	
         	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
@@ -274,7 +279,7 @@ public class HomePage extends Activity implements OnClickListener{
         }
        	             
         		            
-        */		    
+       	    
        // back_dim_layout.setVisibility(View.GONE);		
         Button btnDismiss = (Button)popupView.findViewById(R.id.button2);
        
@@ -285,7 +290,7 @@ public class HomePage extends Activity implements OnClickListener{
         		      // TODO Auto-generated method stub
         		    	 popupWindow.dismiss();
         		
-        		    	/*
+        		    	
         		    	 try {
         		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
         		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
@@ -295,7 +300,7 @@ public class HomePage extends Activity implements OnClickListener{
        		            // TODO Auto-generated catch block
         		    		 e.printStackTrace();
         		    	 }
-        		    	 */
+        		    	 
         		     }});
 	        Button btnProceed = (Button)popupView.findViewById(R.id.button1);
 	        btnProceed.setOnClickListener(new Button.OnClickListener(){	  		
@@ -305,23 +310,23 @@ public class HomePage extends Activity implements OnClickListener{
         	public void onClick(View arg0){
         		popupWindow.dismiss();
         		
-        		LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
+        		/*LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
                 View popupView = layoutInflater.inflate(R.layout.activity_askquestionpopupinstance, null);  
         		final PopupWindow popupWindowS = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
                 popupWindowS.setOutsideTouchable(false);
-                popupWindowS.setFocusable(true);
+                popupWindowS.setFocusable(true);*/
                 
                 //ask qn logic
                 BrainJuice.retrievePAMgr().addNew(loginUser, askQn.getText().toString());
                 
-                Button btnClose = (Button)popupView.findViewById(R.id.Close);
+                /*Button btnClose = (Button)popupView.findViewById(R.id.Close);
                 btnClose.setOnClickListener(new Button.OnClickListener(){
                 	public void onClick(View v) {
-                		//popupWindowS.dismiss();
+                		//popupWindowS.dismiss();*/
                 		Intent intent = new Intent(context, HomePage.class);
                     	startActivity(intent);
           		      
-          		    	 try {
+          		    	try {
           		    		 int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
           		    		 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
           		    		 layoutParams.screenBrightness = curBrightnessValue;
@@ -330,13 +335,14 @@ public class HomePage extends Activity implements OnClickListener{
          		            // TODO Auto-generated catch block
           		    		 e.printStackTrace();
           		    	 }
-          		     }});
+          		     //}});
                 
-                popupWindowS.showAsDropDown(ask, 150, 50);
+                //popupWindowS.showAsDropDown(ask, 150, 50);
         	}});
         
         		            // popupWindow.showAsDropDown(btnOpenPopup, 150, 50);
-       popupWindow.showAsDropDown(ask, 150, 50);
+       //popupWindow.showAsDropDown(ask, 150, 50);
+	        popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
         		         
         		 
        break;

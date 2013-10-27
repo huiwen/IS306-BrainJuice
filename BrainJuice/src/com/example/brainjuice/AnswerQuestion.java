@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -27,13 +28,14 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
-	Button anotherQuestion;
-	Button answer;
+	ImageButton faq;
+	ImageButton logout;
+	ImageButton anotherQuestion;
+	ImageButton answer;
 	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
+	ImageButton answering;
 	
 	ImageView icon;
 	TextView welcomeMsg;
@@ -55,17 +57,20 @@ public class AnswerQuestion extends Activity implements OnClickListener {
     	checkNotification();
     	
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
+        answering = (ImageButton)this.findViewById(R.id.Answering);
+        answering.setOnClickListener(this);
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
-        anotherQuestion = (Button)this.findViewById(R.id.AnotherQuestion);
+        anotherQuestion = (ImageButton)this.findViewById(R.id.AnotherQuestion);
         anotherQuestion.setOnClickListener(this);
         
-        answer = (Button)this.findViewById(R.id.Answer);
+        answer = (ImageButton)this.findViewById(R.id.Answer);
         answer.setEnabled(false);
         answer.setOnClickListener(this);
         
@@ -218,7 +223,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
             	public void onClick(View arg0){
             		popupWindow.dismiss();
             		
-            		LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
+            		/*LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);  
                     View popupView = layoutInflater.inflate(R.layout.activity_answerquestionsuccessful, null);  
             		final PopupWindow popupWindowS = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
                     popupWindowS.setOutsideTouchable(false);
@@ -228,7 +233,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
                     Button btnClose = (Button)popupView.findViewById(R.id.Close);
                     btnClose.setOnClickListener(new Button.OnClickListener(){
                     	public void onClick(View v) {
-                    		//popupWindowS.dismiss();
+                    		//popupWindowS.dismiss();*/
                     		BrainJuice.retrieveCNMgr().add(pa.getUserAsked(), pa.getQn(), loginUser, answerQn.getText().toString());
                     		BrainJuice.retrievePAcMgr().add(pa.getUserAsked(), pa.getQn(), loginUser, answerQn.getText().toString());
                     		pa = paMgr.anotherQn(pa.getUserAsked(), pa.getQn());
@@ -255,12 +260,12 @@ public class AnswerQuestion extends Activity implements OnClickListener {
              		            // TODO Auto-generated catch block
               		    		 e.printStackTrace();
               		    	 }
-              		     }});
+              		     //}});
                     
-                    popupWindowS.showAsDropDown(answer, 150, 50);
+                    //popupWindowS.showAsDropDown(answer, 150, 50);
             	}});
             
-            popupWindow.showAsDropDown(answer, 150, 50);
+            popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
             
         	 
             break;
@@ -270,6 +275,12 @@ public class AnswerQuestion extends Activity implements OnClickListener {
        	 startActivity(intentBack);
        	 
        	 break;
+       	 
+        case R.id.Answering:
+          	 Intent intentAns = new Intent (context, AdultHomePage.class);
+          	 startActivity(intentAns);
+          	 
+          	 break;
        	 
         case R.id.AnswerBank:
        	 Intent intentAnswerBankAccepted = new Intent (context, AnswerBankAccepted.class);

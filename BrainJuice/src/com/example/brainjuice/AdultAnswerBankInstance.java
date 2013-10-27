@@ -25,8 +25,8 @@ public class AdultAnswerBankInstance extends Activity implements OnClickListener
 
 	TextView textView;
 	TextView notificationCount;
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
@@ -59,11 +59,11 @@ public class AdultAnswerBankInstance extends Activity implements OnClickListener
         welcomeMsg = (TextView)this.findViewById(R.id.widget50);
         welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
        
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         answering = (ImageButton)this.findViewById(R.id.Answering);

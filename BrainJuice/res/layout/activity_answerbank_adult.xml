@@ -7,45 +7,31 @@
     android:layout_height="fill_parent" >
 
     <TextView
-        android:id="@+id/widget50"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="129dp"
-        android:layout_y="34dp"
-        android:text="Hi MelissaTan!"
-        android:textColor="#ff000000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="87dp"
+    android:layout_y="12dp"
+    android:text="Hi MelissaTan!"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:fontFamily="" />
+<ImageButton
+    android:id="@+id/FAQ"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="81dp"
+    android:layout_y="42dp"
+    android:src="@drawable/faq_button" />
 
-    <Button
-        android:id="@+id/FAQ"
-        android:layout_width="74dp"
-        android:layout_height="37dp"
-        android:layout_x="123dp"
-        android:layout_y="79dp"
-        android:text="FAQ"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/Logout"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
-        android:layout_x="212dp"
-        android:layout_y="79dp"
-        android:text="Logout"
-        android:textColor="#ff000000"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/TextMyAnswerBank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="14dp"
-        android:layout_y="120dp"
-        android:text="My Answer Bank"
-        android:textColor="#ff000000"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+<ImageButton
+    android:id="@+id/Logout"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="168dp"
+    android:layout_y="43dp"
+    android:src="@drawable/logout_button" />
 
    <ImageButton
     
@@ -71,8 +57,8 @@
     android:id="@+id/count"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="134dp"
-    android:layout_y="404dp"
+    android:layout_x="123dp"
+    android:layout_y="405dp"
     android:background="@drawable/notificationred"
     android:gravity="center"
     android:text="10"
@@ -97,19 +83,19 @@
     android:layout_y="405dp"
     android:src="@drawable/settings" />
     <ImageView
-        android:id="@+id/qnprofilepic"
-        android:layout_width="93dp"
-        android:layout_height="114dp"
-        android:layout_x="11dp"
-        android:layout_y="2dp"
-        android:src="@drawable/melissa" />
+    android:id="@+id/qnprofilepic"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_x="7dp"
+    android:layout_y="5dp"
+    android:src="@drawable/melissa" />
 
     <TabHost
         android:id="@+id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="165dp"
-        android:layout_x="8dp"
-        android:layout_y="146dp" 
+        android:layout_height="match_parent"
+        android:layout_x="4dp"
+        android:layout_y="116dp" 
         android:textSize="6sp" >
 
         <LinearLayout
@@ -126,12 +112,12 @@
             <FrameLayout
                 android2:id="@android:id/tabcontent"
                 android2:layout_width="match_parent"
-                android2:layout_height="165dp" >
+                android2:layout_height="203dp" >
 
                 <LinearLayout
                     android2:id="@+id/tab1"
                     android2:layout_width="303dp"
-                    android2:layout_height="170dp" >
+                    android2:layout_height="match_parent" >
 
                 	<ScrollView
                 	    android2:id="@+id/scrollView1"
@@ -198,5 +184,13 @@
             </FrameLayout>
         </LinearLayout>
     </TabHost>
+
+    <ImageView
+        android2:id="@+id/imageView1"
+        android2:layout_width="210dp"
+        android2:layout_height="40dp"
+        android2:layout_x="11dp"
+        android2:layout_y="82dp"
+        android2:src="@drawable/myansbankadult" />
 
 </AbsoluteLayout>

@@ -25,8 +25,8 @@ public class AdultNotification extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount;
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
@@ -53,11 +53,11 @@ public class AdultNotification extends Activity implements OnClickListener {
 
     	checkNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         answering = (ImageButton)this.findViewById(R.id.Answering);
@@ -116,14 +116,14 @@ public class AdultNotification extends Activity implements OnClickListener {
 	        int resource = getResources().getIdentifier(userMgr.retrieveUser(temp.getUserAsked()).getProfile(), "drawable", getPackageName());
 	        column1.setImageResource(resource);
 	        newRow.addView(column1);
-	        tl.addView(newRow, new TableLayout.LayoutParams());
-	        column1.getLayoutParams().height = 120;
-	        column1.getLayoutParams().width = 100;
+	       // tl.addView(newRow, new TableLayout.LayoutParams());
+	        column1.getLayoutParams().height = 60;
+	        column1.getLayoutParams().width = 60;
 	        
-	        LinearLayout myLayout = new LinearLayout(this);
-	        myLayout.setOrientation(LinearLayout.VERTICAL);
+	        //LinearLayout myLayout = new LinearLayout(this);
+	        //myLayout.setOrientation(LinearLayout.VERTICAL);
 	        
-			final TextView qn = new TextView(this);
+			/*final TextView qn = new TextView(this);
 			qn.setText(Html.fromHtml("<strong>Question:</strong> " + temp.getQn()));
 			qn.setLayoutParams(new LayoutParams(280, 30));
 			myLayout.addView(qn);
@@ -139,11 +139,33 @@ public class AdultNotification extends Activity implements OnClickListener {
 			final TextView msg = new TextView(this);
 			msg.setText(Html.fromHtml("<strong>Message:</strong> " + temp.getUserAsked() + " likes your answer!"));
 			msg.setLayoutParams(new LayoutParams(280, LayoutParams.WRAP_CONTENT));
-			myLayout.addView(msg);
-					    
-		    newRow.addView(myLayout);
-		    
+			myLayout.addView(msg);*/
+	        
+	        String reply = temp.getAnswer();
+	        if(reply.length() > 30){
+	        	reply = reply.substring(0, 29) + "...";
+	        }
+	        
+	        TextView text = new TextView(this);
+	        text.setText(temp.getUserAsked() + " has liked your reply '" + reply + "'!");
+	        newRow.addView(text);
 		    newRow.setId(i);
+		    newRow.setLayoutParams(new LayoutParams(75, 75));
+		    newRow.setBackgroundResource(R.drawable.back);
+		    TableLayout.LayoutParams tableRowParams=
+		    		  new TableLayout.LayoutParams
+		    		  (TableLayout.LayoutParams.WRAP_CONTENT,TableLayout.LayoutParams.WRAP_CONTENT);
+
+		    		int leftMargin=2;
+		    		int topMargin=2;
+		    		int rightMargin=2;
+		    		int bottomMargin=2;
+
+		    		tableRowParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
+
+		    		newRow.setLayoutParams(tableRowParams);
+		    		
+		    tl.addView(newRow);
 		    
 		    newRow.setClickable(true);
 	        newRow.setOnClickListener(this);

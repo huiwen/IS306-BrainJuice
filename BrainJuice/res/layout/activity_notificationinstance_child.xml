@@ -6,32 +6,32 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 <TextView
-	android:id="@+id/widget50"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Hi JonathanTan!"
-	android:textSize="18sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="129dp"
-	android:layout_y="34dp" />
-<Button
-	android:id="@+id/FAQ"
-	android:layout_width="74dp"
-	android:layout_height="37dp"
-	android:text="FAQ"
-	android:textStyle="bold"
-	android:layout_x="123dp"
-	android:layout_y="79dp" />
-<Button
-	android:id="@+id/Logout"
-	android:layout_width="81dp"
-	android:layout_height="38dp"
-	android:text="Logout"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="212dp"
-	android:layout_y="79dp" />
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="87dp"
+    android:layout_y="12dp"
+    android:text="Hi JonathanTan!"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:fontFamily="" />
+<ImageButton
+    android:id="@+id/FAQ"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="81dp"
+    android:layout_y="42dp"
+    android:src="@drawable/faq_button" />
+
+<ImageButton
+    android:id="@+id/Logout"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="168dp"
+    android:layout_y="43dp"
+    android:src="@drawable/logout_button" />
+
 
 <ImageButton
     
@@ -57,8 +57,8 @@
     android:id="@+id/count"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="134dp"
-    android:layout_y="404dp"
+    android:layout_x="123dp"
+    android:layout_y="405dp"
     android:background="@drawable/notificationred"
     android:gravity="center"
     android:text="10"
@@ -68,7 +68,7 @@
 
 
 <ImageButton
-    android:id="@+id/widget42"
+    android:id="@+id/QuestionBank"
        android:layout_width="90dp"
     android:layout_height="60dp"
     android:layout_x="161.31dp"
@@ -85,45 +85,70 @@
 
 <ImageView
     android:id="@+id/qnprofilepic"
-    android:layout_width="93dp"
-    android:layout_height="114dp"
-    android:layout_x="11dp"
-    android:layout_y="2dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_x="7dp"
+    android:layout_y="5dp"
+    android:foreground="#152"
     android:src="@drawable/minion" />
 
-<TextView
-    android:id="@+id/Question"
+<ImageView
+    android:id="@+id/imageView1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="132dp"
-    android:text="My Question"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
+    android:layout_x="16dp"
+    android:layout_y="86dp"
+    android:src="@drawable/myquestion" />
 
 <ScrollView
     android:id="@+id/scrollView1"
-    android:layout_width="273dp"
-    android:layout_height="40dp"
-    android:layout_x="26dp"
-    android:layout_y="156dp" >
-    
+    android:layout_width="292dp"
+    android:layout_height="66dp"
+    android:layout_x="13dp"
+    android:layout_y="113dp"
+    android:background="@drawable/back" >
+
     <TextView
-    android:id="@+id/QuestionBody"
-    android:layout_width="273dp"
-    android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="156dp"
-    android:text="How big is the earth?" />
-    
+        android:id="@+id/QuestionBody"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_x="26dp"
+        android:layout_y="156dp"
+        android:text="How big is the earth?" />
 </ScrollView>
+
+<ImageButton
+    android:id="@+id/tick"
+    android:layout_width="28dp"
+    android:layout_height="28dp"
+    android:layout_x="131dp"
+    android:layout_y="368dp"
+    android:src="@drawable/tick" />
+
+<TextView
+    android:id="@+id/Message"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="97dp"
+    android:layout_y="345dp"
+    android:text="Do you like this answer?"
+    android:textColor="#ff000000" />
+
+<ImageButton
+    android:id="@+id/cross"
+    android:layout_width="30dp"
+    android:layout_height="29dp"
+    android:layout_x="174dp"
+    android:layout_y="368dp"
+    android:src="@drawable/cross" />
 
 <ScrollView
     android:id="@+id/scrollView2"
-    android:layout_width="273dp"
-    android:layout_height="75dp"
-    android:layout_x="27dp"
-    android:layout_y="214dp" >
+    android:layout_width="292dp"
+    android:layout_height="126dp"
+    android:layout_x="13dp"
+    android:layout_y="213dp"
+    android:background="@drawable/back" >
 
     <TextView
         android:id="@+id/AnswerBody"
@@ -132,40 +157,13 @@
         android:text="Radius of the earth is 6,371km. The surface are is 510,072,000km2." />
 </ScrollView>
 
-<TextView
-    android:id="@+id/Message"
+<ImageView
+    android:id="@+id/imageView2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="68dp"
-    android:layout_y="298dp"
-    android:text="Do you like this answer?"
-    android:textColor="#ff000000" />
-
-<ImageButton
-    android:id="@+id/tick"
-    android:layout_width="35dp"
-    android:layout_height="35dp"
-    android:layout_x="98dp"
-    android:layout_y="316dp"
-    android:src="@drawable/tick" />
-
-<ImageButton
-    android:id="@+id/cross"
-    android:layout_width="33dp"
-    android:layout_height="33dp"
-    android:layout_x="160dp"
-    android:layout_y="319dp"
-    android:src="@drawable/cross" />
-
-<TextView
-    android:id="@+id/AnswerText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="192dp"
-    android:text="Answer"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
+    android:layout_x="16dp"
+    android:layout_y="186dp"
+    android:src="@drawable/answer" />
 
 </AbsoluteLayout>
 

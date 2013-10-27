@@ -6,32 +6,31 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 <TextView
-	android:id="@+id/widget50"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Hi MelissaTan!"
-	android:textSize="18sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="129dp"
-	android:layout_y="34dp" />
-<Button
-	android:id="@+id/FAQ"
-	android:layout_width="74dp"
-	android:layout_height="37dp"
-	android:text="FAQ"
-	android:textStyle="bold"
-	android:layout_x="123dp"
-	android:layout_y="79dp" />
-<Button
-	android:id="@+id/Logout"
-	android:layout_width="81dp"
-	android:layout_height="38dp"
-	android:text="Logout"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="212dp"
-	android:layout_y="79dp" />
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="87dp"
+    android:layout_y="12dp"
+    android:text="Hi MelissaTan!"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:fontFamily="" />
+<ImageButton
+    android:id="@+id/FAQ"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="81dp"
+    android:layout_y="42dp"
+    android:src="@drawable/faq_button" />
+
+<ImageButton
+    android:id="@+id/Logout"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="168dp"
+    android:layout_y="43dp"
+    android:src="@drawable/logout_button" />
 
 <ImageButton
     
@@ -57,8 +56,8 @@
     android:id="@+id/count"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="134dp"
-    android:layout_y="404dp"
+    android:layout_x="123dp"
+    android:layout_y="405dp"
     android:background="@drawable/notificationred"
     android:gravity="center"
     android:text="10"
@@ -82,101 +81,92 @@
     android:layout_x="242.5dp"
     android:layout_y="405dp"
     android:src="@drawable/settings" />
-<TableLayout
-    android:id="@+id/widget57"
-    android:layout_width="258dp"
-    android:layout_height="96dp"
-    android:layout_x="25dp"
-    android:layout_y="220dp"
-    android:orientation="vertical"
-    android:padding="10dp" >
 
-</TableLayout>
 
-<TextView
-    android:id="@+id/QuestionBody"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="44dp"
-    android:layout_y="182dp"
-    android:text="How big is the earth?" />
 
 <ImageView
     android:id="@+id/qnprofilepic"
-    android:layout_width="93dp"
-    android:layout_height="114dp"
-    android:layout_x="11dp"
-    android:layout_y="2dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_x="7dp"
+    android:layout_y="5dp"
     android:src="@drawable/melissa" />
 
-<TextView
-    android:id="@+id/AnswerQuestion"
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="235dp"
+    android:layout_height="38dp"
+    android:layout_x="3dp"
+    android:layout_y="84dp"
+    android:src="@drawable/answerqn" />
+
+<ScrollView
+    android:id="@+id/scrollView1"
+    android:layout_width="292dp"
+    android:layout_height="53dp"
+    android:layout_x="23dp"
+    android:layout_y="152dp"
+    android:background="@drawable/back" >
+
+    <TextView
+        android:id="@+id/QuestionBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="78dp"
+        android:layout_y="193dp"
+        android:text="How big is the earth?" />
+
+</ScrollView>
+
+<ImageView
+    android:id="@+id/imageView2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="14dp"
-    android:layout_y="120dp"
-    android:text="Answer Question"
-    android:textColor="#ff000000"
-    android:textSize="25sp"
-    android:textStyle="bold" />
+    android:layout_x="20dp"
+    android:layout_y="124dp"
+    android:src="@drawable/qnadult" />
 
-<TextView
-    android:id="@+id/Question"
+<ImageView
+    android:id="@+id/imageView3"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="27dp"
-    android:layout_y="158dp"
-    android:text="Question"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
+    android:layout_x="20dp"
+    android:layout_y="222dp"
+    android:src="@drawable/youransadult" />
 
-<TextView
-    android:id="@+id/AnswerText"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="27dp"
-    android:layout_y="206dp"
-    android:text="Your Answer"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
-
-<EditText
-    android:id="@+id/editText1"
-    android:layout_width="wrap_content"
-    android:layout_height="66dp"
-    android:layout_x="36dp"
-    android:layout_y="218dp"
-    android:ems="10" >
-
-    <requestFocus />
-</EditText>
-
-<TextView
-    android:id="@+id/CharactersLeft"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="27dp"
-    android:layout_y="290dp"
-    android:text="1000 Characters left."
-    android:textColor="#ff000000" />
-
-<Button
+<ImageButton
     android:id="@+id/AnotherQuestion"
-    android:layout_width="wrap_content"
-    android:layout_height="36dp"
-    android:layout_x="60dp"
-    android:layout_y="314dp"
-    android:text="Another Question"
-    android:textStyle="bold" />
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="213dp"
+    android:layout_y="208dp"
+    android:src="@drawable/nextquestionbutton" />
 
-<Button
+<ImageButton
     android:id="@+id/Answer"
-    android:layout_width="wrap_content"
-    android:layout_height="36dp"
-    android:layout_x="227dp"
-    android:layout_y="314dp"
-    android:text="Answer!"
-    android:textStyle="bold" />
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="213dp"
+    android:layout_y="372dp"
+    android:src="@drawable/qnanswerbutton" />
+
+<ScrollView
+    android:id="@+id/scrollView2"
+    android:layout_width="292dp"
+    android:layout_height="117dp"
+    android:layout_x="23dp"
+    android:layout_y="252dp"
+    android:background="@drawable/back" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_x="46dp"
+        android:layout_y="242dp"
+        android:ems="10" />
+</ScrollView>
 
 </AbsoluteLayout>
 

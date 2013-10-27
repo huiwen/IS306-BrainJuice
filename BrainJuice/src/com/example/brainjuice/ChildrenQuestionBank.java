@@ -32,11 +32,12 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 	
 	TextView textView;
 	TextView notificationCount;
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton ask;
 	ImageButton notification;
 	ImageButton setting;
+	ImageButton qnBank;
 	
 	String loginUser;
 	UserMgr userMgr;
@@ -197,10 +198,10 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
 		tabHost.addTab(spec2);
 		tabHost.addTab(spec3);
 		
-		faq = (Button)this.findViewById(R.id.FAQ);
+		faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         ask = (ImageButton)this.findViewById(R.id.Asking);
@@ -209,11 +210,12 @@ public class ChildrenQuestionBank extends Activity implements OnClickListener {
         notification = (ImageButton)this.findViewById(R.id.notification);
         notification.setOnClickListener(this);
         
-        //questionbank = (ImageButton)this.findViewById(R.id.widget42);
-        //questionbank.setOnClickListener(this);
+        qnBank = (ImageButton)this.findViewById(R.id.QuestionBank);
+        qnBank.setOnClickListener(this);
         
         setting = (ImageButton)this.findViewById(R.id.Setting);
         setting.setOnClickListener(this);
+        
         
 		}
 
@@ -295,6 +297,11 @@ public void checkChildNotification(){
            startActivity(intentAsking);    
            break;
    	 
+   	case R.id.QuestionBank:  
+     	 Intent intentQn = new Intent(context, ChildrenQuestionBank.class);
+          startActivity(intentQn);    
+          break;      
+     
    	 case R.id.FAQ:  
        	 Intent intentFaq = new Intent(context, ChildFaq.class);
             startActivity(intentFaq);    

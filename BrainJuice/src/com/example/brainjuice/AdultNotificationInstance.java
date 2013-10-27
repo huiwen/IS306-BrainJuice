@@ -25,13 +25,13 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
 	ImageButton setting;
-	Button back;
+	//Button back;
 	TextView qnBody;
 	TextView ansBody;
 	TextView msg;
@@ -48,11 +48,11 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
         setContentView(R.layout.activity_notificationinstance_adult);
        
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         answering = (ImageButton)this.findViewById(R.id.Answering);

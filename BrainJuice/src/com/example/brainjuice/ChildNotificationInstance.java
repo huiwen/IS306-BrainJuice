@@ -25,10 +25,10 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton asking;
-	//ImageButton notification;
+	ImageButton notification;
 	ImageButton qnbank;
 	ImageButton setting;
 	ImageButton tick;
@@ -50,19 +50,19 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
 
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         asking = (ImageButton)this.findViewById(R.id.Asking);
         asking.setOnClickListener(this);
         
         
-        //notification = (ImageButton)this.findViewById(R.id.notification);
-        //notification.setOnClickListener(this);
+        notification = (ImageButton)this.findViewById(R.id.notification);
+        notification.setOnClickListener(this);
         
         qnbank = (ImageButton)this.findViewById(R.id.QuestionBank);
         qnbank.setOnClickListener(this);
@@ -131,8 +131,14 @@ public class ChildNotificationInstance extends Activity implements OnClickListen
     	
     	 switch (v.getId()) {
          case R.id.Asking: 
-        	 Intent intent = new Intent(context, AdultHomePage.class);
+        	 Intent intent = new Intent(context, HomePage.class);
              startActivity(intent);
+             
+             break;
+             
+         case R.id.notification: 
+        	 Intent intentnoti = new Intent(context, ChildNotification.class);
+             startActivity(intentnoti);
              
              break;
              

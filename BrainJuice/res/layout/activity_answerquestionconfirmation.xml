@@ -31,43 +31,42 @@
      </RelativeLayout>
 
      >
-     <LinearLayout 
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical" 
-      android:layout_margin="20dp">
-      <TextView
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:text="You are trying to answer a question. If you would like to proceed with your action, tap Proceed. Else tap Cancel." />
-      
-      
-		
-      </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="20dp"
+         android:orientation="vertical" >
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Are you sure you want to answer this question?" />
+     </LinearLayout>
 
      <RelativeLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content" >
 
          <Button
-             android:id="@+id/Proceed"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentTop="true"
-             android:layout_marginLeft="14dp"
-             android:background="#005EFF"
-             android:text="      Proceed        " />
-
-         <Button
              android:id="@+id/Cancel"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
              android:layout_alignParentTop="true"
-             android:layout_marginLeft="28dp"
-             android:layout_toRightOf="@+id/Proceed"
+             android:layout_marginRight="34dp"
              android:background="#005EFF"
-             android:text="        Cancel        " />
+             android:text="        No        " />
+
+         <Button
+             android:id="@+id/Proceed"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"
+             android:layout_marginRight="43dp"
+             android:layout_toLeftOf="@+id/Cancel"
+             android:background="#005EFF"
+             android:text="      Yes        " />
 
      </RelativeLayout>
 

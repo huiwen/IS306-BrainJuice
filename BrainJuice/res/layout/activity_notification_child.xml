@@ -6,53 +6,44 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 <TextView
-	android:id="@+id/widget50"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Hi JonathanTan!"
-	android:textSize="18sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="129dp"
-	android:layout_y="34dp" />
-<Button
-	android:id="@+id/FAQ"
-	android:layout_width="74dp"
-	android:layout_height="37dp"
-	android:text="FAQ"
-	android:textStyle="bold"
-	android:layout_x="123dp"
-	android:layout_y="79dp" />
-<Button
-	android:id="@+id/Logout"
-	android:layout_width="81dp"
-	android:layout_height="38dp"
-	android:text="Logout"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="212dp"
-	android:layout_y="79dp" />
-<TextView
-	android:id="@+id/TextNoti"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="My Notifications"
-	android:textSize="25sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="14dp"
-	android:layout_y="120dp" />
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="87dp"
+    android:layout_y="12dp"
+    android:text="Hi JonathanTan!"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:fontFamily="" />
+
+<ImageButton
+    android:id="@+id/FAQ"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="81dp"
+    android:layout_y="42dp"
+    android:src="@drawable/faq_button" />
+
+<ImageButton
+    android:id="@+id/Logout"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="168dp"
+    android:layout_y="43dp"
+    android:src="@drawable/logout_button" />
 
 <ScrollView
-    android:layout_width="279dp"
-    android:layout_height="190dp"
-    android:layout_x="20dp"
-    android:layout_y="162dp" >
+    android:layout_width="300dp"
+    android:layout_height="273dp"
+    android:layout_x="6dp"
+    android:layout_y="122dp" >
 
     <TableLayout
         android:id="@+id/tablelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:shrinkColumns="1">
          
     </TableLayout>
     
@@ -82,8 +73,8 @@
     android:id="@+id/count"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="134dp"
-    android:layout_y="404dp"
+    android:layout_x="123dp"
+    android:layout_y="405dp"
     android:background="@drawable/notificationred"
     android:gravity="center"
     android:text="10"
@@ -93,7 +84,7 @@
 
 
 <ImageButton
-    android:id="@+id/widget42"
+    android:id="@+id/QuestionBank"
        android:layout_width="90dp"
     android:layout_height="60dp"
     android:layout_x="161.31dp"
@@ -110,10 +101,19 @@
 
 <ImageView
     android:id="@+id/qnprofilepic"
-    android:layout_width="93dp"
-    android:layout_height="114dp"
-    android:layout_x="11dp"
-    android:layout_y="2dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_x="7dp"
+    android:layout_y="5dp"
+    android:foreground="#152"
     android:src="@drawable/minion" />
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="197dp"
+    android:layout_height="38dp"
+    android:layout_x="8dp"
+    android:layout_y="85dp"
+    android:src="@drawable/mynotification" />
 
 </AbsoluteLayout>

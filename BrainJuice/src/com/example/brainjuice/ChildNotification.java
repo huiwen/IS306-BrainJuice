@@ -25,10 +25,10 @@ public class ChildNotification extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton asking;
-	//ImageButton notification;
+	ImageButton notification;
 	ImageButton qnbank;
 	ImageButton setting;
 	TableRow notiBody;
@@ -48,19 +48,19 @@ public class ChildNotification extends Activity implements OnClickListener {
        
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         asking = (ImageButton)this.findViewById(R.id.Asking);
         asking.setOnClickListener(this);
         
         
-        //notification = (ImageButton)this.findViewById(R.id.notification);
-        //notification.setOnClickListener(this);
+        notification = (ImageButton)this.findViewById(R.id.notification);
+        notification.setOnClickListener(this);
         
         qnbank = (ImageButton)this.findViewById(R.id.QuestionBank);
         qnbank.setOnClickListener(this);
@@ -92,20 +92,32 @@ public class ChildNotification extends Activity implements OnClickListener {
         for(int i = 0; i < cn.size(); i++){
 	        TableRow newRow = new TableRow(this);
 	        
+	        LinearLayout myLayout = new LinearLayout(this);
+	        
+	        //myLayout.setOrientation(LinearLayout.VERTICAL);
+	        
 	        ImageView column1 = new ImageView(this);
 	        com.example.brainjuice.entity.ChildNotification temp = cn.get(i);
 	        
 	        int resource = getResources().getIdentifier(userMgr.retrieveUser(temp.getUserReplied()).getProfile(), "drawable", getPackageName());
 	        column1.setImageResource(resource);
-	        newRow.addView(column1);
-	        tl.addView(newRow, new TableLayout.LayoutParams());
-	        column1.getLayoutParams().height = 100;
-	        column1.getLayoutParams().width = 100;
+	        //column1.setLayoutParams(new LayoutParams(60, 60));
+	        myLayout.addView(column1, new LinearLayout.LayoutParams(60, 60));
+	        newRow.addView(myLayout);
+	        //tl.addView(newRow, new TableLayout.LayoutParams());
+	        //column1.getLayoutParams().height = 60;
+	        //column1.getLayoutParams().width = 60;
 	        
-	        LinearLayout myLayout = new LinearLayout(this);
-	        myLayout.setOrientation(LinearLayout.VERTICAL);
+	        String qn = temp.getQn();
+	        if(qn.length() > 30){
+	        	qn = qn.substring(0, 29) + "...";
+	        }
 	        
-			final TextView qn = new TextView(this);
+	        //LinearLayout myLayout = new LinearLayout(this);
+	        
+	        //myLayout.setOrientation(LinearLayout.VERTICAL);
+	        
+	        /*final TextView qn = new TextView(this);
 			qn.setText(Html.fromHtml("<strong>Your Question:</strong> " + temp.getQn()));
 			myLayout.addView(qn);
 			
@@ -116,11 +128,35 @@ public class ChildNotification extends Activity implements OnClickListener {
 			
 			final TextView repliedBy = new TextView(this);
 			repliedBy.setText(Html.fromHtml("<strong>Replied By:</strong> " + temp.getUserReplied()));
-			myLayout.addView(repliedBy);
-		    
-		    newRow.addView(myLayout);
-		    
+			myLayout.addView(repliedBy);*/
+	        
+	        TextView text = new TextView(this);
+	        //text.setSingleLine(false);
+	        //text.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+	        text.setText("Your question '" + qn + "' has been replied by " + temp.getUserReplied());
+	        //text.setMaxLines(3);
+	        //text.setSingleLine(false);
+	        //text.getLayoutParams().width = LayoutParams.WRAP_CONTENT;
+	        
+		    newRow.addView(text);
 		    newRow.setId(i);
+		    newRow.setLayoutParams(new LayoutParams(75, 75));
+		    newRow.setBackgroundResource(R.drawable.back);
+		    TableLayout.LayoutParams tableRowParams=
+		    		  new TableLayout.LayoutParams
+		    		  (TableLayout.LayoutParams.WRAP_CONTENT,TableLayout.LayoutParams.WRAP_CONTENT);
+
+		    		int leftMargin=2;
+		    		int topMargin=2;
+		    		int rightMargin=2;
+		    		int bottomMargin=2;
+
+		    		tableRowParams.setMargins(leftMargin, topMargin, rightMargin, bottomMargin);
+
+		    		newRow.setLayoutParams(tableRowParams);
+		    		
+		    tl.addView(newRow, tableRowParams);
+		    
 		    
 		    newRow.setClickable(true);
 	        newRow.setOnClickListener(this);
@@ -190,11 +226,11 @@ public void checkChildNotification(){
            	 startActivity(intentFAQ);
            	 break;
              
-         /*case R.id.tableRow1:
-        	 Intent intentNotification = new Intent (context, ChildNotificationInstance.class);
+         case R.id.notification:
+        	 Intent intentNotification = new Intent (context, ChildNotification.class);
         	 startActivity(intentNotification);
         	 
-        	 break;*/
+        	 break;
         	 
         	 
          case R.id.widget43:

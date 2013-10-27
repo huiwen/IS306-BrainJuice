@@ -6,32 +6,31 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 <TextView
-	android:id="@+id/widget50"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Hi MelissaTan!"
-	android:textSize="18sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="129dp"
-	android:layout_y="34dp" />
-<Button
-	android:id="@+id/FAQ"
-	android:layout_width="74dp"
-	android:layout_height="37dp"
-	android:text="FAQ"
-	android:textStyle="bold"
-	android:layout_x="123dp"
-	android:layout_y="79dp" />
-<Button
-	android:id="@+id/Logout"
-	android:layout_width="81dp"
-	android:layout_height="38dp"
-	android:text="Logout"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="212dp"
-	android:layout_y="79dp" />
+    android:id="@+id/widget50"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_x="87dp"
+    android:layout_y="12dp"
+    android:text="Hi MelissaTan!"
+    android:textColor="#ff000000"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:fontFamily="" />
+<ImageButton
+    android:id="@+id/FAQ"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="81dp"
+    android:layout_y="42dp"
+    android:src="@drawable/faq_button" />
+
+<ImageButton
+    android:id="@+id/Logout"
+    android:layout_width="80dp"
+    android:layout_height="30dp"
+    android:layout_x="168dp"
+    android:layout_y="43dp"
+    android:src="@drawable/logout_button" />
 
 <ImageButton
     
@@ -57,8 +56,8 @@
     android:id="@+id/count"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="134dp"
-    android:layout_y="404dp"
+    android:layout_x="123dp"
+    android:layout_y="405dp"
     android:background="@drawable/notificationred"
     android:gravity="center"
     android:text="10"
@@ -85,55 +84,60 @@
 
 <ImageView
     android:id="@+id/qnprofilepic"
-    android:layout_width="93dp"
-    android:layout_height="114dp"
-    android:layout_x="11dp"
-    android:layout_y="2dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_x="7dp"
+    android:layout_y="5dp"
     android:src="@drawable/melissa" />
 
-<TextView
-    android:id="@+id/Question"
+<ImageView
+    android:id="@+id/imageView2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="132dp"
-    android:text="Question"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
+    android:layout_x="23dp"
+    android:layout_y="92dp"
+    android:src="@drawable/qnadult" />
 
 <ScrollView
     android:id="@+id/scrollView1"
     android:layout_width="273dp"
-    android:layout_height="54dp"
-    android:layout_x="26dp"
-    android:layout_y="156dp" >
-    
+    android:layout_height="69dp"
+    android:layout_x="25dp"
+    android:layout_y="122dp"
+    android:background="@drawable/back" >
+
     <TextView
-    android:id="@+id/QuestionBody"
-    android:layout_width="273dp"
-    android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="156dp"
-    android:text="How big is the earth?" />
-    
+        android:id="@+id/QuestionBody"
+        android:layout_width="273dp"
+        android:layout_height="wrap_content"
+        android:layout_x="26dp"
+        android:layout_y="156dp"
+        android:text="How big is the earth?" />
 </ScrollView>
 
 <TextView
-    android:id="@+id/AnswerText"
+    android:id="@+id/Message"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="26dp"
-    android:layout_y="212dp"
-    android:text="Your Answer"
-    android:textColor="#ff000000"
-    android:textStyle="bold" />
+    android:layout_x="84dp"
+    android:layout_y="369dp"
+    android:text="JonathanTan likes your answer!" />
+
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="26dp"
+    android:layout_height="26dp"
+    android:layout_x="55dp"
+    android:layout_y="366dp"
+    android:src="@drawable/tick" />
 
 <ScrollView
     android:id="@+id/scrollView2"
     android:layout_width="273dp"
-    android:layout_height="79dp"
+    android:layout_height="134dp"
     android:layout_x="27dp"
-    android:layout_y="237dp" >
+    android:layout_y="228dp"
+    android:background="@drawable/back" >
 
     <TextView
         android:id="@+id/AnswerBody"
@@ -142,21 +146,13 @@
         android:text="Radius of the earth is 6,371km. The surface are is 510,072,000km2." />
 </ScrollView>
 
-<TextView
-    android:id="@+id/Message"
+<ImageView
+    android:id="@+id/imageView3"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="63dp"
-    android:layout_y="324dp"
-    android:text="JonathanTan likes your answer!" />
-
-<ImageView
-    android:id="@+id/imageView1"
-    android:layout_width="26dp"
-    android:layout_height="26dp"
-    android:layout_x="33dp"
-    android:layout_y="318dp"
-    android:src="@drawable/tick" />
+    android:layout_x="25dp"
+    android:layout_y="196dp"
+    android:src="@drawable/youransadult" />
 
 </AbsoluteLayout>
 

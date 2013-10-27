@@ -25,8 +25,8 @@ public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickL
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	ImageButton asking;
 	ImageButton notification;
 	ImageButton qnbank;
@@ -50,11 +50,11 @@ public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickL
 
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         asking = (ImageButton)this.findViewById(R.id.Asking);
