@@ -28,8 +28,8 @@ public class AdultFaq extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	TextView q1;
 	TextView q2;
 	TextView q3;
@@ -53,11 +53,11 @@ public class AdultFaq extends Activity implements OnClickListener {
        
     	checkNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         answering = (ImageButton)this.findViewById(R.id.Answering);
@@ -181,17 +181,17 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView title = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 title.setText(Html.fromHtml("How do I answer a question?"));
+	    		 title.setText(Html.fromHtml("How do I answer a question?<br />"));
 	    		 
 	    		 TextView body = (TextView)this.findViewById(R.id.FAQBody);
-	    		 body.setText(Html.fromHtml("<b>Step 1</b> When you want to answer a question, simply tap on the “Question Request” navigation tab.<br />"
-	    				 + "<b>Step 2</b> For the first time, you will see a red button called “Give Me a Question Now!”<br />"
-	    				 + "<b>Step 3</b> At the “Question Request” page, you will be presented with a question asked by a primary school student. You can choose to answer it by keying your answer into the textbox area. Alternatively, if you prefer to answer other question instead, simply tap the “Another Question” button, and a new question will be posted to you.<br />"
+	    		 body.setText(Html.fromHtml("<b>Step 1</b> When you want to answer a question, simply tap on the “Question Request” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> For the first time, you will see a red button called “Give Me a Question Now!”<br /><br />"
+	    				 + "<b>Step 3</b> At the “Question Request” page, you will be presented with a question asked by a primary school student. You can choose to answer it by keying your answer into the textbox area. Alternatively, if you prefer to answer other question instead, simply tap the “Another Question” button, and a new question will be posted to you.<br /><br />"
 	    				 + "<b>Step 4</b> Tap the “Answer” button, and your answer will be sent to primary school student who initiated the question."));
 	    		 
 	    		
 	    		 
-	    		 Button faq = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faq = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faq.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, AdultFaq.class);
@@ -226,7 +226,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ1 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ1 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ1.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -303,16 +303,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ2 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ2.setText(Html.fromHtml("How do I know if my answer has been accepted?"));
+	    		 titleQ2.setText(Html.fromHtml("How do I know if my answer has been accepted?<br />"));
 	    		 
 	    		 TextView bodyQ2 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ2.setText(Html.fromHtml("<b>Step 1</b> When you have a notification, it means that some primary school student user has acknowledged your answer.<br />"
-	    				 + "<b>Step 2</b> To check your notification, tap on the “Notifications” navigation tab.<br />"
-	    				 + "<b>Step 3</b> All notifications will be populated. Select the notification you would like to view.<br />"
-	    				 + "<b>Step 4</b> You will see the question asked, and the answer provided by yourself. Additionally, you will be able to see if your answer has been accepted or rejected by the primary school student. When accepted, the notification will show that the primary school student likes your answer (and vice versa). The question asked and answer provided will be stored in your “Answer Bank”.<br />"));
+	    		 bodyQ2.setText(Html.fromHtml("<b>Step 1</b> When you have a notification, it means that some primary school student user has acknowledged your answer.<br /><br />"
+	    				 + "<b>Step 2</b> To check your notification, tap on the “Notifications” navigation tab.<br /><br />"
+	    				 + "<b>Step 3</b> All notifications will be populated. Select the notification you would like to view.<br /><br />"
+	    				 + "<b>Step 4</b> You will see the question asked, and the answer provided by yourself. Additionally, you will be able to see if your answer has been accepted or rejected by the primary school student. When accepted, the notification will show that the primary school student likes your answer (and vice versa). The question asked and answer provided will be stored in your “Answer Bank”.<br /><br />"));
 	    		 
 	    		
-	    		 Button faqQ2 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ2 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ2.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, AdultFaq.class);
@@ -347,7 +347,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ2 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ2 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ2.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -425,15 +425,15 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ3 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ3.setText(Html.fromHtml("Where are my answers to the questions asked located?"));
+	    		 titleQ3.setText(Html.fromHtml("Where are my answers to the questions asked located?<br />"));
 	    		 
 	    		 TextView bodyQ3 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ3.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Answer Bank” navigation tab.<br />"
-	    				 + "<b>Step 2</b> Select the “Accepted” tab to look at your answers that were accepted by the primary school students who asked the questions. Select the “Rejected” tab to look at your answers that were rejected by the primary school students who asked the questions. Select the “Pending Acceptance” tab to look at your answers that were yet to be acknowledged by the primary school students who asked the questions. There is a “search” textbox where you can search for a question with keywords entered.<br />"));
+	    		 bodyQ3.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Answer Bank” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> Select the “Accepted” tab to look at your answers that were accepted by the primary school students who asked the questions. Select the “Rejected” tab to look at your answers that were rejected by the primary school students who asked the questions. Select the “Pending Acceptance” tab to look at your answers that were yet to be acknowledged by the primary school students who asked the questions. There is a “search” textbox where you can search for a question with keywords entered.<br /><br />"));
 	    		 
 	    		 
 	    		 
-	    		 Button faqQ3 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ3 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ3.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, AdultFaq.class);
@@ -468,7 +468,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ3 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ3 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ3.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -545,16 +545,16 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ4 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?"));
+	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?<br />"));
 	    		 
 	    		 TextView bodyQ4 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ4.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br />"
-	    				 + "<b>Step 2</b> Tap on the “Edit Profile” hyperlink.<br />"
-	    				 + "<b>Step 3</b> You can change your profile picture by tapping on the icon. You can select a new profile picture from your mobile device.<br />"
+	    		 bodyQ4.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> Tap on the “Edit Profile” hyperlink.<br /><br />"
+	    				 + "<b>Step 3</b> You can change your profile picture by tapping on the icon. You can select a new profile picture from your mobile device.<br /><br />"
 	    				 + "<b>Step 4</b> Tap the “Confirm” button."));
 	    		 
 	    		
-	    		 Button faqQ4 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ4 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ4.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, AdultFaq.class);
@@ -589,7 +589,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ4 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ4 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ4.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -668,17 +668,17 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ5 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?"));
+	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?<br />"));
 	    		 
 	    		 TextView bodyQ5 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ5.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br />"
-	    				 + "<b>Step 2</b> Tap on the “Change Password” hyperlink.<br />"
-	    				 + "<b>Step 3</b> You can change your password by entering the current password, new password and confirm password.<br />"
-	    				 + "<b>Step 4</b> Tap the “Confirm” button.<br />"));
+	    		 bodyQ5.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> Tap on the “Change Password” hyperlink.<br /><br />"
+	    				 + "<b>Step 3</b> You can change your password by entering the current password, new password and confirm password.<br /><br />"
+	    				 + "<b>Step 4</b> Tap the “Confirm” button.<br /><br />"));
 	    		 
 	    		 
 	    		 
-	    		 Button faqQ5 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ5 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ5.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, AdultFaq.class);
@@ -713,7 +713,7 @@ public class AdultFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ5 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ5 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ5.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);

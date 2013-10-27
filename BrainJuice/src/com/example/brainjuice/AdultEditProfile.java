@@ -28,14 +28,15 @@ public class AdultEditProfile extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	Button confirm;
 	Button cancel;
 	ImageButton upload;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
+	ImageButton setting;
 	
 	String loginUser;
 	UserMgr userMgr;
@@ -50,11 +51,11 @@ public class AdultEditProfile extends Activity implements OnClickListener {
 
     	checkNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         answering = (ImageButton)this.findViewById(R.id.Answering);
@@ -62,6 +63,9 @@ public class AdultEditProfile extends Activity implements OnClickListener {
         
         notification = (ImageButton)this.findViewById(R.id.notification);
         notification.setOnClickListener(this);
+        
+        setting = (ImageButton)this.findViewById(R.id.Setting);
+        setting.setOnClickListener(this);
         
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
@@ -122,6 +126,11 @@ public class AdultEditProfile extends Activity implements OnClickListener {
 	    	 case R.id.Answering:
 	    		 Intent intentAsking = new Intent(context, AdultHomePage.class);
 	    		 startActivity(intentAsking);
+	    		 break;
+	    		 
+	    	 case R.id.Setting:
+	    		 Intent intentSetting = new Intent(context, AdultSetting.class);
+	    		 startActivity(intentSetting);
 	    		 break;
 	    	 
 	    	 case R.id.notification:

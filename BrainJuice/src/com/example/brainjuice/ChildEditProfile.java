@@ -28,14 +28,15 @@ public class ChildEditProfile extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount;
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	Button confirm;
 	Button cancel;
 	ImageButton upload;
 	ImageButton asking;
 	ImageButton notification;
 	ImageButton questionbank;
+	ImageButton setting;
 	
 	String loginUser;
 	ImageView icon;
@@ -50,15 +51,18 @@ public class ChildEditProfile extends Activity implements OnClickListener {
        
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         asking = (ImageButton)this.findViewById(R.id.Asking);
         asking.setOnClickListener(this);
+        
+        setting = (ImageButton)this.findViewById(R.id.Setting);
+        setting.setOnClickListener(this);
         
         notification = (ImageButton)this.findViewById(R.id.notification);
         notification.setOnClickListener(this);
@@ -124,6 +128,11 @@ public void checkChildNotification(){
 	    	 case R.id.Asking:
 	    		 Intent intentAsking = new Intent(context, HomePage.class);
 	    		 startActivity(intentAsking);
+	    		 break;
+	    		 
+	    	 case R.id.Setting:
+	    		 Intent intentSetting = new Intent(context, ChildSetting.class);
+	    		 startActivity(intentSetting);
 	    		 break;
 	    	 
 	    	 case R.id.notification:

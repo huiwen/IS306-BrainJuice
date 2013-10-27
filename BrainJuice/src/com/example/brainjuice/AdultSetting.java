@@ -28,13 +28,14 @@ public class AdultSetting extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount;
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	TextView editProfile;
 	TextView changePwd;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
+	ImageButton setting;
 	
 	ImageView icon;
 	TextView welcomeMsg;
@@ -48,11 +49,13 @@ public class AdultSetting extends Activity implements OnClickListener {
        
     	checkNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
+        setting = (ImageButton)this.findViewById(R.id.Setting);
+        setting.setOnClickListener(this);
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         answering = (ImageButton)this.findViewById(R.id.Answering);
@@ -128,6 +131,11 @@ public class AdultSetting extends Activity implements OnClickListener {
 	    		 startActivity(intentAsking);
 	    		 break;
 	    	 
+	    	 case R.id.Setting:
+	    		 Intent intentSetting = new Intent(context, AdultSetting.class);
+	    		 startActivity(intentSetting);
+	    		 break;
+	    		 
 	    	 case R.id.notification:
 	    		 Intent intent = new Intent(context, AdultNotification.class);
 	         	 startActivity(intent);

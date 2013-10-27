@@ -28,8 +28,8 @@ public class ChildFaq extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	TextView q1;
 	TextView q2;
 	TextView q3;
@@ -52,11 +52,11 @@ public class ChildFaq extends Activity implements OnClickListener {
        
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         asking = (ImageButton)this.findViewById(R.id.Asking);
@@ -179,16 +179,16 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView title = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 title.setText(Html.fromHtml("How do I ask a question?"));
+	    		 title.setText(Html.fromHtml("How do I ask a question?<br />"));
 	    		 
 	    		 TextView body = (TextView)this.findViewById(R.id.FAQBody);
-	    		 body.setText(Html.fromHtml("<b>Step 1</b> When you have a question, simply tap on the “Ask Question” navigation tab.<br />" 
-	    				 + "<b>Step 2</b> At the “Ask Question” page, you can key your question into the textbox area.<br />"
-	    				 + "<b>Step 3</b> Tap the “Ask” button, and your question will be answered shortly by an adult.<br />"));
+	    		 body.setText(Html.fromHtml("<b>Step 1</b> When you have a question, simply tap on the “Ask Question” navigation tab.<br /><br />" 
+	    				 + "<b>Step 2</b> At the “Ask Question” page, you can key your question into the textbox area.<br /><br />"
+	    				 + "<b>Step 3</b> Tap the “Ask” button, and your question will be answered shortly by an adult.<br /><br />"));
 	    		 
 	    		
 	    		 
-	    		 Button faq = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faq = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faq.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, ChildFaq.class);
@@ -223,7 +223,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ1 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ1 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ1.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -300,14 +300,14 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ2 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ2.setText(Html.fromHtml("How do I know if my question has been answered?"));
+	    		 titleQ2.setText(Html.fromHtml("How do I know if my question has been answered?<br />"));
 	    		 
 	    		 TextView bodyQ2 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ2.setText(Html.fromHtml("<b>Step 1</b> When you have a notification, one of your questions has been answered by an adult.<br />"
-	    				 + "<b>Step 2</b> To check your notification, tap on the “Notifications” navigation tab.<br />"
-	    				 + "<b>Step 3</b> All notifications will be populated. Select the notification you would like to view.<br />"
-	    				 + "<b>Step 4</b> You will see your question, and an answer provided by an adult.<br />"
-	    				 + "<b>Step 5</b> You can choose to accept or reject the answer by liking or not liking it. If you choose to reject the answer, your question will be sent for a new answer again. If you choose to accept the answer, your question and the answer will be stored in your “Question Bank”. Once accepted or rejected, the notification will be removed.<br />"));
+	    		 bodyQ2.setText(Html.fromHtml("<b>Step 1</b> When you have a notification, one of your questions has been answered by an adult.<br /><br />"
+	    				 + "<b>Step 2</b> To check your notification, tap on the “Notifications” navigation tab.<br /><br />"
+	    				 + "<b>Step 3</b> All notifications will be populated. Select the notification you would like to view.<br /><br />"
+	    				 + "<b>Step 4</b> You will see your question, and an answer provided by an adult.<br /><br />"
+	    				 + "<b>Step 5</b> You can choose to accept or reject the answer by liking or not liking it. If you choose to reject the answer, your question will be sent for a new answer again. If you choose to accept the answer, your question and the answer will be stored in your “Question Bank”. Once accepted or rejected, the notification will be removed.<br /><br />"));
 	    		 
 	    		
 	    		 
@@ -346,7 +346,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ2 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ2 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ2.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -424,15 +424,15 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ3 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ3.setText(Html.fromHtml("Where are my answered questions located?"));
+	    		 titleQ3.setText(Html.fromHtml("Where are my answered questions located?<br />"));
 	    		 
 	    		 TextView bodyQ3 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ3.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Question Bank” navigation tab.<br />"
-	    				 + "<b>Step 2</b> Select the “Answered” tab to look at your questions that were answered. Select the “Pending Answer” tab to look at questions that are yet to be answered. There is a “search” textbox where you can search for a question with keywords entered.<br />"));
+	    		 bodyQ3.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Question Bank” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> Select the “Answered” tab to look at your questions that were answered. Select the “Pending Answer” tab to look at questions that are yet to be answered. There is a “search” textbox where you can search for a question with keywords entered.<br /><br />"));
 	    		 
 	    		
 	    		 
-	    		 Button faqQ3 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ3 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ3.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, ChildFaq.class);
@@ -467,7 +467,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ3 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ3 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ3.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -544,16 +544,16 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ4 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?"));
+	    		 titleQ4.setText(Html.fromHtml("Where can I edit my profile?<br />"));
 	    		 
 	    		 TextView bodyQ4 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ4.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br />"
-	    				 + "<b>Step 2</b> Tap on the “Edit Profile” hyperlink.<br />"
-	    				 + "<b>Step 3</b> You can change your profile picture by tapping on the icon. You can select a new profile picture from your mobile device.<br />"
+	    		 bodyQ4.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> Tap on the “Edit Profile” hyperlink.<br /><br />"
+	    				 + "<b>Step 3</b> You can change your profile picture by tapping on the icon. You can select a new profile picture from your mobile device.<br /><br />"
 	    				 + "<b>Step 4</b> Tap the “Confirm” button."));
 	    		 
 	    		
-	    		 Button faqQ4 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ4 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ4.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, ChildFaq.class);
@@ -588,7 +588,7 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    			 	}
 	    		 });
 	    		 
-	    		 final Button logoutQ4 = (Button)this.findViewById(R.id.Logout);
+	    		 final ImageButton logoutQ4 = (ImageButton)this.findViewById(R.id.Logout);
 	    		 logoutQ4.setOnClickListener(new Button.OnClickListener(){
 	    			 	public void onClick(View v){
 	    			 		LayoutInflater layoutInflaterLogout = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -667,17 +667,17 @@ public class ChildFaq extends Activity implements OnClickListener {
 	    	        welcomeMsg.setText(Html.fromHtml("Hi, " + loginUser));
 	    		 
 	    		 TextView titleQ5 = (TextView)this.findViewById(R.id.FAQTitle);
-	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?"));
+	    		 titleQ5.setText(Html.fromHtml("Where can I change my password?<br />"));
 	    		 
 	    		 TextView bodyQ5 = (TextView)this.findViewById(R.id.FAQBody);
-	    		 bodyQ5.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br />"
-	    				 + "<b>Step 2</b> Tap on the “Change Password” hyperlink.<br />"
-	    				 + "<b>Step 3</b> You can change your password by entering the current password, new password and confirm password.<br />"
-	    				 + "<b>Step 4</b> Tap the “Confirm” button.<br />"));
+	    		 bodyQ5.setText(Html.fromHtml("<b>Step 1</b> Tap on the “Settings” navigation tab.<br /><br />"
+	    				 + "<b>Step 2</b> Tap on the “Change Password” hyperlink.<br /><br />"
+	    				 + "<b>Step 3</b> You can change your password by entering the current password, new password and confirm password.<br /><br />"
+	    				 + "<b>Step 4</b> Tap the “Confirm” button.<br /><br />"));
 	    		 
 	    		
 	    		 
-	    		 Button faqQ5 = (Button)this.findViewById(R.id.FAQ);
+	    		 ImageButton faqQ5 = (ImageButton)this.findViewById(R.id.FAQ);
 	    		 faqQ5.setOnClickListener(new Button.OnClickListener(){
 		              	public void onClick(View v) {
 		              		Intent intent = new Intent(context, ChildFaq.class);

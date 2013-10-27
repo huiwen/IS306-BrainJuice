@@ -28,13 +28,14 @@ public class ChildChangePassword extends Activity implements OnClickListener {
 
 	TextView textView;
 	TextView notificationCount; 
-	Button faq;
-	Button logout;
+	ImageButton faq;
+	ImageButton logout;
 	Button confirm;
 	Button cancel;
 	ImageButton asking;
 	ImageButton notification;
 	ImageButton questionbank;
+	ImageButton setting;
 	
 	String loginUser;
 	UserMgr userMgr;
@@ -48,11 +49,13 @@ public class ChildChangePassword extends Activity implements OnClickListener {
        
     	checkChildNotification();
     	
-        faq = (Button)this.findViewById(R.id.FAQ);
+        faq = (ImageButton)this.findViewById(R.id.FAQ);
         faq.setOnClickListener(this);
         
+        setting = (ImageButton)this.findViewById(R.id.Setting);
+        setting.setOnClickListener(this);
         
-        logout = (Button)this.findViewById(R.id.Logout);
+        logout = (ImageButton)this.findViewById(R.id.Logout);
         logout.setOnClickListener(this);
         
         asking = (ImageButton)this.findViewById(R.id.Asking);
@@ -123,6 +126,12 @@ public class ChildChangePassword extends Activity implements OnClickListener {
 	    		 startActivity(intentAsking);
 	    		 break;
 	    	 
+	    		 
+	    	 case R.id.Setting:
+	    		 Intent intentSetting = new Intent(context, ChildSetting.class);
+	    		 startActivity(intentSetting);
+	    		 break;
+	    		 
 	    	 case R.id.notification:
 	    		 Intent intent = new Intent(context, ChildNotification.class);
 	         	 startActivity(intent);
