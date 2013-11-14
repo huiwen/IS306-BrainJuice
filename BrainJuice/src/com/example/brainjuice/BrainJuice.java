@@ -27,7 +27,7 @@ public class BrainJuice extends Activity implements OnClickListener {
 	TextView createAccount;
 	TextView forgetPassword;
 	TextView errorMsg;
-	Button Login;
+	ImageButton Login;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +36,9 @@ public class BrainJuice extends Activity implements OnClickListener {
         
         username = (TextView)this.findViewById(R.id.username);
         password = (TextView)this.findViewById(R.id.password);
-        Login = (Button)this.findViewById(R.id.Login);
+        Login = (ImageButton)this.findViewById(R.id.Login);
         
-        Login = (Button)this.findViewById(R.id.Login);
+        Login = (ImageButton)this.findViewById(R.id.Login);
         Login.setOnClickListener(this);
         
         createAccount = (TextView)this.findViewById(R.id.CreateAccount);

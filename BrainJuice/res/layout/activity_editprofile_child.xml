@@ -41,16 +41,13 @@
     android:layout_x="168dp"
     android:layout_y="43dp"
     android:src="@drawable/logout_button" />
-<TextView
-	android:id="@+id/EditProfile"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="Edit Profile"
-	android:textSize="25sp"
-	android:textStyle="bold"
-	android:textColor="#ff000000"
-	android:layout_x="4dp"
-	android:layout_y="120dp" />
+<ImageView
+    android:id="@+id/imageView1"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:layout_x="-24dp"
+    android:layout_y="82dp"
+    android:src="@drawable/edit_profile" />
 
 <ImageButton
     
@@ -119,20 +116,21 @@
     android:layout_y="185dp"
     android:src="@drawable/uploadprofilepic" />
 
-<Button
-    android:id="@+id/Confirm"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="29dp"
-    android:layout_y="304dp"
-    android:text="Confirm" />
 
-<Button
-    android:id="@+id/Cancel"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_x="137dp"
+<ImageButton
+    android:id="@+id/Confirm"
+    android:layout_width="100dp"
+    android:layout_height="35dp"
+    android:layout_x="7dp"
     android:layout_y="304dp"
-    android:text="Cancel" />
+    android:src="@drawable/confirm" />
+
+<ImageButton
+    android:id="@+id/Cancel"
+    android:layout_width="100dp"
+    android:layout_height="35dp"
+    android:layout_x="117dp"
+    android:layout_y="304dp"
+    android:src="@drawable/cancel" />
 
 </AbsoluteLayout>

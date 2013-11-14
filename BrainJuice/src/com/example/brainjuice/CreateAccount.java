@@ -16,8 +16,8 @@ import android.widget.PopupWindow;
 
 public class CreateAccount extends Activity implements OnClickListener {
 
-	Button confirm;
-    Button cancel;
+	ImageButton confirm;
+	ImageButton cancel;
     ImageButton upload;
 	
 	@Override
@@ -26,10 +26,10 @@ public class CreateAccount extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         
-        confirm = (Button)this.findViewById(R.id.Confirm);
+        confirm = (ImageButton)this.findViewById(R.id.Confirm);
         confirm.setOnClickListener(this);
         
-        cancel = (Button)this.findViewById(R.id.Cancel);
+        cancel = (ImageButton)this.findViewById(R.id.Cancel);
         cancel.setOnClickListener(this);
         
         

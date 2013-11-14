@@ -30,8 +30,8 @@ public class ChildEditProfile extends Activity implements OnClickListener {
 	TextView notificationCount;
 	ImageButton faq;
 	ImageButton logout;
-	Button confirm;
-	Button cancel;
+	ImageButton confirm;
+	ImageButton cancel;
 	ImageButton upload;
 	ImageButton asking;
 	ImageButton notification;
@@ -70,10 +70,10 @@ public class ChildEditProfile extends Activity implements OnClickListener {
         questionbank = (ImageButton)this.findViewById(R.id.QuestionBank);
         questionbank.setOnClickListener(this);
         
-        confirm = (Button)this.findViewById(R.id.Confirm);
+        confirm = (ImageButton)this.findViewById(R.id.Confirm);
         confirm.setOnClickListener(this);
         
-        cancel = (Button)this.findViewById(R.id.Cancel);
+        cancel = (ImageButton)this.findViewById(R.id.Cancel);
         cancel.setOnClickListener(this);
         
         loginUser = BrainJuice.retrieveLoginUser();
