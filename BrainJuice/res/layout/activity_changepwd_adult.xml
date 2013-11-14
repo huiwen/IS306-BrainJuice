@@ -174,8 +174,8 @@
     android:id="@+id/imageView1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="-12dp"
-    android:layout_y="88dp"
-    android:src="@drawable/changepassword" />
+    android:layout_x="-11dp"
+    android:layout_y="91dp"
+    android:src="@drawable/changepasswordadult" />
 
 </AbsoluteLayout>

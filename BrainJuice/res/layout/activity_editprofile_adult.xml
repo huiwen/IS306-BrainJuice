@@ -127,10 +127,10 @@
 
 <ImageView
     android:id="@+id/imageView1"
-    android:layout_width="280dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_x="-24dp"
-    android:layout_y="86dp"
-    android:src="@drawable/edit_profile" />
+    android:layout_x="-8dp"
+    android:layout_y="84dp"
+    android:src="@drawable/editprofileadult" />
 
 </AbsoluteLayout>

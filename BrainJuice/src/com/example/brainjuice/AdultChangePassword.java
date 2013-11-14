@@ -30,8 +30,8 @@ public class AdultChangePassword extends Activity implements OnClickListener {
 	TextView notificationCount; 
 	ImageButton faq;
 	ImageButton logout;
-	Button confirm;
-	Button cancel;
+	ImageButton confirm;
+	ImageButton cancel;
 	ImageButton answering;
 	ImageButton notification;
 	ImageButton answerbank;
@@ -69,10 +69,10 @@ public class AdultChangePassword extends Activity implements OnClickListener {
         answerbank = (ImageButton)this.findViewById(R.id.AnswerBank);
         answerbank.setOnClickListener(this);
         
-        confirm = (Button)this.findViewById(R.id.Confirm);
+        confirm = (ImageButton)this.findViewById(R.id.Confirm);
         confirm.setOnClickListener(this);
         
-        cancel = (Button)this.findViewById(R.id.Cancel);
+        cancel = (ImageButton)this.findViewById(R.id.Cancel);
         cancel.setOnClickListener(this);
         
         loginUser = BrainJuice.retrieveLoginUser();

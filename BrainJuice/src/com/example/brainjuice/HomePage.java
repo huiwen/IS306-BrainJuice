@@ -183,7 +183,7 @@ public class HomePage extends Activity implements OnClickListener{
              try {
              	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
                  WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+                 layoutParams.screenBrightness = curBrightnessValue;///500.0f;
                  getWindow().setAttributes(layoutParams);
              } catch (SettingNotFoundException e) {
                  e.printStackTrace();
@@ -270,7 +270,7 @@ public class HomePage extends Activity implements OnClickListener{
         	
         	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
             WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-            layoutParams.screenBrightness = curBrightnessValue/500.0f;
+            layoutParams.screenBrightness = curBrightnessValue;//500.0f;
             getWindow().setAttributes(layoutParams);
             
         } catch (SettingNotFoundException e) {
