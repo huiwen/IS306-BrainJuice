@@ -190,7 +190,7 @@ public class HomePage extends Activity implements OnClickListener{
              }
              
              
-             Button btnDismissLogout = (Button)popupViewLogout.findViewById(R.id.Cancel);
+             ImageButton btnDismissLogout = (ImageButton)popupViewLogout.findViewById(R.id.Cancel);
              btnDismissLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -207,7 +207,7 @@ public class HomePage extends Activity implements OnClickListener{
        		    	 }
        		     }});
              
-             Button btnProceedLogout = (Button)popupViewLogout.findViewById(R.id.Proceed);
+             ImageButton btnProceedLogout = (ImageButton)popupViewLogout.findViewById(R.id.Proceed);
              btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -281,7 +281,7 @@ public class HomePage extends Activity implements OnClickListener{
         		            
        	    
        // back_dim_layout.setVisibility(View.GONE);		
-        Button btnDismiss = (Button)popupView.findViewById(R.id.button2);
+        ImageButton btnDismiss = (ImageButton)popupView.findViewById(R.id.button2);
        
         btnDismiss.setOnClickListener(new Button.OnClickListener(){
         	             	 	
@@ -302,7 +302,7 @@ public class HomePage extends Activity implements OnClickListener{
         		    	 }
         		    	 
         		     }});
-	        Button btnProceed = (Button)popupView.findViewById(R.id.button1);
+	        ImageButton btnProceed = (ImageButton)popupView.findViewById(R.id.button1);
 	        btnProceed.setOnClickListener(new Button.OnClickListener(){	  		
         	
         	

@@ -160,14 +160,14 @@ public void checkChildNotification(){
 	             try {
 	             	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
 	                 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-	                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+	                 layoutParams.screenBrightness = curBrightnessValue;
 	                 getWindow().setAttributes(layoutParams);
 	             } catch (SettingNotFoundException e) {
 	                 e.printStackTrace();
 	             }
 	             
 	             
-	             Button btnDismiss = (Button)popupView.findViewById(R.id.Cancel);
+	             ImageButton btnDismiss = (ImageButton)popupView.findViewById(R.id.Cancel);
 	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
@@ -184,7 +184,7 @@ public void checkChildNotification(){
 	       		    	 }
 	       		     }});
 	             
-	             Button btnProceed = (Button)popupView.findViewById(R.id.Proceed);
+	             ImageButton btnProceed = (ImageButton)popupView.findViewById(R.id.Proceed);
 	             btnProceed.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
@@ -235,14 +235,14 @@ public void checkChildNotification(){
 	             try {
 	             	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
 	                 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-	                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+	                 layoutParams.screenBrightness = curBrightnessValue;
 	                 getWindow().setAttributes(layoutParams);
 	             } catch (SettingNotFoundException e) {
 	                 e.printStackTrace();
 	             }
 	             
 	             
-	             Button btnDismissLogout = (Button)popupViewLogout.findViewById(R.id.Cancel);
+	             ImageButton btnDismissLogout = (ImageButton)popupViewLogout.findViewById(R.id.Cancel);
 	             btnDismissLogout.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
@@ -259,7 +259,7 @@ public void checkChildNotification(){
 	       		    	 }
 	       		     }});
 	             
-	             Button btnProceedLogout = (Button)popupViewLogout.findViewById(R.id.Proceed);
+	             ImageButton btnProceedLogout = (ImageButton)popupViewLogout.findViewById(R.id.Proceed);
 	             btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub

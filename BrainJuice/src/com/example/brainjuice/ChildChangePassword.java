@@ -213,14 +213,14 @@ public class ChildChangePassword extends Activity implements OnClickListener {
 	             try {
 	             	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
 	                 WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-	                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+	                 layoutParams.screenBrightness = curBrightnessValue;
 	                 getWindow().setAttributes(layoutParams);
 	             } catch (SettingNotFoundException e) {
 	                 e.printStackTrace();
 	             }
 	             
 	             
-	             Button btnDismiss = (Button)popupView.findViewById(R.id.Cancel);
+	             ImageButton btnDismiss = (ImageButton)popupView.findViewById(R.id.Cancel);
 	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
@@ -237,7 +237,7 @@ public class ChildChangePassword extends Activity implements OnClickListener {
 	       		    	 }
 	       		     }});
 	             
-	             Button btnProceed = (Button)popupView.findViewById(R.id.Proceed);
+	             ImageButton btnProceed = (ImageButton)popupView.findViewById(R.id.Proceed);
 	             btnProceed.setOnClickListener(new Button.OnClickListener(){
 	             	public void onClick(View v) {
 	       		      // TODO Auto-generated method stub
@@ -250,7 +250,7 @@ public class ChildChangePassword extends Activity implements OnClickListener {
 	                    popupWindowS.setFocusable(true);
 	                    
 	                    
-	                    Button btnClose = (Button)popupView.findViewById(R.id.Close);
+	                    ImageButton btnClose = (ImageButton)popupView.findViewById(R.id.Close);
 	                    btnClose.setOnClickListener(new Button.OnClickListener(){
 	                    	public void onClick(View v) {
 	                    		//popupWindowS.dismiss();

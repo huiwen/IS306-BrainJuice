@@ -8,5 +8,6 @@
     <string name="widget42">********</string>
     <string name="popinfo"> Are you sure?</string>
     <string name="title_activity_questionpage">Questionpage</string>
+    <color name="brush">#A4A4A4</color>
 
 </resources>

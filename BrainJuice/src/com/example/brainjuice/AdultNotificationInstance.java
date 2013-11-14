@@ -175,7 +175,7 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
              }
              
              
-             Button btnDismissLogout = (Button)popupViewLogout.findViewById(R.id.Cancel);
+             ImageButton btnDismissLogout = (ImageButton)popupViewLogout.findViewById(R.id.Cancel);
              btnDismissLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -192,7 +192,7 @@ public class AdultNotificationInstance extends Activity implements OnClickListen
        		    	 }
        		     }});
              
-             Button btnProceedLogout = (Button)popupViewLogout.findViewById(R.id.Proceed);
+             ImageButton btnProceedLogout = (ImageButton)popupViewLogout.findViewById(R.id.Proceed);
              btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub

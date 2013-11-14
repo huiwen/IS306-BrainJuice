@@ -221,14 +221,14 @@ public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickL
              try {
              	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
                  WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+                 layoutParams.screenBrightness = curBrightnessValue;
                  getWindow().setAttributes(layoutParams);
              } catch (SettingNotFoundException e) {
                  e.printStackTrace();
              }
              
              
-             Button btnDismiss = (Button)popupView.findViewById(R.id.Cancel);
+             ImageButton btnDismiss = (ImageButton)popupView.findViewById(R.id.Cancel);
              btnDismiss.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -245,7 +245,7 @@ public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickL
        		    	 }
        		     }});
              
-             Button btnProceed = (Button)popupView.findViewById(R.id.Proceed);
+             ImageButton btnProceed = (ImageButton)popupView.findViewById(R.id.Proceed);
              btnProceed.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -288,14 +288,14 @@ public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickL
              try {
              	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
                  WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+                 layoutParams.screenBrightness = curBrightnessValue;
                  getWindow().setAttributes(layoutParams);
              } catch (SettingNotFoundException e) {
                  e.printStackTrace();
              }
              
              
-             Button btnDismissCross = (Button)popupViewCross.findViewById(R.id.Cancel);
+             ImageButton btnDismissCross = (ImageButton)popupViewCross.findViewById(R.id.Cancel);
              btnDismissCross.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -312,7 +312,7 @@ public class ChildQnBankNotAcceptedInstance extends Activity implements OnClickL
        		    	 }
        		     }});
              
-             Button btnProceedCross = (Button)popupViewCross.findViewById(R.id.Proceed);
+             ImageButton btnProceedCross = (ImageButton)popupViewCross.findViewById(R.id.Proceed);
              btnProceedCross.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub

@@ -153,14 +153,14 @@ public class ChildQnBankNotAnsweredInstance extends Activity implements OnClickL
              try {
              	int curBrightnessValue = android.provider.Settings.System.getInt(getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
                  WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
-                 layoutParams.screenBrightness = curBrightnessValue/500.0f;
+                 layoutParams.screenBrightness = curBrightnessValue;
                  getWindow().setAttributes(layoutParams);
              } catch (SettingNotFoundException e) {
                  e.printStackTrace();
              }
              
              
-             Button btnDismissLogout = (Button)popupViewLogout.findViewById(R.id.Cancel);
+             ImageButton btnDismissLogout = (ImageButton)popupViewLogout.findViewById(R.id.Cancel);
              btnDismissLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub
@@ -177,7 +177,7 @@ public class ChildQnBankNotAnsweredInstance extends Activity implements OnClickL
        		    	 }
        		     }});
              
-             Button btnProceedLogout = (Button)popupViewLogout.findViewById(R.id.Proceed);
+             ImageButton btnProceedLogout = (ImageButton)popupViewLogout.findViewById(R.id.Proceed);
              btnProceedLogout.setOnClickListener(new Button.OnClickListener(){
              	public void onClick(View v) {
        		      // TODO Auto-generated method stub

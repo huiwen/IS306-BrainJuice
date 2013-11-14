@@ -123,7 +123,7 @@
     android:layout_height="28dp"
     android:layout_x="131dp"
     android:layout_y="368dp"
-    android:src="@drawable/tick" />
+    android:src="@drawable/ticksthis" />
 
 <TextView
     android:id="@+id/Message"
